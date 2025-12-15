@@ -936,6 +936,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   width: auto;
   filter: drop-shadow(0 30px 60px rgba(0,0,0,0.2));
   animation: crystalFloat 6s var(--ease-fluid) infinite;
+  object-fit: contain;
   pointer-events: none;
   z-index: 2;
 }
@@ -1743,13 +1744,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .panel__list { grid-template-columns: 1fr; }
   .cards-section, .info-sections, .contact-section, .video-section { padding-left: 20px; padding-right: 20px; }
   .content-wrapper { padding: 30px 16px 50px; border-radius: 40px 40px 30px 30px; }
-  .platform__img { width: clamp(100px, 28vw, 160px); }
-  .platform--1 { top: 26%; left: 24%; }
-  .platform--2 { top: 26%; left: 76%; }
-  .platform--3 { top: 50%; left: 12%; }
-  .platform--4 { top: 50%; left: 88%; }
-  .platform--5 { top: 74%; left: 24%; }
-  .platform--6 { top: 74%; left: 76%; }
+  .platform__img { width: clamp(70px, 18vw, 100px); }
+  .platform__label { font-size: 0.75rem; margin-top: -12px; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+  .platform--1 { top: 22%; left: 20%; }
+  .platform--2 { top: 22%; left: 80%; }
+  .platform--3 { top: 50%; left: 15%; }
+  .platform--4 { top: 50%; left: 85%; }
+  .platform--5 { top: 78%; left: 20%; }
+  .platform--6 { top: 78%; left: 80%; }
   .hero-title { font-size: clamp(2.2rem, 12vw, 4rem); }
   .hero-title-wrapper { top: 5%; }
   .card, .panel, .contact-panel { clip-path: none; border-radius: 30px; }
@@ -1759,7 +1761,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .contact-panel { justify-content: center; text-align: center; }
   .contact-actions { justify-content: center; width: 100%; flex-wrap: wrap; margin-top: 10px; }
   .contact-info { width: 100%; margin-bottom: 10px; }
-  .panel__cloud { display: none; } /* Убираем искаженные облака на мобильных */
+  .panel__cloud { display: block; opacity: 0.6; }
+  .hero-crystal { width: 60%; height: auto; max-height: 45vh; }
   .vector--feather, .vector--constellation { display: none; }
   .vector--portal { --v-opacity: 0.08; }
 }
@@ -1812,20 +1815,122 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 .card, .panel, .video-wrapper, .contact-panel { animation-play-state: paused; }
 .card.is-active, .panel.is-active, .video-wrapper.is-active, .contact-panel.is-active { animation-play-state: running; }
-/* ===== MOBILE CRASH FIX ===== */
-@media (max-width: 768px) {
-    .light-rays, .bg-grain {
-        display: none !important;
-    }
-    /* Возвращаем красивый стеклянный фон, но без лишних теней */
-    .header-inner, .btn, .card, .panel, .contact-panel, .step, .loader__panel, .video-wrapper {
-        box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
-    }
-    /* Disable heavy animations */
-    .hero-cloud, .platform__float, .card, .panel {
-        animation: none !important;
-    }
-}
 
-.card, .panel, .video-wrapper, .contact-panel { animation-play-state: paused; }
-.card.is-active, .panel.is-active, .video-wrapper.is-active, .contact-panel.is-active { animation-play-state: running; }
+/* ===== MOBILE LAYOUT RESET (красиво, не как уменьшенный десктоп) ===== */
+@media (max-width: 600px) {
+
+  /* 1) Нормальная высота экрана на мобиле (без дерганий адресной строки) */
+  .hero { min-height: 100svh; }
+
+  /* 2) Заголовок: меньше разлет букв + компактнее свет */
+  .hero-title-wrapper{
+    top: 14px;
+    width: min(92vw, 520px);
+  }
+  .hero-title-wrapper::before,
+  .hero-title-wrapper::after{
+    opacity: 0.55;
+    filter: blur(18px);
+    transform: translate(-50%, -48%) scale(0.85);
+  }
+  .hero-title{
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 18px rgba(255,255,255,0.35);
+    -webkit-text-stroke: 0.2px rgba(255,255,255,0.25);
+    line-height: 1.05;
+  }
+
+  /* 3) Кристалл: фиксируем размер, чтобы не выглядел мелким/сломанным */
+  .hero-crystal{
+    width: min(62vw, 320px);
+    height: auto;
+    max-height: none;
+    top: 52%;
+  }
+
+  /* 4) Облака: оставляем 2-3, остальные прячем, чтобы не месили картинку */
+  .hero-cloud--3, .hero-cloud--4, .hero-cloud--5 { display: none; }
+  .hero-cloud--1 { left: -22%; top: -10%; opacity: 0.55; filter: blur(1px); }
+  .hero-cloud--2 { right: -24%; top: -2%; opacity: 0.45; filter: blur(1px); }
+
+  /* 5) Очень важно: платформы на мобиле НЕ absolute по координатам.
+        Делаем нижнюю “панель-кнопки” в виде сетки */
+  .platforms{
+    position: absolute;
+    left: 0; right: 0; bottom: 14px; top: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 0 14px;
+    z-index: 12;
+    pointer-events: auto;
+  }
+
+  .platform{
+    position: static;
+    transform: none;
+    padding: 10px 10px;
+    border-radius: 18px;
+
+    /* красивый “пилюльный” стеклянный вид */
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  }
+
+  .platform:hover { transform: none; filter: none; } /* hover на мобиле не нужен */
+  .platform:active { transform: scale(0.98); }
+
+  .platform__float{
+    animation: none !important;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .platform__img{
+    width: 44px;
+    height: 44px;
+    filter: drop-shadow(0 8px 18px rgba(20,40,60,0.12));
+  }
+
+  .platform__label{
+    font-size: 0.95rem;
+    margin: 0;
+    text-align: left;
+    text-shadow: none;
+    color: rgba(25,45,75,0.92);
+    opacity: 1;
+  }
+
+  /* 6) Убираем позиционные классы, чтобы не мешали */
+  .platform--1,.platform--2,.platform--3,.platform--4,.platform--5,.platform--6{
+    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+  }
+
+  /* 7) Хедер: добавляем safe-area и компактность */
+  .header{
+    padding-top: calc(10px + env(safe-area-inset-top));
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .header-inner{
+    padding: 8px 12px;
+    border-radius: 18px;
+  }
+  .btn{
+    padding: 8px 12px;
+    font-size: 0.88rem;
+  }
+
+  .panel{
+    padding: 26px 18px !important;
+    animation: none !important;
+  }
+  .panel__content{ padding: 0 !important; }
+  .panel__title{ margin-bottom: 12px; }
+  .panel__text{ font-size: 0.95rem; line-height: 1.65; }
+}
