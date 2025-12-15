@@ -2277,4 +2277,185 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     padding-left: 14px;
     padding-right: 14px;
   }
-                     }
+}
+
+/* =========================
+   MOBILE POLISH PACK (v2)
+   ВСТАВИТЬ В САМЫЙ КОНЕЦ CSS
+========================= */
+
+/* 0) Фикс кликов по платформам (важно) */
+.platforms { pointer-events: auto; }
+
+/* 1) Мобилка: чуть подкручиваем базу */
+@media (hover: none) and (pointer: coarse) {
+  a, button, .platform { touch-action: manipulation; }
+  .platform, .btn, .nav-link { -webkit-tap-highlight-color: transparent; }
+}
+
+/* 2) Телефон: шапка компактнее и “дороже” */
+@media (max-width: 600px) {
+  :root{
+    --m-radius: 22px;
+    --m-blur: 14px;
+    --m-border: rgba(255,255,255,0.42);
+  }
+
+  html { scroll-padding-top: 84px; } /* чтобы якоря не уезжали под fixed header */
+
+  .header{
+    padding-top: calc(10px + env(safe-area-inset-top));
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .header-inner{
+    padding: 10px 12px;
+    border-radius: 20px;
+    border-color: var(--m-border);
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(var(--m-blur));
+    -webkit-backdrop-filter: blur(var(--m-blur));
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+    gap: 10px;
+  }
+
+  .logo { font-size: 0.98rem; gap: 8px; }
+  .logo-icon{ width: 28px; height: 28px; }
+
+  .nav-link{
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .burger{
+    width: 42px;
+    height: 42px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.12);
+  }
+}
+
+/* 3) Телефон: делаем “нижний док” с кнопками как нормальная панель */
+@media (max-width: 600px) {
+  .hero { min-height: 100svh; }
+
+  /* Панель под кнопки (вся сетка) */
+  .platforms{
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    top: auto;
+
+    padding: 12px;
+    border-radius: 26px;
+
+    background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.12));
+    border: 1px solid rgba(255,255,255,0.40);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 18px 55px rgba(10,30,60,0.18);
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    z-index: 12;
+  }
+
+  /* Каждая кнопка */
+  .platform{
+    position: relative;
+    transform: none;
+    padding: 14px 14px;
+    border-radius: 20px;
+
+    min-height: 74px;                 /* большой hit-area */
+    background: rgba(255,255,255,0.26);
+    border: 1px solid rgba(255,255,255,0.36);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+
+    transition: transform 0.15s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease);
+  }
+
+  /* маленькая стрелка справа (ощущение “кнопки-навигации”) */
+  .platform::after{
+    content: '›';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    opacity: 0.45;
+    color: rgba(25,45,75,0.95);
+    pointer-events: none;
+  }
+
+  /* Внутренности: иконка + текст */
+  .platform__float{
+    animation: none !important;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding-right: 16px; /* место под стрелку */
+  }
+
+  .platform__img{
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+
+    /* если PNG “мелкий из-за пустых полей” – визуально увеличиваем */
+    transform: scale(1.10);
+    filter: drop-shadow(0 10px 18px rgba(20,40,60,0.12));
+  }
+
+  .platform__label{
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+    color: rgba(20,40,60,0.92);
+    text-shadow: none;
+  }
+
+  /* Реальный “нажим” на тач */
+  .platform:active{
+    transform: scale(0.985);
+    background: rgba(255,255,255,0.34);
+    border-color: rgba(255,255,255,0.55);
+  }
+
+  /* На мобиле hover не нужен */
+  .platform:hover{ transform: none; filter: none; }
+}
+
+/* 4) Телефон: секции читаемее (убираем ощущение “мыло + огромные поля”) */
+@media (max-width: 600px) {
+  .panel{
+    max-width: none;
+    padding: 24px 16px !important;
+  }
+  .panel__content{ padding: 0 !important; }
+  .panel__title{
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+  }
+  .panel__text{
+    font-size: 1rem;
+    line-height: 1.55;
+    text-shadow: none;
+    max-width: 100%;
+  }
+
+  /* Если в тексте у тебя реально стоят <br><br> и из-за этого “лесенка” — это спасает */
+  .panel__text br { display: none; }
+
+  .cards-section, .info-sections, .contact-section, .video-section{
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  }
