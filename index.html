@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ЯАНИС — Благотворительный фонд</title>
+    <meta name="description" content="ЯАНИС — благотворительный фонд развития и поддержки самообразования." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="Now_just_make_202512120958.jpeg" fetchpriority="high">
+    <link rel="preload" as="image" href="103f0086-2f05-4e68-8c9c-33c244d558e1.png" fetchpriority="high">
+    <link rel="preload" as="image" href="Cut_everything_out_202512112005.jpeg">
+    <link rel="preload" as="image" href="6945e575-fd70-45b8-ae4e-eb286e756b15.png">
+    <link rel="preload" as="image" href="3d004b8c-f05b-40eb-a1e1-55741eed0780.png">
+    <link rel="preload" as="image" href="fbbbaabb-f7e2-459d-ac3a-b0509825f12d.png">
+    <link rel="preload" as="image" href="6c8b339f-4200-4775-a7f8-7cf176264fe3.png">
+    <link rel="preload" as="image" href="45c17fe3-ab37-48e4-9568-3b09ea30db7c.png">
+    <link rel="preload" as="image" href="IMG_0284.PNG">
+    <link rel="preload" as="image" href="IMG_0285.PNG">
+    <link rel="preload" as="image" href="IMG_0287.PNG">
+    <link rel="preload" as="image" href="IMG_0283.PNG">
+    <link rel="preload" as="image" href="IMG_0286.PNG">
+    <link rel="preload" as="image" href="qr-yaanis.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Loader -->
+    <div class="loader" id="loader" role="status" aria-label="Загрузка">
+      <div class="loader__panel">
+        <div class="loader__brand">
+          <div class="loader__logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L18 8L12 22L6 8L12 2Z"></path>
+              <path d="M12 2V22"></path>
+            </svg>
+          </div>
+          <div class="loader__title">ЯАНИС</div>
+        </div>
+        <div class="loader__subtitle">Открываем облачное пространство</div>
+        <div class="loader__bar" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+
+    <!-- Background -->
+    <div class="background" aria-hidden="true">
+      <div class="bg-cloud bg-cloud--1" data-parallax="0.02"><img src="6945e575-fd70-45b8-ae4e-eb286e756b15.png" alt="" width="1000" height="600" decoding="async"></div>
+      <div class="bg-cloud bg-cloud--2" data-parallax="0.025"><img src="3d004b8c-f05b-40eb-a1e1-55741eed0780.png" alt="" width="1000" height="600" decoding="async"></div>
+      <div class="bg-cloud bg-cloud--3" data-parallax="0.015"><img src="fbbbaabb-f7e2-459d-ac3a-b0509825f12d.png" alt="" width="1000" height="600" decoding="async"></div>
+      <div class="bg-cloud bg-cloud--4" data-parallax="0.02"><img src="6c8b339f-4200-4775-a7f8-7cf176264fe3.png" alt="" width="1000" height="600" decoding="async"></div>
+      <div class="bg-cloud bg-cloud--5" data-parallax="0.03"><img src="45c17fe3-ab37-48e4-9568-3b09ea30db7c.png" alt="" width="1000" height="600" decoding="async"></div>
+      <div class="bg-vignette"></div>
+      <div class="bg-grain"></div>
+    </div>
+
+    <!-- Background Shapes (Geometric) -->
+    <div class="bg-shapes" aria-hidden="true">
+      <div class="bg-shape bg-shape--1"></div>
+      <div class="bg-shape bg-shape--2"></div>
+      <div class="bg-shape bg-shape--3"></div>
+    </div>
+
+    <!-- Vector decor (subtle line art) -->
+    <div class="vector-decor" aria-hidden="true">
+      <!-- Portal geometry -->
+      <svg class="vector vector--portal" viewBox="0 0 600 600">
+        <defs>
+          <linearGradient id="vPortalStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+            <stop offset="0.5" stop-color="#fff0c8" stop-opacity="0.45"/>
+            <stop offset="1" stop-color="#d2e6ff" stop-opacity="0.55"/>
+          </linearGradient>
+          <linearGradient id="vPortalGold" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#fff0c8" stop-opacity="0"/>
+            <stop offset="0.5" stop-color="#d4a855" stop-opacity="0.45"/>
+            <stop offset="1" stop-color="#fff0c8" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="300" cy="300" r="248" stroke="url(#vPortalStroke)" stroke-width="1.2" opacity="0.9"/>
+          <circle cx="300" cy="300" r="210" stroke="url(#vPortalStroke)" stroke-width="0.9" opacity="0.7"/>
+          <circle cx="300" cy="300" r="172" stroke="url(#vPortalStroke)" stroke-width="0.7" opacity="0.55"/>
+          <path d="M300 62 L300 538 M62 300 L538 300" stroke="url(#vPortalStroke)" stroke-width="0.9" opacity="0.55"/>
+          <path d="M122 122 L478 478 M478 122 L122 478" stroke="url(#vPortalStroke)" stroke-width="0.7" opacity="0.45"/>
+          <path d="M300 92 C392 104 476 164 508 248 C540 332 510 428 438 486 C366 544 262 550 186 504 C110 458 72 362 98 270 C124 178 208 108 300 92Z"
+                stroke="url(#vPortalGold)" stroke-width="1.6" opacity="0.55"/>
+          <g opacity="0.7">
+            <circle cx="300" cy="52" r="3" stroke="url(#vPortalStroke)" stroke-width="1.2"/>
+            <circle cx="548" cy="300" r="3" stroke="url(#vPortalStroke)" stroke-width="1.2"/>
+            <circle cx="300" cy="548" r="3" stroke="url(#vPortalStroke)" stroke-width="1.2"/>
+            <circle cx="52" cy="300" r="3" stroke="url(#vPortalStroke)" stroke-width="1.2"/>
+          </g>
+        </g>
+      </svg>
+
+      <!-- Feather -->
+      <svg class="vector vector--feather" viewBox="0 0 420 240">
+        <defs>
+          <linearGradient id="vFeather" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+            <stop offset="0.55" stop-color="#d2e6ff" stop-opacity="0.45"/>
+            <stop offset="1" stop-color="#fff0c8" stop-opacity="0.45"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#vFeather)" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M72 206 C142 156 176 100 198 54 C214 20 244 6 276 14 C314 24 332 60 318 100 C302 146 260 184 214 206 C166 230 110 234 72 206Z"
+                stroke-width="1.6" opacity="0.85"/>
+          <path d="M92 198 C150 150 182 104 204 62" stroke-width="1.0" opacity="0.65"/>
+          <path d="M120 206 C168 170 198 132 222 86" stroke-width="0.9" opacity="0.55"/>
+          <path d="M150 214 C192 186 222 154 246 116" stroke-width="0.9" opacity="0.45"/>
+          <path d="M198 54 C206 112 206 160 202 226" stroke-width="0.9" opacity="0.5"/>
+        </g>
+      </svg>
+
+      <!-- Constellation -->
+      <svg class="vector vector--constellation" viewBox="0 0 420 260">
+        <defs>
+          <linearGradient id="vConst" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+            <stop offset="0.6" stop-color="#d2e6ff" stop-opacity="0.45"/>
+            <stop offset="1" stop-color="#fff0c8" stop-opacity="0.35"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#vConst)" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M60 190 L138 132 L206 156 L270 98 L352 120" stroke-width="1.0" opacity="0.6"/>
+          <path d="M120 70 L190 90 L240 52 L300 74" stroke-width="0.9" opacity="0.45"/>
+          <g fill="#ffffff" fill-opacity="0.75" stroke="url(#vConst)" stroke-width="0.8" opacity="0.9">
+            <circle cx="60" cy="190" r="3"/>
+            <circle cx="138" cy="132" r="3"/>
+            <circle cx="206" cy="156" r="3"/>
+            <circle cx="270" cy="98" r="3"/>
+            <circle cx="352" cy="120" r="3"/>
+            <circle cx="120" cy="70" r="2.6"/>
+            <circle cx="190" cy="90" r="2.6"/>
+            <circle cx="240" cy="52" r="2.6"/>
+            <circle cx="300" cy="74" r="2.6"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Light rays -->
+    <div class="light-rays" aria-hidden="true"></div>
+
+    <!-- Floating orbs -->
+    <div class="orbs" aria-hidden="true">
+      <div class="orb orb--1"></div>
+      <div class="orb orb--2"></div>
+      <div class="orb orb--3"></div>
+    </div>
+
+    <!-- Particles (Wind effect) -->
+    <div class="particles" aria-hidden="true">
+      <div class="particle"></div>
+      <div class="particle golden"></div>
+      <div class="particle"></div>
+      <div class="particle large"></div>
+      <div class="particle golden"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle golden large"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Sparkles -->
+    <div class="sparkles" aria-hidden="true"></div>
+
+    <!-- Angel Cursor -->
+    <div class="angel-cursor" aria-hidden="true">
+      <div class="angel-cursor__glow"></div>
+      <div class="angel-cursor__wings"></div>
+      <div class="angel-cursor__halo"></div>
+      <div class="angel-cursor__dot"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <span class="logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L18 8L12 22L6 8L12 2Z"/><path d="M12 2V22"/></svg>
+          </span>
+          <span>ЯАНИС</span>
+        </a>
+
+        <nav class="nav">
+          <a href="#about" class="nav-link">О фонде</a>
+          <a href="#nto" class="nav-link">Самообразование</a>
+          <a href="#motivation" class="nav-link">Мотивация</a>
+          <a href="#svo" class="nav-link">Участникам СВО</a>
+          <a href="#contact" class="nav-link">Контакты</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="https://t.me/n_t_oA" target="_blank" rel="noopener noreferrer" class="btn">Новости</a>
+          <a href="https://t.me/ntoA_bot" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Начать</a>
+        </div>
+
+        <button class="burger" aria-label="Меню">
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Hero Section -->
+      <section class="hero" id="hero">
+        <div class="hero-scene">
+          <div class="hero-bg"></div>
+          <div class="hero-clouds" aria-hidden="true">
+            <div class="hero-cloud hero-cloud--1" data-parallax="0.02"><img src="6945e575-fd70-45b8-ae4e-eb286e756b15.png" alt="" width="1000" height="600" decoding="async"></div>
+            <div class="hero-cloud hero-cloud--2" data-parallax="0.022"><img src="3d004b8c-f05b-40eb-a1e1-55741eed0780.png" alt="" width="1000" height="600" decoding="async"></div>
+            <div class="hero-cloud hero-cloud--3" data-parallax="0.016"><img src="fbbbaabb-f7e2-459d-ac3a-b0509825f12d.png" alt="" width="1000" height="600" decoding="async"></div>
+            <div class="hero-cloud hero-cloud--4" data-parallax="0.018"><img src="6c8b339f-4200-4775-a7f8-7cf176264fe3.png" alt="" width="1000" height="600" decoding="async"></div>
+            <div class="hero-cloud hero-cloud--5" data-parallax="0.026"><img src="45c17fe3-ab37-48e4-9568-3b09ea30db7c.png" alt="" width="1000" height="600" decoding="async"></div>
+          </div>
+          <img class="hero-sky" src="Cut_everything_out_202512112005.jpeg" alt="" width="1920" height="1080" aria-hidden="true" decoding="async">
+          <div class="hero-glow"></div>
+          <img class="hero-crystal" src="103f0086-2f05-4e68-8c9c-33c244d558e1.png" alt="" width="600" height="900" decoding="async" fetchpriority="high">
+          <div class="hero-crystal-cloud"><img src="6945e575-fd70-45b8-ae4e-eb286e756b15.png" alt="Cloud"></div>
+        </div>
+
+        <!-- Golden Title -->
+        <div class="hero-title-wrapper">
+          <h1 class="hero-title">ЯАНИС</h1>
+        </div>
+
+        <!-- Platform Icons -->
+        <div class="platforms">
+          <a href="#nto" class="platform platform--1" aria-label="Самообразование">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0284.PNG" alt="" width="300" height="300">
+              <span class="platform__label">НТО</span>
+            </div>
+          </a>
+          <a href="#motivation" class="platform platform--2" aria-label="Мотивация">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0285.PNG" alt="" width="300" height="300">
+              <span class="platform__label">Мотивация</span>
+            </div>
+          </a>
+          <a href="#about" class="platform platform--3" aria-label="О фонде">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0287.PNG" alt="" width="300" height="300">
+              <span class="platform__label">О фонде</span>
+            </div>
+          </a>
+          <a href="#svo" class="platform platform--4" aria-label="СВО">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0283.PNG" alt="" width="300" height="300">
+              <span class="platform__label">СВО</span>
+            </div>
+          </a>
+          <a href="https://t.me/ntoA_bot" target="_blank" rel="noopener noreferrer" class="platform platform--5" aria-label="Telegram">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0286.PNG" alt="" width="300" height="300">
+              <span class="platform__label">Telegram</span>
+            </div>
+          </a>
+          <a href="#contact" class="platform platform--6" aria-label="Контакты">
+            <div class="platform__float">
+              <img class="platform__img" src="IMG_0284.PNG" alt="" width="300" height="300">
+              <span class="platform__label">Контакты</span>
+            </div>
+          </a>
+        </div>
+
+      </section>
+
+      <!-- Content Wrapper -->
+      <div class="content-wrapper">
+
+        <!-- Video Section -->
+        <section class="video-section" data-reveal>
+          <div class="video-wrapper">
+            <video autoplay muted loop playsinline preload="metadata" poster="video-poster.jpg">
+              <source src="Prompt_abstract_cinematic_202512082155.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+          </div>
+        </section>
+
+        <!-- Cards Section -->
+        <section class="cards-section" id="cards">
+          <div class="cards-grid">
+            <article class="card" data-reveal data-reveal-delay="1">
+              <div class="card__media">
+                <img src="Gemini_Generated_Image_8s2lg58s2lg58s2l.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async">
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">О фонде</h3>
+                <p class="card__text">Благотворительный фонд развития и поддержки самообразования.</p>
+                <div class="card__footer">
+                  <div class="card__indicator">
+                    <span class="card__indicator-dot" style="--pos: 20%"></span>
+                  </div>
+                  <a href="#about" class="card__btn">Далее</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-reveal data-reveal-delay="2">
+              <div class="card__media">
+                <img src="Gemini_Generated_Image_x9jrp1x9jrp1x9jr.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async">
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Мотивируем к самообразованию</h3>
+                <p class="card__text">Изучай материал из дома и получай вознаграждение.</p>
+                <div class="card__footer">
+                  <div class="card__indicator">
+                    <span class="card__indicator-dot" style="--pos: 45%"></span>
+                  </div>
+                  <a href="#nto" class="card__btn">Далее</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-reveal data-reveal-delay="3">
+              <div class="card__media">
+                <img src="Gemini_Generated_Image_nm7xtvnm7xtvnm7x.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async">
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Как это работает</h3>
+                <p class="card__text">Пройдите анкету, чтобы узнать о вашей миссии.</p>
+                <div class="card__footer">
+                  <div class="card__indicator">
+                    <span class="card__indicator-dot" style="--pos: 65%"></span>
+                  </div>
+                  <a href="#scheme" class="card__btn">Далее</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card" data-reveal data-reveal-delay="4">
+              <div class="card__media">
+                <img src="Gemini_Generated_Image_2o1dnm2o1dnm2o1d.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async">
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Учитесь и получайте</h3>
+                <p class="card__text">Уникальная возможность развиваться с вознаграждением.</p>
+                <div class="card__footer">
+                  <div class="card__indicator">
+                    <span class="card__indicator-dot" style="--pos: 35%"></span>
+                  </div>
+                  <a href="#svo" class="card__btn">Далее</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- SVG Definitions for Cloud Shapes -->
+        <svg width="0" height="0" style="position:absolute;">
+          <defs>
+            <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:rgba(255,255,255,0.99);stop-opacity:1" />
+              <stop offset="45%" style="stop-color:rgba(245,250,255,0.92);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgba(225,240,255,0.85);stop-opacity:1" />
+            </linearGradient>
+            <filter id="cloudSoftness" x="-5%" y="-5%" width="110%" height="110%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+            </filter>
+          </defs>
+        </svg>
+
+        <!-- Info Sections -->
+        <div class="info-sections">
+          <!-- About -->
+          <section class="panel" id="about" data-reveal>
+            <div class="panel__cloud">
+              <svg viewBox="0 0 1000 220" preserveAspectRatio="none">
+                <path class="panel__cloud-shape" d="
+                  M0,180
+                  C0,150 25,120 60,110
+                  C40,80 60,45 100,30
+                  C130,15 170,5 220,10
+                  C260,0 310,8 360,25
+                  C410,8 470,0 530,15
+                  C580,5 640,10 700,30
+                  C750,15 810,20 860,45
+                  C910,30 955,50 980,80
+                  C1000,60 1000,100 1000,140
+                  L1000,200
+                  Q950,220 880,210 Q810,225 740,210 Q670,225 600,210 Q530,225 460,210 Q390,225 320,210 Q250,225 180,210 Q110,225 60,210 Q20,220 0,200
+                  Z"/>
+              </svg>
+            </div>
+            <div class="panel__wind"></div>
+            <div class="panel__content">
+              <h2 class="panel__title">О фонде</h2>
+              <p class="panel__text">Благотворительный фонд ЯАНИС развивает принципы удалённого домашнего самообразования и самомотивации через современные технологии.</p>
+              <p class="panel__text">Мы создаём условия, при которых стремление к знаниям поддерживается понятной системой обучения и вознаграждением за изученный материал.</p>
+            </div>
+          </section>
+
+          <!-- NTO -->
+          <section class="panel panel--large" id="nto" data-reveal>
+            <div class="panel__cloud">
+              <svg viewBox="0 0 1000 420" preserveAspectRatio="none">
+                <path class="panel__cloud-shape" d="
+                  M0,380
+                  C0,340 20,300 55,280
+                  C30,240 45,190 85,160
+                  C60,120 80,70 130,45
+                  C170,20 220,5 280,10
+                  C340,0 400,10 460,30
+                  C520,10 590,5 660,25
+                  C720,10 790,20 850,50
+                  C910,30 960,55 985,90
+                  C1000,70 1000,120 1000,170
+                  L1000,400
+                  Q940,425 870,410 Q800,430 730,410 Q660,430 590,410 Q520,430 450,410 Q380,430 310,410 Q240,430 170,410 Q100,430 50,410 Q15,425 0,400
+                  Z"/>
+              </svg>
+            </div>
+            <div class="panel__wind"></div>
+            <div class="panel__content">
+              <h2 class="panel__title">Самообразование (НТО)</h2>
+              <p class="panel__text"><strong>Наш продукт — НТО (Новая Технология Обучения).</strong></p>
+              <p class="panel__text">Представленная система обучения уникальна по своей природе и основана на технологии машинного разума.</p>
+              <p class="panel__text">Система самостоятельно подбирает материалы для обучения:</p>
+              <ul class="panel__list">
+                <li>Возраст</li>
+                <li>Пол</li>
+                <li>Род занятий</li>
+                <li>Вероисповедание</li>
+                <li>Место жительства</li>
+                <li>Национальность</li>
+                <li>Место рождения</li>
+                <li>Семейное положение</li>
+                <li>И другие параметры</li>
+              </ul>
+              <div class="callout">
+                <p><strong>Мотивирование к самообразованию через вознаграждение за изученный материал.</strong></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Scheme -->
+          <section class="panel panel--wide" id="scheme" data-reveal>
+            <div class="panel__cloud">
+              <svg viewBox="0 0 1000 300" preserveAspectRatio="none">
+                <path class="panel__cloud-shape" d="
+                  M0,260
+                  C0,220 30,180 70,160
+                  C45,120 65,75 110,50
+                  C150,25 200,10 260,15
+                  C320,5 390,15 460,35
+                  C530,15 610,10 690,30
+                  C770,15 840,25 900,55
+                  C950,40 985,70 1000,110
+                  L1000,280
+                  Q930,305 860,290 Q790,310 720,290 Q650,310 580,290 Q510,310 440,290 Q370,310 300,290 Q230,310 160,290 Q90,310 40,290 Q10,305 0,280
+                  Z"/>
+              </svg>
+            </div>
+            <div class="panel__wind"></div>
+            <div class="panel__content">
+              <h3 class="panel__title">Схема обучения</h3>
+              <ol class="steps">
+                <li class="step"><span class="step__num">1</span> Регистрация</li>
+                <li class="step"><span class="step__num">2</span> Опросник</li>
+                <li class="step"><span class="step__num">3</span> Задания</li>
+                <li class="step"><span class="step__num">4</span> Изучение</li>
+                <li class="step"><span class="step__num">5</span> Голосовой отчёт</li>
+                <li class="step"><span class="step__num">6</span> Проверка</li>
+                <li class="step"><span class="step__num">7</span> Начисление</li>
+                <li class="step"><span class="step__num">8</span> Вывод на карту</li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- Motivation -->
+          <section class="panel" id="motivation" data-reveal>
+            <div class="panel__cloud">
+              <svg viewBox="0 0 1000 200" preserveAspectRatio="none">
+                <path class="panel__cloud-shape" d="
+                  M0,160
+                  C0,130 20,100 55,85
+                  C35,55 55,25 100,15
+                  C145,0 200,5 260,20
+                  C320,5 400,0 480,18
+                  C560,5 640,10 720,35
+                  C790,20 860,30 920,55
+                  C965,45 990,70 1000,100
+                  L1000,180
+                  Q940,205 870,190 Q800,210 730,190 Q660,210 590,190 Q520,210 450,190 Q380,210 310,190 Q240,210 170,190 Q100,210 50,190 Q15,205 0,180
+                  Z"/>
+              </svg>
+            </div>
+            <div class="panel__wind"></div>
+            <div class="panel__content">
+              <h2 class="panel__title">Домашнее самообразование</h2>
+              <p class="panel__text">Формат обучения построен так, чтобы заниматься можно было дома, в удобное время и в спокойном темпе.</p>
+              <p class="panel__text">Система подбирает материалы под человека, а вознаграждение помогает закрепить привычку учиться регулярно.</p>
+            </div>
+          </section>
+
+          <!-- SVO -->
+          <section class="panel" id="svo" data-reveal>
+            <div class="panel__cloud">
+              <svg viewBox="0 0 1000 240" preserveAspectRatio="none">
+                <path class="panel__cloud-shape" d="
+                  M0,200
+                  C0,165 25,130 65,115
+                  C40,80 60,40 110,25
+                  C155,5 215,0 280,12
+                  C345,0 420,8 500,28
+                  C580,10 660,15 740,40
+                  C810,25 880,35 940,65
+                  C975,55 995,85 1000,120
+                  L1000,220
+                  Q935,245 865,230 Q795,250 725,230 Q655,250 585,230 Q515,250 445,230 Q375,250 305,230 Q235,250 165,230 Q95,250 45,230 Q12,245 0,220
+                  Z"/>
+              </svg>
+            </div>
+            <div class="panel__wind"></div>
+            <div class="panel__content">
+              <h2 class="panel__title">Реабилитация участников СВО</h2>
+              <p class="panel__text">Удалённая психологическая помощь для участников специальной военной операции.</p>
+              <p class="panel__text">Уникальность программы — участие клинических психологов, работа с ПТСР. Курс проходит полностью автономно.</p>
+              <p class="panel__text">Модуль находится в доработке и проходит испытания.</p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+          <div class="contact-panel" data-reveal>
+            <div class="contact-info">
+              <h3>Домен: <a href="https://яанис.рф" target="_blank" rel="noopener noreferrer">Яанис.рф</a></h3>
+              <p>Телеграм-бот для начала обучения и новости НТО.</p>
+            </div>
+            <div class="contact-actions">
+              <div class="qr-code">
+                <img src="qr-yaanis.png" alt="QR-код" width="200" height="200" decoding="async">
+              </div>
+              <a href="https://t.me/n_t_oA" target="_blank" rel="noopener noreferrer" class="btn">Новости НТО</a>
+              <a href="https://t.me/ntoA_bot" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Telegram-бот</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
