@@ -6634,7 +6634,7 @@ main,
 
 /* Scheme cloud specific sizing */
 #scheme .svg-cloud-container {
-  min-height: 650px;
+  min-height: 550px;
 }
 
 /* Contact cloud sizing */
