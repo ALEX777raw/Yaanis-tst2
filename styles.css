@@ -6615,24 +6615,27 @@ main,
   transform: none !important;
 }
 
-/* Ensure cloud container has room */
+/* Ensure cloud container has room - BIGGER clouds */
 .svg-cloud-container {
-  padding: 55px 65px;
-  min-height: 420px;
+  padding: 80px 100px;
+  min-height: 520px;
+  width: min(1100px, 96vw) !important;
 }
 
 .svg-cloud-container--large {
-  padding: 65px 75px;
-  min-height: 550px;
+  padding: 90px 110px;
+  min-height: 680px;
+  width: min(1350px, 98vw) !important;
 }
 
 /* Scheme cloud specific sizing */
 #scheme .svg-cloud-container {
-  min-height: 520px;
+  min-height: 650px;
 }
 
 /* Contact cloud sizing */
 .svg-cloud-container--contact {
-  padding: 50px 60px;
-  min-height: 400px;
+  padding: 70px 90px;
+  min-height: 500px;
+  width: min(1050px, 96vw) !important;
 }
