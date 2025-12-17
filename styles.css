@@ -6375,3 +6375,95 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .card:hover::after {
   opacity: 1;
 }
+
+/* ============================================
+   CLOUD CLIPPING FIX - COMPLETE SOLUTION
+   ============================================ */
+
+/* Remove ALL clipping from cloud containers hierarchy */
+.info-sections,
+.content-wrapper,
+.svg-cloud-section,
+.svg-cloud-container,
+.svg-cloud-container--large,
+.svg-cloud-container--contact {
+  overflow: visible !important;
+}
+
+/* Extra padding for cloud sections to prevent edge clipping */
+.svg-cloud-section {
+  padding: 80px 100px !important;
+  margin: 60px auto !important;
+}
+
+/* Expand cloud shape with negative insets */
+.svg-cloud-shape {
+  position: absolute;
+  top: -25% !important;
+  left: -15% !important;
+  width: 130% !important;
+  height: 150% !important;
+  overflow: visible !important;
+}
+
+.svg-cloud-shape--large {
+  top: -30% !important;
+  left: -18% !important;
+  width: 136% !important;
+  height: 160% !important;
+}
+
+/* Ensure SVG itself doesn't clip */
+.svg-cloud-shape,
+.svg-cloud-section svg,
+svg.svg-cloud-shape {
+  overflow: visible !important;
+}
+
+/* Expand glow layer */
+.svg-cloud-glow {
+  inset: -80px !important;
+  overflow: visible !important;
+}
+
+.svg-cloud-glow--large {
+  inset: -100px !important;
+}
+
+/* Scheme section specific - extra room */
+#scheme.svg-cloud-section {
+  padding: 100px 120px !important;
+}
+
+#scheme .svg-cloud-shape {
+  top: -35% !important;
+  left: -20% !important;
+  width: 140% !important;
+  height: 170% !important;
+}
+
+#scheme .svg-cloud-container {
+  min-height: 500px;
+}
+
+/* Contact section */
+#contact.svg-cloud-section--contact {
+  padding: 80px 100px !important;
+}
+
+/* Remove any border-radius that could cause clipping with overflow */
+.info-sections,
+.content-wrapper {
+  border-radius: 0 !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .svg-cloud-section {
+    padding: 60px 30px !important;
+  }
+
+  #scheme.svg-cloud-section {
+    padding: 70px 40px !important;
+  }
+}
