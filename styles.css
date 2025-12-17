@@ -7191,13 +7191,13 @@ body::before {
   50% { transform: scale(1.1); opacity: 0.8; }
 }
 
-/* Platform icons hover - simple scale */
-.platform {
+/* Platform icons hover - scale only the image inside */
+.platform .platform__img {
   transition: transform 0.2s ease;
 }
 
-.platform:hover {
-  transform: scale(1.1);
+.platform:hover .platform__img {
+  transform: scale(1.15);
 }
 
 /* Smooth page transitions */
