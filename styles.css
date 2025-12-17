@@ -4199,19 +4199,19 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   width: auto;
   height: auto;
   object-fit: cover;
-  opacity: 0.12;
-  filter: blur(4px) saturate(0.6) brightness(1.15);
+  opacity: 0.35;
+  filter: blur(1px) saturate(0.85) brightness(1.05);
 }
 
 .video-section-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(184, 212, 240, 0.88) 0%,
-    rgba(184, 212, 240, 0.75) 20%,
-    rgba(184, 212, 240, 0.7) 50%,
-    rgba(184, 212, 240, 0.75) 80%,
-    rgba(184, 212, 240, 0.9) 100%);
+    rgba(184, 212, 240, 0.3) 0%,
+    rgba(184, 212, 240, 0.15) 20%,
+    rgba(184, 212, 240, 0.1) 50%,
+    rgba(184, 212, 240, 0.15) 80%,
+    rgba(184, 212, 240, 0.35) 100%);
   pointer-events: none;
 }
 
@@ -4222,27 +4222,27 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 /* ===== SVG CLOUD SECTIONS ===== */
 .svg-cloud-section {
   position: relative;
-  padding: 20px;
-  margin: 80px auto;
+  padding: 30px;
+  margin: 100px auto;
   max-width: 100%;
-  animation: svgCloudFloat 12s ease-in-out infinite;
+  animation: svgCloudFloat 15s ease-in-out infinite, svgCloudDrift 25s ease-in-out infinite;
   animation-delay: var(--cloud-delay, 0s);
 }
 
 .svg-cloud-section:nth-child(1) { --cloud-delay: 0s; }
-.svg-cloud-section:nth-child(2) { --cloud-delay: -2.5s; }
-.svg-cloud-section:nth-child(3) { --cloud-delay: -5s; }
-.svg-cloud-section:nth-child(4) { --cloud-delay: -7.5s; }
-.svg-cloud-section:nth-child(5) { --cloud-delay: -10s; }
+.svg-cloud-section:nth-child(2) { --cloud-delay: -3s; }
+.svg-cloud-section:nth-child(3) { --cloud-delay: -6s; }
+.svg-cloud-section:nth-child(4) { --cloud-delay: -9s; }
+.svg-cloud-section:nth-child(5) { --cloud-delay: -12s; }
 
 /* Alternating positions */
 .svg-cloud-section:nth-child(odd) {
-  margin-right: 8%;
+  margin-right: 5%;
   margin-left: auto;
 }
 
 .svg-cloud-section:nth-child(even) {
-  margin-left: 8%;
+  margin-left: 5%;
   margin-right: auto;
 }
 
@@ -4251,42 +4251,55 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     transform: translateY(0) translateX(0);
   }
   25% {
-    transform: translateY(-18px) translateX(12px);
+    transform: translateY(-25px) translateX(20px);
   }
   50% {
-    transform: translateY(-28px) translateX(-8px);
+    transform: translateY(-40px) translateX(-15px);
   }
   75% {
-    transform: translateY(-12px) translateX(10px);
+    transform: translateY(-18px) translateX(18px);
+  }
+}
+
+@keyframes svgCloudDrift {
+  0%, 100% {
+    margin-left: var(--drift-start, auto);
+  }
+  50% {
+    margin-left: var(--drift-end, auto);
   }
 }
 
 .svg-cloud-container {
   position: relative;
-  width: min(700px, 90vw);
-  min-height: 280px;
+  width: min(850px, 92vw);
+  min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .svg-cloud-container--large {
-  width: min(900px, 95vw);
-  min-height: 420px;
+  width: min(1100px, 96vw);
+  min-height: 520px;
 }
 
 .svg-cloud-shape {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -10%;
+  left: -5%;
+  width: 110%;
+  height: 120%;
   pointer-events: none;
   animation: svgCloudBreath 8s ease-in-out infinite;
 }
 
 .svg-cloud-shape--large {
   animation-duration: 10s;
+  top: -8%;
+  left: -3%;
+  width: 106%;
+  height: 116%;
 }
 
 @keyframes svgCloudBreath {
@@ -4295,8 +4308,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     opacity: 1;
   }
   50% {
-    transform: scale(1.02);
-    opacity: 0.97;
+    transform: scale(1.03);
+    opacity: 0.98;
   }
 }
 
@@ -4305,68 +4318,70 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 70%;
+  width: 90%;
+  height: 80%;
   background: radial-gradient(ellipse 100% 100% at 50% 50%,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.25) 30%,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.35) 30%,
     transparent 70%);
-  filter: blur(25px);
-  opacity: 0.6;
+  filter: blur(30px);
+  opacity: 0.7;
   pointer-events: none;
   animation: svgCloudGlowPulse 6s ease-in-out infinite;
 }
 
 .svg-cloud-glow--large {
-  width: 85%;
-  height: 75%;
+  width: 92%;
+  height: 82%;
 }
 
 @keyframes svgCloudGlowPulse {
   0%, 100% {
-    opacity: 0.5;
+    opacity: 0.6;
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.06);
   }
 }
 
 .svg-cloud-content {
   position: relative;
   z-index: 2;
-  padding: 50px 60px;
+  padding: 60px 70px;
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .svg-cloud-content--large {
-  max-width: 750px;
-  padding: 60px 70px;
+  max-width: 850px;
+  padding: 70px 80px;
 }
 
 .svg-cloud-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 600;
-  color: rgba(50, 80, 110, 0.95);
-  letter-spacing: 0.08em;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+  color: rgba(40, 70, 100, 0.95);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9), 0 4px 20px rgba(100, 150, 200, 0.15);
 }
 
 .svg-cloud-title--main {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: rgba(40, 70, 100, 0.98);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  color: rgba(35, 65, 95, 0.98);
+  letter-spacing: 0.12em;
 }
 
 .svg-cloud-text {
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  line-height: 1.7;
-  color: rgba(40, 65, 90, 0.9);
-  margin-bottom: 14px;
-  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+  color: rgba(35, 60, 85, 0.92);
+  margin-bottom: 16px;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.7);
 }
 
 .svg-cloud-text:last-child {
@@ -4583,4 +4598,233 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .hero-title--small {
     animation: none !important;
   }
+}
+
+/* ===== WIND PARTICLES ===== */
+.wind-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.wind-particle {
+  position: absolute;
+  left: -20px;
+  top: var(--y-start, 50vh);
+  width: var(--size, 3px);
+  height: var(--size, 3px);
+  background: radial-gradient(circle, rgba(255, 255, 255, var(--opacity, 0.5)) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: windDrift var(--duration, 10s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes windDrift {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--opacity, 0.5);
+  }
+  90% {
+    opacity: var(--opacity, 0.5);
+  }
+  100% {
+    transform: translateX(calc(100vw + 40px)) translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== FLOATING CLOUD DECORATIONS ===== */
+.floating-cloud-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-decor-cloud {
+  position: absolute;
+  opacity: 0.4;
+  filter: blur(3px);
+  animation: floatDecorCloud 30s ease-in-out infinite;
+}
+
+.floating-decor-cloud img {
+  width: 100%;
+  height: auto;
+}
+
+.floating-decor-cloud--1 {
+  top: 5%;
+  left: -15%;
+  width: 400px;
+  animation-delay: 0s;
+  animation-duration: 35s;
+}
+
+.floating-decor-cloud--2 {
+  top: 25%;
+  right: -20%;
+  width: 500px;
+  animation-delay: -5s;
+  animation-duration: 40s;
+  opacity: 0.35;
+}
+
+.floating-decor-cloud--3 {
+  top: 45%;
+  left: -25%;
+  width: 450px;
+  animation-delay: -10s;
+  animation-duration: 38s;
+  opacity: 0.3;
+}
+
+.floating-decor-cloud--4 {
+  top: 60%;
+  right: -15%;
+  width: 380px;
+  animation-delay: -15s;
+  animation-duration: 32s;
+  opacity: 0.35;
+}
+
+.floating-decor-cloud--5 {
+  top: 75%;
+  left: -20%;
+  width: 420px;
+  animation-delay: -20s;
+  animation-duration: 36s;
+  opacity: 0.3;
+}
+
+.floating-decor-cloud--6 {
+  top: 90%;
+  right: -25%;
+  width: 480px;
+  animation-delay: -25s;
+  animation-duration: 42s;
+  opacity: 0.25;
+}
+
+@keyframes floatDecorCloud {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(60px) translateY(-30px);
+  }
+  50% {
+    transform: translateX(30px) translateY(20px);
+  }
+  75% {
+    transform: translateX(-40px) translateY(-15px);
+  }
+}
+
+/* ===== ENHANCED BACKGROUND ANIMATIONS ===== */
+.bg-cloud {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+.hero-cloud {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+/* Cloud drift animation for background */
+.bg-cloud--1 {
+  animation: bgCloudDrift1 45s ease-in-out infinite;
+}
+
+.bg-cloud--2 {
+  animation: bgCloudDrift2 50s ease-in-out infinite;
+}
+
+.bg-cloud--3 {
+  animation: bgCloudDrift3 55s ease-in-out infinite;
+}
+
+.bg-cloud--4 {
+  animation: bgCloudDrift4 48s ease-in-out infinite;
+}
+
+.bg-cloud--5 {
+  animation: bgCloudDrift5 52s ease-in-out infinite;
+}
+
+@keyframes bgCloudDrift1 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(50px, -20px); }
+  50% { transform: translate(20px, 30px); }
+  75% { transform: translate(-30px, 10px); }
+}
+
+@keyframes bgCloudDrift2 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-40px, 25px); }
+  50% { transform: translate(30px, -15px); }
+  75% { transform: translate(10px, 35px); }
+}
+
+@keyframes bgCloudDrift3 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(35px, 30px); }
+  50% { transform: translate(-25px, -20px); }
+  75% { transform: translate(45px, 15px); }
+}
+
+@keyframes bgCloudDrift4 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-30px, -25px); }
+  50% { transform: translate(40px, 20px); }
+  75% { transform: translate(-15px, 30px); }
+}
+
+@keyframes bgCloudDrift5 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(25px, 35px); }
+  50% { transform: translate(-35px, -10px); }
+  75% { transform: translate(20px, -25px); }
+}
+
+/* ===== IMPROVED INFO SECTIONS STYLING ===== */
+.info-sections {
+  position: relative;
+  padding: 60px 0;
+}
+
+/* ===== CARDS SECTION IMPROVEMENTS ===== */
+.cards-section {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.cards-grid {
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 60px rgba(100, 140, 180, 0.15), 0 8px 25px rgba(100, 140, 180, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(100, 140, 180, 0.2), 0 15px 40px rgba(100, 140, 180, 0.15);
+}
+
+/* ===== BETTER TRANSITION FOR CLOUDS ===== */
+.bg-cloud, .hero-cloud {
+  transition: none;
 }
