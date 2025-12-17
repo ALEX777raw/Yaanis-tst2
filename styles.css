@@ -1363,8 +1363,8 @@ h4, h5, h6,
   position: relative;
   z-index: 2;
   max-width: 1200px;
-  margin: -100px auto 0;
-  padding: 40px 24px 60px;
+  margin: -120px auto 0;
+  padding: 0 24px 60px;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -1372,6 +1372,25 @@ h4, h5, h6,
   -webkit-backdrop-filter: none;
   box-shadow: none;
   overflow: visible;
+}
+
+/* Smooth transition between hero and content */
+.content-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120vw;
+  height: 200px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(220, 235, 250, 0.4) 40%,
+    rgba(200, 220, 240, 0.6) 70%,
+    rgba(191, 207, 221, 0.8) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* ===== VIDEO SECTION ===== */
