@@ -6653,7 +6653,7 @@ main,
 
 /* Contact crystal decoration - desktop */
 .contact-crystal {
-  display: inline-block;
+  display: block;
   width: 100px;
   height: auto;
   margin: 0 auto 20px;
@@ -6662,12 +6662,15 @@ main,
   opacity: 0.9;
   filter: drop-shadow(0 10px 30px rgba(100, 150, 200, 0.3));
   animation: crystalFloat 6s ease-in-out infinite;
+  text-align: center;
 }
 
 .contact-crystal img {
   width: 100%;
   height: auto;
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 @keyframes crystalFloat {
@@ -7452,7 +7455,7 @@ body::after {
    ============================================ */
 
 .bg-cloud img {
-  filter: blur(1px) brightness(1.02);
+  filter: blur(4px) brightness(1.02);
   transition: filter 0.5s ease;
 }
 
