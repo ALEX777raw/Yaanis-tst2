@@ -239,7 +239,7 @@
   function createEffectContainers() {
     const containers = [
       'wind-particles', 'dust-motes', 'feathers',
-      'light-rays', 'aurora', 'ribbons'
+      'aurora'
     ];
 
     containers.forEach(name => {
@@ -480,9 +480,7 @@
     createWindParticles();
     createDustMotes();
     createFeathers();
-    createLightRays();
     createAurora();
-    createRibbons();
     addCloudShadows();
   }
 

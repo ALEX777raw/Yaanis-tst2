@@ -5560,23 +5560,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   }
 }
 
-/* Cloud shine effect */
+/* Cloud shine effect - DISABLED */
 .svg-cloud-container::before {
-  content: '';
-  position: absolute;
-  top: 5%;
-  left: 10%;
-  right: 10%;
-  height: 40%;
-  background: linear-gradient(180deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%);
-  border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
-  z-index: 1;
-  pointer-events: none;
-  filter: blur(10px);
-  animation: cloudShine 8s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes cloudShine {
@@ -5590,21 +5576,9 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   }
 }
 
-/* Cloud edge soft glow */
+/* Cloud edge soft glow - DISABLED */
 .svg-cloud-container::after {
-  content: '';
-  position: absolute;
-  inset: -5px;
-  background: transparent;
-  border-radius: inherit;
-  box-shadow:
-    inset 0 0 60px rgba(255, 255, 255, 0.5),
-    inset 0 0 120px rgba(255, 255, 255, 0.3),
-    0 0 40px rgba(255, 255, 255, 0.4),
-    0 0 80px rgba(200, 220, 255, 0.2);
-  z-index: -1;
-  pointer-events: none;
-  animation: cloudEdgeGlow 5s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes cloudEdgeGlow {
@@ -5624,35 +5598,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   }
 }
 
-/* Floating mini-clouds around main cloud */
+/* Floating mini-clouds around main cloud - DISABLED */
 .svg-cloud-section::before,
 .svg-cloud-section::after {
-  content: '';
-  position: absolute;
-  background: radial-gradient(ellipse,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 70%);
-  border-radius: 50%;
-  z-index: -3;
-  animation: miniCloudFloat 10s ease-in-out infinite;
-  filter: blur(8px);
-}
-
-.svg-cloud-section::before {
-  width: 150px;
-  height: 80px;
-  top: 10%;
-  left: -5%;
-  animation-delay: 0s;
-}
-
-.svg-cloud-section::after {
-  width: 120px;
-  height: 60px;
-  bottom: 15%;
-  right: -3%;
-  animation-delay: -5s;
+  display: none;
 }
 
 @keyframes miniCloudFloat {
@@ -5805,25 +5754,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   animation-delay: -6s;
 }
 
-/* Cloud wisps around text */
+/* Cloud wisps around text - DISABLED */
 .svg-cloud-content::before,
 .svg-cloud-content::after {
-  content: '';
-  position: absolute;
-  background: radial-gradient(ellipse,
-    rgba(255, 255, 255, 0.6) 0%,
-    transparent 70%);
-  border-radius: 50%;
-  z-index: -1;
-  animation: wispFloat 6s ease-in-out infinite;
-  filter: blur(5px);
-}
-
-.svg-cloud-content::before {
-  width: 100px;
-  height: 50px;
-  top: -20px;
-  left: 10%;
+  display: none;
 }
 
 .svg-cloud-content::after {
@@ -5994,4 +5928,214 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ============================================
+   CONTACT SECTION - CLOUD STYLE
+   ============================================ */
+
+.svg-cloud-section--contact {
+  margin-bottom: 60px;
+}
+
+.svg-cloud-container--contact {
+  width: min(900px, 92vw);
+  min-height: 380px;
+}
+
+.svg-cloud-glow--contact {
+  background: radial-gradient(ellipse 80% 70% at 50% 40%,
+    rgba(255, 248, 220, 0.5) 0%,
+    rgba(255, 240, 200, 0.25) 30%,
+    transparent 70%);
+}
+
+.svg-cloud-title--contact {
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  color: rgba(139, 90, 43, 0.9);
+  margin-bottom: 15px;
+}
+
+.svg-cloud-text--contact {
+  color: rgba(80, 60, 40, 0.9);
+}
+
+.contact-link {
+  color: rgba(139, 90, 43, 0.95);
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 168, 85, 0.5);
+  text-underline-offset: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  color: rgba(180, 120, 50, 1);
+  text-decoration-color: rgba(212, 168, 85, 0.9);
+}
+
+.contact-cloud-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.qr-code-cloud {
+  width: 120px;
+  height: 120px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 25px rgba(100, 130, 160, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qr-code-cloud:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 12px 35px rgba(100, 130, 160, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.qr-code-cloud img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn--cloud {
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(245, 248, 255, 0.85) 100%);
+  color: rgba(60, 80, 110, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 6px 20px rgba(100, 130, 160, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn--cloud:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 30px rgba(100, 130, 160, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(250, 252, 255, 0.95) 100%);
+}
+
+.btn--cloud.btn--primary {
+  background: linear-gradient(135deg,
+    rgba(212, 168, 85, 0.9) 0%,
+    rgba(190, 145, 60, 0.85) 100%);
+  color: white;
+  border-color: rgba(212, 168, 85, 0.6);
+  box-shadow:
+    0 6px 20px rgba(212, 168, 85, 0.25),
+    inset 0 1px 0 rgba(255, 230, 180, 0.4);
+}
+
+.btn--cloud.btn--primary:hover {
+  background: linear-gradient(135deg,
+    rgba(220, 180, 100, 0.95) 0%,
+    rgba(200, 155, 70, 0.9) 100%);
+  box-shadow:
+    0 10px 30px rgba(212, 168, 85, 0.35),
+    inset 0 1px 0 rgba(255, 230, 180, 0.5);
+}
+
+/* ============================================
+   SCHEME CLOUD - LARGER SIZE FOR 8 STEPS
+   ============================================ */
+
+/* Make scheme section cloud larger */
+#scheme .svg-cloud-container {
+  width: min(1100px, 96vw);
+  min-height: 520px;
+}
+
+#scheme .svg-cloud-shape {
+  top: -15%;
+  left: -8%;
+  width: 116%;
+  height: 130%;
+}
+
+#scheme .svg-cloud-content {
+  max-width: 95%;
+  padding: 35px 45px;
+}
+
+/* Optimize step grid for 8 items */
+#scheme .svg-cloud-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#scheme .svg-cloud-step {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+}
+
+#scheme .svg-cloud-step__num {
+  width: 24px;
+  height: 24px;
+  font-size: 0.8rem;
+}
+
+/* Mobile responsive for scheme */
+@media (max-width: 900px) {
+  #scheme .svg-cloud-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #scheme .svg-cloud-container {
+    min-height: 600px;
+  }
+}
+
+@media (max-width: 500px) {
+  #scheme .svg-cloud-steps {
+    grid-template-columns: 1fr;
+  }
+
+  #scheme .svg-cloud-container {
+    min-height: 750px;
+  }
+
+  .contact-cloud-actions {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-buttons {
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn--cloud {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
 }
