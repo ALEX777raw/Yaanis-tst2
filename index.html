@@ -166,6 +166,9 @@
     <!-- Sparkles -->
     <div class="sparkles" aria-hidden="true"></div>
 
+    <!-- Wind Particles -->
+    <div class="wind-particles" aria-hidden="true"></div>
+
     <!-- Angel Cursor -->
     <div class="angel-cursor" aria-hidden="true">
       <div class="angel-cursor__glow"></div>
@@ -222,9 +225,9 @@
           <div class="hero-crystal-cloud"><img src="6945e575-fd70-45b8-ae4e-eb286e756b15.png" alt="Cloud"></div>
         </div>
 
-        <!-- Golden Title -->
-        <div class="hero-title-wrapper">
-          <h1 class="hero-title">ЯАНИС</h1>
+        <!-- Golden Title - Above Crystal -->
+        <div class="hero-title-wrapper hero-title-wrapper--above">
+          <h1 class="hero-title hero-title--small">ЯАНИС</h1>
         </div>
 
         <!-- Platform Icons -->
@@ -269,18 +272,16 @@
 
       </section>
 
+      <!-- Fixed Video Background -->
+      <div class="video-section-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="Prompt_abstract_cinematic_202512082155.mp4" type="video/mp4">
+        </video>
+        <div class="video-section-overlay"></div>
+      </div>
+
       <!-- Content Wrapper -->
       <div class="content-wrapper">
-
-        <!-- Video Section -->
-        <section class="video-section" data-reveal>
-          <div class="video-wrapper">
-            <video autoplay muted loop playsinline preload="metadata" poster="video-poster.jpg">
-              <source src="Prompt_abstract_cinematic_202512082155.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay"></div>
-          </div>
-        </section>
 
         <!-- Cards Section -->
         <section class="cards-section" id="cards">
@@ -397,352 +398,288 @@
           <div class="bg-light-beam bg-light-beam--2"></div>
         </div>
 
-        <!-- Info Sections -->
+        <!-- Info Sections with SVG Drawn Clouds -->
         <div class="info-sections">
           <!-- About -->
-          <section class="panel" id="about" data-reveal>
-            <div class="panel__cloud">
-              <svg viewBox="0 0 1000 280" preserveAspectRatio="none">
+          <section class="svg-cloud-section" id="about" data-reveal>
+            <div class="svg-cloud-container">
+              <!-- SVG Drawn Fluffy Cloud -->
+              <svg class="svg-cloud-shape" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="cloudGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="50%" stop-color="#f8fbff"/>
-                    <stop offset="100%" stop-color="#e8f4ff"/>
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.98)"/>
+                    <stop offset="30%" stop-color="rgba(252,254,255,0.96)"/>
+                    <stop offset="70%" stop-color="rgba(245,250,255,0.93)"/>
+                    <stop offset="100%" stop-color="rgba(235,245,255,0.88)"/>
                   </linearGradient>
-                  <linearGradient id="cloudShine1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
-                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-                  </linearGradient>
-                  <filter id="cloudBlur1" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+                  <filter id="cloudBlur1" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
                   </filter>
-                  <filter id="softShadow1" x="-50%" y="-50%" width="200%" height="200%">
-                    <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#a0c4e8" flood-opacity="0.3"/>
+                  <filter id="cloudShadow1" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="rgba(100,150,200,0.2)"/>
                   </filter>
                 </defs>
-                <!-- Back layer - darker, softer -->
-                <g filter="url(#cloudBlur1)" opacity="0.6">
-                  <ellipse cx="150" cy="180" rx="120" ry="80" fill="#d0e8ff"/>
-                  <ellipse cx="350" cy="170" rx="140" ry="90" fill="#d0e8ff"/>
-                  <ellipse cx="600" cy="175" rx="160" ry="85" fill="#d0e8ff"/>
-                  <ellipse cx="850" cy="180" rx="130" ry="80" fill="#d0e8ff"/>
+                <!-- Multi-layered fluffy cloud shape -->
+                <g filter="url(#cloudShadow1)">
+                  <!-- Back layer - softer, larger bumps -->
+                  <ellipse cx="180" cy="220" rx="140" ry="100" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur1)"/>
+                  <ellipse cx="400" cy="180" rx="180" ry="120" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur1)"/>
+                  <ellipse cx="620" cy="220" rx="140" ry="100" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur1)"/>
+                  <!-- Middle layer -->
+                  <ellipse cx="120" cy="240" rx="100" ry="80" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="250" cy="200" rx="130" ry="95" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="400" cy="170" rx="160" ry="110" fill="rgba(255,255,255,0.9)"/>
+                  <ellipse cx="550" cy="200" rx="130" ry="95" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="680" cy="240" rx="100" ry="80" fill="rgba(255,255,255,0.8)"/>
+                  <!-- Front layer - main fluffy shapes -->
+                  <ellipse cx="150" cy="260" rx="110" ry="85" fill="url(#cloudGrad1)"/>
+                  <ellipse cx="280" cy="230" rx="120" ry="90" fill="url(#cloudGrad1)"/>
+                  <ellipse cx="400" cy="200" rx="150" ry="100" fill="url(#cloudGrad1)"/>
+                  <ellipse cx="520" cy="230" rx="120" ry="90" fill="url(#cloudGrad1)"/>
+                  <ellipse cx="650" cy="260" rx="110" ry="85" fill="url(#cloudGrad1)"/>
+                  <!-- Top bumps for fluffiness -->
+                  <ellipse cx="200" cy="180" rx="70" ry="55" fill="rgba(255,255,255,0.95)"/>
+                  <ellipse cx="320" cy="150" rx="80" ry="60" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="400" cy="130" rx="90" ry="65" fill="rgba(255,255,255,0.98)"/>
+                  <ellipse cx="480" cy="150" rx="80" ry="60" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="600" cy="180" rx="70" ry="55" fill="rgba(255,255,255,0.95)"/>
                 </g>
-                <!-- Middle layer -->
-                <g filter="url(#softShadow1)">
-                  <ellipse cx="80" cy="190" rx="100" ry="70" fill="url(#cloudGrad1)"/>
-                  <ellipse cx="200" cy="160" rx="110" ry="80" fill="url(#cloudGrad1)"/>
-                  <ellipse cx="320" cy="140" rx="100" ry="75" fill="url(#cloudGrad1)"/>
-                  <ellipse cx="450" cy="150" rx="120" ry="85" fill="url(#cloudGrad1)"/>
-                  <ellipse cx="580" cy="135" rx="110" ry="80" fill="url(#cloudGrad1)"/>
-                  <ellipse cx="700" cy="145" rx="100" ry="75" fill="url(#cloudGrad1)"/>
-                  <ellipse cx="820" cy="155" rx="115" ry="80" fill="url(#cloudGrad1)"/>
-                  <ellipse cx="940" cy="175" rx="100" ry="70" fill="url(#cloudGrad1)"/>
-                </g>
-                <!-- Front layer - brightest puffs -->
-                <g>
-                  <ellipse cx="120" cy="170" rx="80" ry="55" fill="#ffffff"/>
-                  <ellipse cx="220" cy="145" rx="90" ry="65" fill="#ffffff"/>
-                  <ellipse cx="350" cy="130" rx="85" ry="60" fill="#ffffff"/>
-                  <ellipse cx="480" cy="140" rx="95" ry="70" fill="#ffffff"/>
-                  <ellipse cx="620" cy="125" rx="90" ry="65" fill="#ffffff"/>
-                  <ellipse cx="750" cy="135" rx="85" ry="60" fill="#ffffff"/>
-                  <ellipse cx="870" cy="150" rx="90" ry="65" fill="#ffffff"/>
-                </g>
-                <!-- Highlights -->
-                <g opacity="0.7">
-                  <ellipse cx="180" cy="120" rx="50" ry="35" fill="url(#cloudShine1)"/>
-                  <ellipse cx="400" cy="110" rx="60" ry="40" fill="url(#cloudShine1)"/>
-                  <ellipse cx="650" cy="105" rx="55" ry="38" fill="url(#cloudShine1)"/>
-                  <ellipse cx="820" cy="115" rx="50" ry="35" fill="url(#cloudShine1)"/>
-                </g>
-                <!-- Bottom fill -->
-                <rect x="0" y="180" width="1000" height="100" fill="url(#cloudGrad1)"/>
               </svg>
-            </div>
-            <div class="panel__wind"></div>
-            <div class="panel__content">
-              <h2 class="panel__title cloud-enhanced">О фонде</h2>
-              <p class="panel__text">Благотворительный фонд ЯАНИС развивает принципы удалённого домашнего самообразования и самомотивации через современные технологии.</p>
-              <p class="panel__text">Мы создаём условия, при которых стремление к знаниям поддерживается понятной системой обучения и вознаграждением за изученный материал.</p>
+              <div class="svg-cloud-glow"></div>
+              <div class="svg-cloud-content">
+                <h2 class="svg-cloud-title">О фонде</h2>
+                <p class="svg-cloud-text">Благотворительный фонд ЯАНИС развивает принципы удалённого домашнего самообразования и самомотивации через современные технологии.</p>
+                <p class="svg-cloud-text">Мы создаём условия, при которых стремление к знаниям поддерживается понятной системой обучения и вознаграждением за изученный материал.</p>
+              </div>
             </div>
           </section>
 
           <!-- NTO -->
-          <section class="panel panel--large" id="nto" data-reveal>
-            <div class="panel__cloud">
-              <svg viewBox="0 0 1000 480" preserveAspectRatio="none">
+          <section class="svg-cloud-section svg-cloud-section--large" id="nto" data-reveal>
+            <div class="svg-cloud-container svg-cloud-container--large">
+              <!-- SVG Drawn Fluffy Cloud - Large -->
+              <svg class="svg-cloud-shape svg-cloud-shape--large" viewBox="0 0 1000 550" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="cloudGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="40%" stop-color="#f5faff"/>
-                    <stop offset="100%" stop-color="#e5f0ff"/>
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.98)"/>
+                    <stop offset="40%" stop-color="rgba(250,253,255,0.95)"/>
+                    <stop offset="80%" stop-color="rgba(242,248,255,0.90)"/>
+                    <stop offset="100%" stop-color="rgba(230,242,255,0.85)"/>
                   </linearGradient>
-                  <radialGradient id="cloudPuff2" cx="50%" cy="30%" r="60%">
-                    <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="70%" stop-color="#f0f7ff"/>
-                    <stop offset="100%" stop-color="#e0edff"/>
-                  </radialGradient>
-                  <filter id="cloudSoft2" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                  <filter id="cloudBlur2" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
                   </filter>
                   <filter id="cloudShadow2" x="-50%" y="-50%" width="200%" height="200%">
-                    <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#90b8e0" flood-opacity="0.35"/>
+                    <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="rgba(100,150,200,0.22)"/>
                   </filter>
                 </defs>
-                <!-- Deep back layer -->
-                <g filter="url(#cloudSoft2)" opacity="0.5">
-                  <ellipse cx="100" cy="350" rx="150" ry="100" fill="#c8e0f8"/>
-                  <ellipse cx="300" cy="320" rx="180" ry="120" fill="#c8e0f8"/>
-                  <ellipse cx="550" cy="310" rx="200" ry="130" fill="#c8e0f8"/>
-                  <ellipse cx="800" cy="330" rx="170" ry="110" fill="#c8e0f8"/>
-                </g>
-                <!-- Middle back layer -->
                 <g filter="url(#cloudShadow2)">
-                  <ellipse cx="50" cy="380" rx="120" ry="85" fill="url(#cloudGrad2)"/>
-                  <ellipse cx="180" cy="320" rx="140" ry="100" fill="url(#cloudGrad2)"/>
-                  <ellipse cx="350" cy="280" rx="130" ry="95" fill="url(#cloudGrad2)"/>
-                  <ellipse cx="500" cy="260" rx="150" ry="110" fill="url(#cloudGrad2)"/>
-                  <ellipse cx="680" cy="270" rx="140" ry="100" fill="url(#cloudGrad2)"/>
-                  <ellipse cx="850" cy="300" rx="130" ry="95" fill="url(#cloudGrad2)"/>
-                  <ellipse cx="970" cy="350" rx="100" ry="80" fill="url(#cloudGrad2)"/>
+                  <!-- Back layer -->
+                  <ellipse cx="200" cy="300" rx="180" ry="130" fill="rgba(255,255,255,0.55)" filter="url(#cloudBlur2)"/>
+                  <ellipse cx="500" cy="250" rx="220" ry="160" fill="rgba(255,255,255,0.55)" filter="url(#cloudBlur2)"/>
+                  <ellipse cx="800" cy="300" rx="180" ry="130" fill="rgba(255,255,255,0.55)" filter="url(#cloudBlur2)"/>
+                  <!-- Middle layer -->
+                  <ellipse cx="130" cy="330" rx="130" ry="100" fill="rgba(255,255,255,0.75)"/>
+                  <ellipse cx="300" cy="280" rx="160" ry="120" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="500" cy="240" rx="200" ry="150" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="700" cy="280" rx="160" ry="120" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="870" cy="330" rx="130" ry="100" fill="rgba(255,255,255,0.75)"/>
+                  <!-- Front layer -->
+                  <ellipse cx="160" cy="360" rx="140" ry="105" fill="url(#cloudGrad2)"/>
+                  <ellipse cx="340" cy="320" rx="150" ry="115" fill="url(#cloudGrad2)"/>
+                  <ellipse cx="500" cy="280" rx="190" ry="140" fill="url(#cloudGrad2)"/>
+                  <ellipse cx="660" cy="320" rx="150" ry="115" fill="url(#cloudGrad2)"/>
+                  <ellipse cx="840" cy="360" rx="140" ry="105" fill="url(#cloudGrad2)"/>
+                  <!-- Top fluffy bumps -->
+                  <ellipse cx="220" cy="220" rx="90" ry="70" fill="rgba(255,255,255,0.93)"/>
+                  <ellipse cx="360" cy="180" rx="100" ry="75" fill="rgba(255,255,255,0.95)"/>
+                  <ellipse cx="500" cy="150" rx="120" ry="85" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="640" cy="180" rx="100" ry="75" fill="rgba(255,255,255,0.95)"/>
+                  <ellipse cx="780" cy="220" rx="90" ry="70" fill="rgba(255,255,255,0.93)"/>
+                  <!-- Extra top bumps -->
+                  <ellipse cx="290" cy="140" rx="60" ry="45" fill="rgba(255,255,255,0.9)"/>
+                  <ellipse cx="430" cy="110" rx="70" ry="50" fill="rgba(255,255,255,0.92)"/>
+                  <ellipse cx="570" cy="110" rx="70" ry="50" fill="rgba(255,255,255,0.92)"/>
+                  <ellipse cx="710" cy="140" rx="60" ry="45" fill="rgba(255,255,255,0.9)"/>
                 </g>
-                <!-- Front fluffy layer -->
-                <g>
-                  <ellipse cx="100" cy="350" rx="100" ry="70" fill="url(#cloudPuff2)"/>
-                  <ellipse cx="220" cy="290" rx="110" ry="80" fill="url(#cloudPuff2)"/>
-                  <ellipse cx="360" cy="250" rx="105" ry="75" fill="#ffffff"/>
-                  <ellipse cx="500" cy="230" rx="120" ry="90" fill="#ffffff"/>
-                  <ellipse cx="650" cy="245" rx="110" ry="80" fill="#ffffff"/>
-                  <ellipse cx="800" cy="270" rx="105" ry="75" fill="url(#cloudPuff2)"/>
-                  <ellipse cx="920" cy="320" rx="100" ry="70" fill="url(#cloudPuff2)"/>
-                </g>
-                <!-- Top puffs -->
-                <g>
-                  <ellipse cx="280" cy="210" rx="80" ry="55" fill="#ffffff"/>
-                  <ellipse cx="420" cy="190" rx="90" ry="65" fill="#ffffff"/>
-                  <ellipse cx="580" cy="200" rx="85" ry="60" fill="#ffffff"/>
-                  <ellipse cx="720" cy="220" rx="80" ry="55" fill="#ffffff"/>
-                </g>
-                <!-- Shine highlights -->
-                <g opacity="0.6">
-                  <ellipse cx="320" cy="180" rx="55" ry="35" fill="#ffffff"/>
-                  <ellipse cx="500" cy="165" rx="65" ry="40" fill="#ffffff"/>
-                  <ellipse cx="680" cy="175" rx="55" ry="35" fill="#ffffff"/>
-                </g>
-                <!-- Bottom fill -->
-                <rect x="0" y="350" width="1000" height="130" fill="url(#cloudGrad2)"/>
               </svg>
-            </div>
-            <div class="panel__wind"></div>
-            <div class="panel__content">
-              <h2 class="panel__title cloud-enhanced">Самообразование (НТО)</h2>
-              <p class="panel__text"><strong>Наш продукт — НТО (Новая Технология Обучения).</strong></p>
-              <p class="panel__text">Представленная система обучения уникальна по своей природе и основана на технологии машинного разума.</p>
-              <p class="panel__text">Система самостоятельно подбирает материалы для обучения:</p>
-              <ul class="panel__list">
-                <li>Возраст</li>
-                <li>Пол</li>
-                <li>Род занятий</li>
-                <li>Вероисповедание</li>
-                <li>Место жительства</li>
-                <li>Национальность</li>
-                <li>Место рождения</li>
-                <li>Семейное положение</li>
-                <li>И другие параметры</li>
-              </ul>
-              <div class="callout">
-                <p><strong>Мотивирование к самообразованию через вознаграждение за изученный материал.</strong></p>
+              <div class="svg-cloud-glow svg-cloud-glow--large"></div>
+              <div class="svg-cloud-content svg-cloud-content--large">
+                <h2 class="svg-cloud-title svg-cloud-title--main">Самообразование (НТО)</h2>
+                <p class="svg-cloud-text"><strong>Наш продукт — НТО (Новая Технология Обучения).</strong></p>
+                <p class="svg-cloud-text">Представленная система обучения уникальна по своей природе и основана на технологии машинного разума.</p>
+                <p class="svg-cloud-text">Система самостоятельно подбирает материалы для обучения:</p>
+                <ul class="svg-cloud-list">
+                  <li>Возраст</li>
+                  <li>Пол</li>
+                  <li>Род занятий</li>
+                  <li>Вероисповедание</li>
+                  <li>Место жительства</li>
+                  <li>Национальность</li>
+                  <li>Место рождения</li>
+                  <li>Семейное положение</li>
+                  <li>И другие параметры</li>
+                </ul>
+                <div class="svg-cloud-callout">
+                  <p><strong>Мотивирование к самообразованию через вознаграждение за изученный материал.</strong></p>
+                </div>
               </div>
             </div>
           </section>
 
           <!-- Scheme -->
-          <section class="panel panel--wide" id="scheme" data-reveal>
-            <div class="panel__cloud">
-              <svg viewBox="0 0 1000 320" preserveAspectRatio="none">
+          <section class="svg-cloud-section" id="scheme" data-reveal>
+            <div class="svg-cloud-container">
+              <!-- SVG Drawn Fluffy Cloud -->
+              <svg class="svg-cloud-shape" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="cloudGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="50%" stop-color="#f8fcff"/>
-                    <stop offset="100%" stop-color="#e8f4ff"/>
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.98)"/>
+                    <stop offset="35%" stop-color="rgba(253,255,255,0.95)"/>
+                    <stop offset="75%" stop-color="rgba(246,251,255,0.91)"/>
+                    <stop offset="100%" stop-color="rgba(238,247,255,0.86)"/>
                   </linearGradient>
-                  <filter id="cloudShadow3" x="-40%" y="-40%" width="180%" height="180%">
-                    <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#98c4e8" flood-opacity="0.3"/>
+                  <filter id="cloudBlur3" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                  </filter>
+                  <filter id="cloudShadow3" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="rgba(100,150,200,0.2)"/>
                   </filter>
                 </defs>
-                <!-- Back shadow layer -->
-                <g opacity="0.5" filter="url(#cloudShadow3)">
-                  <ellipse cx="120" cy="220" rx="140" ry="90" fill="#d0e4f8"/>
-                  <ellipse cx="380" cy="200" rx="170" ry="100" fill="#d0e4f8"/>
-                  <ellipse cx="650" cy="195" rx="180" ry="105" fill="#d0e4f8"/>
-                  <ellipse cx="900" cy="215" rx="140" ry="90" fill="#d0e4f8"/>
+                <g filter="url(#cloudShadow3)">
+                  <ellipse cx="180" cy="220" rx="140" ry="100" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur3)"/>
+                  <ellipse cx="400" cy="180" rx="180" ry="120" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur3)"/>
+                  <ellipse cx="620" cy="220" rx="140" ry="100" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur3)"/>
+                  <ellipse cx="120" cy="250" rx="100" ry="80" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="250" cy="210" rx="130" ry="95" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="400" cy="180" rx="160" ry="110" fill="rgba(255,255,255,0.9)"/>
+                  <ellipse cx="550" cy="210" rx="130" ry="95" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="680" cy="250" rx="100" ry="80" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="150" cy="270" rx="110" ry="85" fill="url(#cloudGrad3)"/>
+                  <ellipse cx="280" cy="240" rx="120" ry="90" fill="url(#cloudGrad3)"/>
+                  <ellipse cx="400" cy="210" rx="150" ry="100" fill="url(#cloudGrad3)"/>
+                  <ellipse cx="520" cy="240" rx="120" ry="90" fill="url(#cloudGrad3)"/>
+                  <ellipse cx="650" cy="270" rx="110" ry="85" fill="url(#cloudGrad3)"/>
+                  <ellipse cx="200" cy="170" rx="70" ry="55" fill="rgba(255,255,255,0.95)"/>
+                  <ellipse cx="320" cy="140" rx="80" ry="60" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="400" cy="120" rx="90" ry="65" fill="rgba(255,255,255,0.98)"/>
+                  <ellipse cx="480" cy="140" rx="80" ry="60" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="600" cy="170" rx="70" ry="55" fill="rgba(255,255,255,0.95)"/>
                 </g>
-                <!-- Middle layer -->
-                <g>
-                  <ellipse cx="60" cy="230" rx="110" ry="75" fill="url(#cloudGrad3)"/>
-                  <ellipse cx="200" cy="190" rx="125" ry="90" fill="url(#cloudGrad3)"/>
-                  <ellipse cx="360" cy="165" rx="115" ry="85" fill="url(#cloudGrad3)"/>
-                  <ellipse cx="520" cy="155" rx="130" ry="95" fill="url(#cloudGrad3)"/>
-                  <ellipse cx="690" cy="160" rx="120" ry="88" fill="url(#cloudGrad3)"/>
-                  <ellipse cx="850" cy="180" rx="115" ry="82" fill="url(#cloudGrad3)"/>
-                  <ellipse cx="970" cy="210" rx="90" ry="70" fill="url(#cloudGrad3)"/>
-                </g>
-                <!-- Front bright puffs -->
-                <g>
-                  <ellipse cx="130" cy="195" rx="95" ry="65" fill="#ffffff"/>
-                  <ellipse cx="280" cy="160" rx="100" ry="72" fill="#ffffff"/>
-                  <ellipse cx="440" cy="145" rx="95" ry="68" fill="#ffffff"/>
-                  <ellipse cx="600" cy="140" rx="105" ry="75" fill="#ffffff"/>
-                  <ellipse cx="760" cy="150" rx="98" ry="70" fill="#ffffff"/>
-                  <ellipse cx="900" cy="175" rx="90" ry="65" fill="#ffffff"/>
-                </g>
-                <!-- Highlights -->
-                <g opacity="0.65">
-                  <ellipse cx="220" cy="130" rx="55" ry="38" fill="#ffffff"/>
-                  <ellipse cx="480" cy="115" rx="65" ry="42" fill="#ffffff"/>
-                  <ellipse cx="720" cy="120" rx="58" ry="38" fill="#ffffff"/>
-                </g>
-                <rect x="0" y="210" width="1000" height="110" fill="url(#cloudGrad3)"/>
               </svg>
-            </div>
-            <div class="panel__wind"></div>
-            <div class="panel__content">
-              <h3 class="panel__title cloud-enhanced">Схема обучения</h3>
-              <ol class="steps">
-                <li class="step"><span class="step__num">1</span> Регистрация</li>
-                <li class="step"><span class="step__num">2</span> Опросник</li>
-                <li class="step"><span class="step__num">3</span> Задания</li>
-                <li class="step"><span class="step__num">4</span> Изучение</li>
-                <li class="step"><span class="step__num">5</span> Голосовой отчёт</li>
-                <li class="step"><span class="step__num">6</span> Проверка</li>
-                <li class="step"><span class="step__num">7</span> Начисление</li>
-                <li class="step"><span class="step__num">8</span> Вывод на карту</li>
-              </ol>
+              <div class="svg-cloud-glow"></div>
+              <div class="svg-cloud-content">
+                <h3 class="svg-cloud-title">Схема обучения</h3>
+                <ol class="svg-cloud-steps">
+                  <li class="svg-cloud-step"><span class="svg-cloud-step__num">1</span> Регистрация</li>
+                  <li class="svg-cloud-step"><span class="svg-cloud-step__num">2</span> Опросник</li>
+                  <li class="svg-cloud-step"><span class="svg-cloud-step__num">3</span> Задания</li>
+                  <li class="svg-cloud-step"><span class="svg-cloud-step__num">4</span> Изучение</li>
+                  <li class="svg-cloud-step"><span class="svg-cloud-step__num">5</span> Голосовой отчёт</li>
+                  <li class="svg-cloud-step"><span class="svg-cloud-step__num">6</span> Проверка</li>
+                  <li class="svg-cloud-step"><span class="svg-cloud-step__num">7</span> Начисление</li>
+                  <li class="svg-cloud-step"><span class="svg-cloud-step__num">8</span> Вывод на карту</li>
+                </ol>
+              </div>
             </div>
           </section>
 
           <!-- Motivation -->
-          <section class="panel" id="motivation" data-reveal>
-            <div class="panel__cloud">
-              <svg viewBox="0 0 1000 260" preserveAspectRatio="none">
+          <section class="svg-cloud-section" id="motivation" data-reveal>
+            <div class="svg-cloud-container">
+              <!-- SVG Drawn Fluffy Cloud -->
+              <svg class="svg-cloud-shape" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="cloudGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="50%" stop-color="#f6faff"/>
-                    <stop offset="100%" stop-color="#e6f2ff"/>
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.98)"/>
+                    <stop offset="30%" stop-color="rgba(254,255,255,0.96)"/>
+                    <stop offset="70%" stop-color="rgba(247,252,255,0.92)"/>
+                    <stop offset="100%" stop-color="rgba(237,246,255,0.87)"/>
                   </linearGradient>
-                  <filter id="cloudShadow4" x="-40%" y="-40%" width="180%" height="180%">
-                    <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#a0c8e8" flood-opacity="0.28"/>
+                  <filter id="cloudBlur4" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                  </filter>
+                  <filter id="cloudShadow4" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="rgba(100,150,200,0.2)"/>
                   </filter>
                 </defs>
-                <!-- Back layer -->
-                <g opacity="0.5">
-                  <ellipse cx="100" cy="180" rx="130" ry="85" fill="#d4e8f8"/>
-                  <ellipse cx="320" cy="165" rx="150" ry="95" fill="#d4e8f8"/>
-                  <ellipse cx="580" cy="160" rx="165" ry="100" fill="#d4e8f8"/>
-                  <ellipse cx="850" cy="175" rx="140" ry="88" fill="#d4e8f8"/>
-                </g>
-                <!-- Middle layer -->
                 <g filter="url(#cloudShadow4)">
-                  <ellipse cx="50" cy="190" rx="100" ry="68" fill="url(#cloudGrad4)"/>
-                  <ellipse cx="180" cy="155" rx="115" ry="82" fill="url(#cloudGrad4)"/>
-                  <ellipse cx="330" cy="135" rx="108" ry="78" fill="url(#cloudGrad4)"/>
-                  <ellipse cx="480" cy="125" rx="120" ry="88" fill="url(#cloudGrad4)"/>
-                  <ellipse cx="640" cy="130" rx="112" ry="82" fill="url(#cloudGrad4)"/>
-                  <ellipse cx="800" cy="145" rx="105" ry="76" fill="url(#cloudGrad4)"/>
-                  <ellipse cx="950" cy="175" rx="95" ry="68" fill="url(#cloudGrad4)"/>
+                  <ellipse cx="180" cy="220" rx="140" ry="100" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur4)"/>
+                  <ellipse cx="400" cy="180" rx="180" ry="120" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur4)"/>
+                  <ellipse cx="620" cy="220" rx="140" ry="100" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur4)"/>
+                  <ellipse cx="120" cy="245" rx="100" ry="80" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="250" cy="205" rx="130" ry="95" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="400" cy="175" rx="160" ry="110" fill="rgba(255,255,255,0.9)"/>
+                  <ellipse cx="550" cy="205" rx="130" ry="95" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="680" cy="245" rx="100" ry="80" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="150" cy="265" rx="110" ry="85" fill="url(#cloudGrad4)"/>
+                  <ellipse cx="280" cy="235" rx="120" ry="90" fill="url(#cloudGrad4)"/>
+                  <ellipse cx="400" cy="205" rx="150" ry="100" fill="url(#cloudGrad4)"/>
+                  <ellipse cx="520" cy="235" rx="120" ry="90" fill="url(#cloudGrad4)"/>
+                  <ellipse cx="650" cy="265" rx="110" ry="85" fill="url(#cloudGrad4)"/>
+                  <ellipse cx="200" cy="165" rx="70" ry="55" fill="rgba(255,255,255,0.95)"/>
+                  <ellipse cx="320" cy="135" rx="80" ry="60" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="400" cy="115" rx="90" ry="65" fill="rgba(255,255,255,0.98)"/>
+                  <ellipse cx="480" cy="135" rx="80" ry="60" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="600" cy="165" rx="70" ry="55" fill="rgba(255,255,255,0.95)"/>
                 </g>
-                <!-- Front puffs -->
-                <g>
-                  <ellipse cx="110" cy="165" rx="85" ry="58" fill="#ffffff"/>
-                  <ellipse cx="240" cy="138" rx="92" ry="66" fill="#ffffff"/>
-                  <ellipse cx="390" cy="120" rx="88" ry="62" fill="#ffffff"/>
-                  <ellipse cx="540" cy="115" rx="98" ry="72" fill="#ffffff"/>
-                  <ellipse cx="700" cy="122" rx="90" ry="65" fill="#ffffff"/>
-                  <ellipse cx="850" cy="140" rx="85" ry="60" fill="#ffffff"/>
-                </g>
-                <!-- Highlights -->
-                <g opacity="0.6">
-                  <ellipse cx="200" cy="110" rx="52" ry="35" fill="#ffffff"/>
-                  <ellipse cx="450" cy="95" rx="60" ry="38" fill="#ffffff"/>
-                  <ellipse cx="680" cy="100" rx="55" ry="36" fill="#ffffff"/>
-                </g>
-                <rect x="0" y="170" width="1000" height="90" fill="url(#cloudGrad4)"/>
               </svg>
-            </div>
-            <div class="panel__wind"></div>
-            <div class="panel__content">
-              <h2 class="panel__title cloud-enhanced">Домашнее самообразование</h2>
-              <p class="panel__text">Формат обучения построен так, чтобы заниматься можно было дома, в удобное время и в спокойном темпе.</p>
-              <p class="panel__text">Система подбирает материалы под человека, а вознаграждение помогает закрепить привычку учиться регулярно.</p>
+              <div class="svg-cloud-glow"></div>
+              <div class="svg-cloud-content">
+                <h2 class="svg-cloud-title">Домашнее самообразование</h2>
+                <p class="svg-cloud-text">Формат обучения построен так, чтобы заниматься можно было дома, в удобное время и в спокойном темпе.</p>
+                <p class="svg-cloud-text">Система подбирает материалы под человека, а вознаграждение помогает закрепить привычку учиться регулярно.</p>
+              </div>
             </div>
           </section>
 
           <!-- SVO -->
-          <section class="panel" id="svo" data-reveal>
-            <div class="panel__cloud">
-              <svg viewBox="0 0 1000 300" preserveAspectRatio="none">
+          <section class="svg-cloud-section" id="svo" data-reveal>
+            <div class="svg-cloud-container">
+              <!-- SVG Drawn Fluffy Cloud -->
+              <svg class="svg-cloud-shape" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="cloudGrad5" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="45%" stop-color="#f7fbff"/>
-                    <stop offset="100%" stop-color="#e4f0ff"/>
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.98)"/>
+                    <stop offset="30%" stop-color="rgba(253,255,255,0.96)"/>
+                    <stop offset="70%" stop-color="rgba(245,251,255,0.92)"/>
+                    <stop offset="100%" stop-color="rgba(235,245,255,0.87)"/>
                   </linearGradient>
-                  <radialGradient id="cloudGlow5" cx="50%" cy="40%" r="50%">
-                    <stop offset="0%" stop-color="#ffffff"/>
-                    <stop offset="100%" stop-color="#f0f8ff"/>
-                  </radialGradient>
-                  <filter id="cloudShadow5" x="-40%" y="-40%" width="180%" height="180%">
-                    <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#98c0e0" flood-opacity="0.3"/>
+                  <filter id="cloudBlur5" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                  </filter>
+                  <filter id="cloudShadow5" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="rgba(100,150,200,0.2)"/>
                   </filter>
                 </defs>
-                <!-- Back shadow layer -->
-                <g opacity="0.45">
-                  <ellipse cx="130" cy="210" rx="145" ry="95" fill="#cce4f8"/>
-                  <ellipse cx="380" cy="190" rx="170" ry="105" fill="#cce4f8"/>
-                  <ellipse cx="650" cy="185" rx="180" ry="110" fill="#cce4f8"/>
-                  <ellipse cx="900" cy="205" rx="145" ry="92" fill="#cce4f8"/>
-                </g>
-                <!-- Middle layer -->
                 <g filter="url(#cloudShadow5)">
-                  <ellipse cx="60" cy="220" rx="110" ry="75" fill="url(#cloudGrad5)"/>
-                  <ellipse cx="200" cy="180" rx="125" ry="90" fill="url(#cloudGrad5)"/>
-                  <ellipse cx="370" cy="155" rx="118" ry="85" fill="url(#cloudGrad5)"/>
-                  <ellipse cx="540" cy="145" rx="135" ry="98" fill="url(#cloudGrad5)"/>
-                  <ellipse cx="720" cy="150" rx="122" ry="88" fill="url(#cloudGrad5)"/>
-                  <ellipse cx="880" cy="175" rx="115" ry="82" fill="url(#cloudGrad5)"/>
-                  <ellipse cx="980" cy="205" rx="85" ry="65" fill="url(#cloudGrad5)"/>
+                  <ellipse cx="180" cy="215" rx="140" ry="100" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur5)"/>
+                  <ellipse cx="400" cy="175" rx="180" ry="120" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur5)"/>
+                  <ellipse cx="620" cy="215" rx="140" ry="100" fill="rgba(255,255,255,0.6)" filter="url(#cloudBlur5)"/>
+                  <ellipse cx="120" cy="240" rx="100" ry="80" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="250" cy="200" rx="130" ry="95" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="400" cy="170" rx="160" ry="110" fill="rgba(255,255,255,0.9)"/>
+                  <ellipse cx="550" cy="200" rx="130" ry="95" fill="rgba(255,255,255,0.85)"/>
+                  <ellipse cx="680" cy="240" rx="100" ry="80" fill="rgba(255,255,255,0.8)"/>
+                  <ellipse cx="150" cy="260" rx="110" ry="85" fill="url(#cloudGrad5)"/>
+                  <ellipse cx="280" cy="230" rx="120" ry="90" fill="url(#cloudGrad5)"/>
+                  <ellipse cx="400" cy="200" rx="150" ry="100" fill="url(#cloudGrad5)"/>
+                  <ellipse cx="520" cy="230" rx="120" ry="90" fill="url(#cloudGrad5)"/>
+                  <ellipse cx="650" cy="260" rx="110" ry="85" fill="url(#cloudGrad5)"/>
+                  <ellipse cx="200" cy="160" rx="70" ry="55" fill="rgba(255,255,255,0.95)"/>
+                  <ellipse cx="320" cy="130" rx="80" ry="60" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="400" cy="110" rx="90" ry="65" fill="rgba(255,255,255,0.98)"/>
+                  <ellipse cx="480" cy="130" rx="80" ry="60" fill="rgba(255,255,255,0.97)"/>
+                  <ellipse cx="600" cy="160" rx="70" ry="55" fill="rgba(255,255,255,0.95)"/>
                 </g>
-                <!-- Front bright puffs -->
-                <g>
-                  <ellipse cx="120" cy="190" rx="95" ry="65" fill="url(#cloudGlow5)"/>
-                  <ellipse cx="270" cy="158" rx="102" ry="72" fill="#ffffff"/>
-                  <ellipse cx="430" cy="138" rx="98" ry="68" fill="#ffffff"/>
-                  <ellipse cx="590" cy="130" rx="110" ry="78" fill="#ffffff"/>
-                  <ellipse cx="760" cy="138" rx="100" ry="70" fill="#ffffff"/>
-                  <ellipse cx="910" cy="165" rx="92" ry="65" fill="url(#cloudGlow5)"/>
-                </g>
-                <!-- Top mini puffs -->
-                <g>
-                  <ellipse cx="320" cy="110" rx="70" ry="48" fill="#ffffff"/>
-                  <ellipse cx="500" cy="100" rx="80" ry="55" fill="#ffffff"/>
-                  <ellipse cx="680" cy="108" rx="72" ry="50" fill="#ffffff"/>
-                </g>
-                <!-- Highlights -->
-                <g opacity="0.65">
-                  <ellipse cx="240" cy="125" rx="50" ry="32" fill="#ffffff"/>
-                  <ellipse cx="520" cy="80" rx="58" ry="36" fill="#ffffff"/>
-                  <ellipse cx="750" cy="90" rx="52" ry="34" fill="#ffffff"/>
-                </g>
-                <rect x="0" y="200" width="1000" height="100" fill="url(#cloudGrad5)"/>
               </svg>
-            </div>
-            <div class="panel__wind"></div>
-            <div class="panel__content">
-              <h2 class="panel__title cloud-enhanced">Реабилитация участников СВО</h2>
-              <p class="panel__text">Удалённая психологическая помощь для участников специальной военной операции.</p>
-              <p class="panel__text">Уникальность программы — участие клинических психологов, работа с ПТСР. Курс проходит полностью автономно.</p>
-              <p class="panel__text">Модуль находится в доработке и проходит испытания.</p>
+              <div class="svg-cloud-glow"></div>
+              <div class="svg-cloud-content">
+                <h2 class="svg-cloud-title">Реабилитация участников СВО</h2>
+                <p class="svg-cloud-text">Удалённая психологическая помощь для участников специальной военной операции.</p>
+                <p class="svg-cloud-text">Уникальность программы — участие клинических психологов, работа с ПТСР. Курс проходит полностью автономно.</p>
+                <p class="svg-cloud-text">Модуль находится в доработке и проходит испытания.</p>
+              </div>
             </div>
           </section>
         </div>

@@ -17,18 +17,66 @@
     }
   }
 
-  // Parallax clouds
+  // Parallax clouds - enhanced
   const clouds = document.querySelectorAll('[data-parallax]');
   const heroSky = document.querySelector('.hero-sky');
+  const bgClouds = document.querySelectorAll('.bg-cloud');
+  const heroClouds = document.querySelectorAll('.hero-cloud');
+  const svgCloudSections = document.querySelectorAll('.svg-cloud-section');
+  const floatingDecorClouds = document.querySelectorAll('.floating-decor-cloud');
   let ticking = false;
   let vh = window.innerHeight;
-  window.addEventListener('resize', () => { vh = window.innerHeight; }, { passive: true });
+  let vw = window.innerWidth;
+
+  window.addEventListener('resize', () => {
+    vh = window.innerHeight;
+    vw = window.innerWidth;
+  }, { passive: true });
 
   function updateParallax() {
     const scrollY = window.scrollY;
+    const scrollProgress = Math.min(1, scrollY / (vh * 2));
+
+    // Update data-parallax clouds
     clouds.forEach(cloud => {
       const speed = parseFloat(cloud.dataset.parallax);
-      cloud.style.transform = `translateY(${scrollY * speed * 60}px)`;
+      cloud.style.transform = `translateY(${scrollY * speed * 80}px)`;
+    });
+
+    // Background clouds move with scroll - different speeds for depth
+    bgClouds.forEach((cloud, index) => {
+      const speeds = [0.15, 0.12, 0.18, 0.14, 0.1];
+      const speed = speeds[index] || 0.12;
+      const yOffset = scrollY * speed;
+      const xDrift = Math.sin(scrollY * 0.001 + index) * 30;
+      cloud.style.transform = `translateY(${yOffset}px) translateX(${xDrift}px)`;
+    });
+
+    // Hero clouds follow scroll down
+    heroClouds.forEach((cloud, index) => {
+      const speeds = [0.2, 0.16, 0.22, 0.15, 0.18];
+      const speed = speeds[index] || 0.16;
+      const yOffset = scrollY * speed;
+      const xDrift = Math.sin(scrollY * 0.002 + index * 0.5) * 40;
+      cloud.style.transform = `translateY(${yOffset}px) translateX(${xDrift}px)`;
+    });
+
+    // SVG cloud sections - subtle parallax effect
+    svgCloudSections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const sectionCenter = rect.top + rect.height / 2;
+      const viewCenter = vh / 2;
+      const offset = (sectionCenter - viewCenter) * 0.03;
+      const xDrift = Math.sin(scrollY * 0.0008 + index * 1.5) * 15;
+      section.style.transform = `translateY(${offset}px) translateX(${xDrift}px)`;
+    });
+
+    // Floating decoration clouds parallax
+    floatingDecorClouds.forEach((cloud, index) => {
+      const speed = 0.05 + (index * 0.02);
+      const yOffset = scrollY * speed;
+      const xDrift = Math.sin(scrollY * 0.001 + index * 0.8) * 25;
+      cloud.style.transform = `translateY(${yOffset}px) translateX(${xDrift}px)`;
     });
 
     if (heroSky) {
@@ -182,4 +230,66 @@
 
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
   }
+
+  // Create floating wind particles
+  function createWindParticles() {
+    const container = document.querySelector('.wind-particles');
+    if (!container || reduceMotion) return;
+
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'wind-particle';
+      particle.style.cssText = `
+        --delay: ${Math.random() * 10}s;
+        --duration: ${8 + Math.random() * 12}s;
+        --y-start: ${Math.random() * 100}vh;
+        --size: ${2 + Math.random() * 4}px;
+        --opacity: ${0.3 + Math.random() * 0.4};
+      `;
+      container.appendChild(particle);
+    }
+  }
+
+  // Create sparkle effects
+  function createSparkles() {
+    const container = document.querySelector('.sparkles');
+    if (!container || reduceMotion) return;
+
+    for (let i = 0; i < 15; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        --sparkle-delay: ${Math.random() * 5}s;
+        --sparkle-dur: ${2 + Math.random() * 3}s;
+      `;
+      container.appendChild(sparkle);
+    }
+  }
+
+  // Initialize effects
+  createWindParticles();
+  createSparkles();
+
+  // Add floating cloud decorations to content area
+  function addFloatingClouds() {
+    const infoSections = document.querySelector('.info-sections');
+    if (!infoSections || reduceMotion) return;
+
+    const cloudDecorations = document.createElement('div');
+    cloudDecorations.className = 'floating-cloud-decorations';
+    cloudDecorations.setAttribute('aria-hidden', 'true');
+
+    for (let i = 0; i < 6; i++) {
+      const cloud = document.createElement('div');
+      cloud.className = `floating-decor-cloud floating-decor-cloud--${i + 1}`;
+      cloud.innerHTML = `<img src="6945e575-fd70-45b8-ae4e-eb286e756b15.png" alt="">`;
+      cloudDecorations.appendChild(cloud);
+    }
+
+    infoSections.prepend(cloudDecorations);
+  }
+
+  addFloatingClouds();
 })();
