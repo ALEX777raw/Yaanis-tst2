@@ -6598,13 +6598,15 @@ main,
   clip: unset !important;
 }
 
-/* Cloud shape positioning - no scale, use natural size */
+/* Cloud shape positioning - FILL container completely */
 .svg-cloud-section .svg-cloud-shape {
+  position: absolute !important;
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
   transform: none !important;
+  overflow: visible !important;
 }
 
 .svg-cloud-section--large .svg-cloud-shape--large {
@@ -6615,31 +6617,31 @@ main,
   transform: none !important;
 }
 
-/* Ensure cloud container has room - 2X BIGGER clouds */
+/* BIGGER cloud containers */
 .svg-cloud-container {
-  padding: 140px 180px;
-  min-height: 700px;
-  width: min(1500px, 98vw) !important;
+  padding: 60px 80px;
+  min-height: 450px;
+  width: min(1100px, 96vw) !important;
   overflow: visible !important;
 }
 
 .svg-cloud-container--large {
-  padding: 160px 200px;
-  min-height: 900px;
-  width: min(1700px, 99vw) !important;
+  padding: 70px 90px;
+  min-height: 600px;
+  width: min(1300px, 98vw) !important;
   overflow: visible !important;
 }
 
 /* Scheme cloud specific sizing */
 #scheme .svg-cloud-container {
-  min-height: 950px;
+  min-height: 650px;
 }
 
 /* Contact cloud sizing */
 .svg-cloud-container--contact {
-  padding: 130px 160px;
-  min-height: 680px;
-  width: min(1400px, 98vw) !important;
+  padding: 60px 80px;
+  min-height: 420px;
+  width: min(1050px, 96vw) !important;
 }
 
 /* Force no clipping on all cloud elements */
