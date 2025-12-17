@@ -6615,27 +6615,39 @@ main,
   transform: none !important;
 }
 
-/* Ensure cloud container has room - MUCH BIGGER clouds */
+/* Ensure cloud container has room - 2X BIGGER clouds */
 .svg-cloud-container {
-  padding: 100px 130px;
-  min-height: 580px;
-  width: min(1200px, 96vw) !important;
+  padding: 140px 180px;
+  min-height: 700px;
+  width: min(1500px, 98vw) !important;
+  overflow: visible !important;
 }
 
 .svg-cloud-container--large {
-  padding: 110px 140px;
-  min-height: 750px;
-  width: min(1450px, 98vw) !important;
+  padding: 160px 200px;
+  min-height: 900px;
+  width: min(1700px, 99vw) !important;
+  overflow: visible !important;
 }
 
 /* Scheme cloud specific sizing */
 #scheme .svg-cloud-container {
-  min-height: 720px;
+  min-height: 950px;
 }
 
 /* Contact cloud sizing */
 .svg-cloud-container--contact {
-  padding: 90px 110px;
-  min-height: 560px;
-  width: min(1150px, 96vw) !important;
+  padding: 130px 160px;
+  min-height: 680px;
+  width: min(1400px, 98vw) !important;
+}
+
+/* Force no clipping on all cloud elements */
+.svg-cloud-section,
+.svg-cloud-container,
+.svg-cloud-shape,
+.info-sections {
+  overflow: visible !important;
+  clip: unset !important;
+  clip-path: none !important;
 }
