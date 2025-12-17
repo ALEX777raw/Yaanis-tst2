@@ -238,8 +238,8 @@
   // Create effect containers if they don't exist
   function createEffectContainers() {
     const containers = [
-      'sparkles', 'wind-particles', 'dust-motes', 'feathers',
-      'magic-orbs', 'light-rays', 'aurora', 'ribbons', 'halos'
+      'wind-particles', 'dust-motes', 'feathers',
+      'light-rays', 'aurora', 'ribbons'
     ];
 
     containers.forEach(name => {
@@ -477,23 +477,13 @@
   function initEffects() {
     if (reduceMotion) return;
 
-    createSparkles();
     createWindParticles();
     createDustMotes();
     createFeathers();
-    createMagicOrbs();
     createLightRays();
     createAurora();
     createRibbons();
-    createHalos();
     addCloudShadows();
-
-    // Mouse sparkle trail (subtle)
-    document.addEventListener('mousemove', (e) => {
-      if (Math.random() > 0.95) {
-        createMouseSparkle(e.clientX, e.clientY);
-      }
-    }, { passive: true });
   }
 
   // Add floating cloud decorations to content area
