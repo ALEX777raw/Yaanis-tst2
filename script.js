@@ -441,24 +441,6 @@
     }
   }
 
-  // Add cloud sparkles to cloud containers
-  function addCloudSparkles() {
-    const cloudContainers = document.querySelectorAll('.svg-cloud-container');
-
-    cloudContainers.forEach(container => {
-      for (let i = 0; i < 5; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'cloud-sparkle';
-        sparkle.style.cssText = `
-          top: ${10 + Math.random() * 80}%;
-          left: ${10 + Math.random() * 80}%;
-          animation-delay: ${Math.random() * 3}s;
-        `;
-        container.appendChild(sparkle);
-      }
-    });
-  }
-
   // Add cloud shadows
   function addCloudShadows() {
     const cloudSections = document.querySelectorAll('.svg-cloud-section');
@@ -504,7 +486,6 @@
     createAurora();
     createRibbons();
     createHalos();
-    addCloudSparkles();
     addCloudShadows();
 
     // Mouse sparkle trail (subtle)

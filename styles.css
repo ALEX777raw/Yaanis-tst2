@@ -294,27 +294,88 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: url('Image_202512171819.jpeg') center center / cover no-repeat fixed;
+  background: linear-gradient(180deg,
+    #f8f9fc 0%,
+    #eef2f7 15%,
+    #e5ebf3 30%,
+    #dce4ef 50%,
+    #d3dde9 70%,
+    #c8d5e3 85%,
+    #bfcfdd 100%);
 }
 
 .bg-cloud {
   position: absolute;
   pointer-events: none;
   will-change: transform;
+  animation: bgCloudFloat 30s ease-in-out infinite;
 }
 
 .bg-cloud img {
   width: 100%;
   height: auto;
-  opacity: 0.75;
-  filter: blur(4px);
+  opacity: 0.85;
+  filter: blur(8px);
 }
 
-.bg-cloud--1 { top: -5%; left: -10%; width: 55vw; min-width: 450px; }
-.bg-cloud--2 { top: 0; right: -12%; width: 60vw; min-width: 500px; }
-.bg-cloud--3 { top: 35%; left: -15%; width: 65vw; min-width: 550px; opacity: 0.7; }
-.bg-cloud--4 { bottom: -10%; right: -10%; width: 60vw; min-width: 500px; opacity: 0.65; }
-.bg-cloud--5 { top: 20%; right: 5%; width: 40vw; min-width: 350px; opacity: 0.5; }
+.bg-cloud--1 {
+  top: -8%;
+  left: -15%;
+  width: 70vw;
+  min-width: 550px;
+  animation-duration: 35s;
+  animation-delay: 0s;
+}
+.bg-cloud--2 {
+  top: 5%;
+  right: -18%;
+  width: 75vw;
+  min-width: 600px;
+  animation-duration: 40s;
+  animation-delay: -5s;
+}
+.bg-cloud--3 {
+  top: 30%;
+  left: -20%;
+  width: 80vw;
+  min-width: 650px;
+  opacity: 0.75;
+  animation-duration: 45s;
+  animation-delay: -10s;
+}
+.bg-cloud--4 {
+  bottom: -5%;
+  right: -15%;
+  width: 75vw;
+  min-width: 600px;
+  opacity: 0.7;
+  animation-duration: 38s;
+  animation-delay: -15s;
+}
+.bg-cloud--5 {
+  top: 55%;
+  left: 10%;
+  width: 50vw;
+  min-width: 400px;
+  opacity: 0.6;
+  animation-duration: 42s;
+  animation-delay: -20s;
+}
+
+@keyframes bgCloudFloat {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(30px) translateY(-20px);
+  }
+  50% {
+    transform: translateX(-20px) translateY(15px);
+  }
+  75% {
+    transform: translateX(25px) translateY(-10px);
+  }
+}
 
 .bg-vignette {
   position: absolute;
@@ -3400,45 +3461,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   }
 }
 
-/* Sparkle particles on clouds */
-.cloud-content::before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: white;
-  border-radius: 50%;
-  top: 20%;
-  left: 15%;
-  box-shadow:
-    0 0 6px rgba(255, 255, 255, 0.9),
-    0 0 12px rgba(255, 255, 255, 0.6);
-  animation: cloudSparkle 3s ease-in-out infinite;
-  opacity: 0;
-}
-
-.cloud-content::after {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: white;
-  border-radius: 50%;
-  top: 35%;
-  right: 20%;
-  box-shadow:
-    0 0 5px rgba(255, 255, 255, 0.8),
-    0 0 10px rgba(255, 255, 255, 0.5);
-  animation: cloudSparkle 4s ease-in-out infinite;
-  animation-delay: 1.5s;
-  opacity: 0;
-}
-
-@keyframes cloudSparkle {
-  0%, 100% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
 /* ===== FLOATING CLOUD RESPONSIVE ===== */
 
 @media (max-width: 1200px) {
@@ -5919,46 +5941,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   50% {
     transform: scaleX(1.1);
     opacity: 0.3;
-  }
-}
-
-/* Sparkle decorations on clouds */
-.svg-cloud-container .cloud-sparkle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 50%;
-  animation: cloudSparkle 3s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-.svg-cloud-container .cloud-sparkle:nth-child(1) {
-  top: 15%;
-  left: 20%;
-  animation-delay: 0s;
-}
-
-.svg-cloud-container .cloud-sparkle:nth-child(2) {
-  top: 25%;
-  right: 25%;
-  animation-delay: -1s;
-}
-
-.svg-cloud-container .cloud-sparkle:nth-child(3) {
-  bottom: 30%;
-  left: 30%;
-  animation-delay: -2s;
-}
-
-@keyframes cloudSparkle {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 
