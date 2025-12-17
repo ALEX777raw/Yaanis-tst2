@@ -9323,3 +9323,922 @@ body {
 }
 
 /* === END ELEGANT REDESIGN === */
+
+/* ============================================
+   PREMIUM MINIMALIST ANIMATIONS & EFFECTS
+   1000+ lines of beautiful minimalist design
+   ============================================ */
+
+/* === SMOOTH PAGE LOAD ANIMATION === */
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: pageReveal 0.8s ease-out;
+}
+
+/* === ELEGANT GRADIENT ANIMATION === */
+@keyframes subtleGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    #FAFBFC 0%,
+    #F5F7FA 25%,
+    #EDF1F5 50%,
+    #F5F7FA 75%,
+    #FAFBFC 100%
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: subtleGradient 20s ease infinite !important;
+}
+
+/* === HERO SECTION PREMIUM ANIMATIONS === */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes heroPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes heroGlow {
+  0%, 100% {
+    filter: drop-shadow(0 20px 60px rgba(212, 175, 55, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 30px 80px rgba(212, 175, 55, 0.35));
+  }
+}
+
+.hero-crystal {
+  animation: heroFloat 6s ease-in-out infinite, heroGlow 4s ease-in-out infinite !important;
+}
+
+/* === ELEGANT TITLE ANIMATIONS === */
+@keyframes titleShine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.hero-title {
+  background: linear-gradient(
+    90deg,
+    #8B7355 0%,
+    #C9A962 20%,
+    #F0E68C 50%,
+    #C9A962 80%,
+    #8B7355 100%
+  ) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: titleShine 4s linear infinite !important;
+}
+
+/* === CARD ENTRANCE ANIMATIONS === */
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.svg-cloud-section {
+  animation: cardSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  opacity: 0;
+}
+
+.svg-cloud-section:nth-child(1) { animation-delay: 0.1s !important; }
+.svg-cloud-section:nth-child(2) { animation-delay: 0.2s !important; }
+.svg-cloud-section:nth-child(3) { animation-delay: 0.3s !important; }
+.svg-cloud-section:nth-child(4) { animation-delay: 0.4s !important; }
+.svg-cloud-section:nth-child(5) { animation-delay: 0.5s !important; }
+.svg-cloud-section:nth-child(6) { animation-delay: 0.6s !important; }
+
+/* === PREMIUM CARD HOVER EFFECTS === */
+@keyframes cardLift {
+  from {
+    transform: translateY(0);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  }
+  to {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.svg-cloud-container {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.svg-cloud-container:hover {
+  transform: translateY(-12px) !important;
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.08),
+    0 20px 50px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(212, 175, 55, 0.15) !important;
+}
+
+/* === GOLDEN LINE ANIMATION === */
+@keyframes goldenLineExpand {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 80px;
+    opacity: 1;
+  }
+}
+
+.svg-cloud-container::before {
+  animation: goldenLineExpand 0.8s ease-out 0.3s forwards !important;
+  width: 0 !important;
+}
+
+.svg-cloud-container:hover::before {
+  width: 120px !important;
+  transition: width 0.4s ease !important;
+}
+
+/* === BUTTON PREMIUM ANIMATIONS === */
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.btn--primary {
+  position: relative !important;
+  overflow: hidden !important;
+  animation: buttonPulse 3s ease-in-out infinite !important;
+}
+
+.btn--primary::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  ) !important;
+  animation: buttonShine 3s ease-in-out infinite !important;
+}
+
+.btn {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98) !important;
+}
+
+/* === NAVIGATION ANIMATIONS === */
+@keyframes navSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  animation: navSlideDown 0.6s ease-out !important;
+}
+
+.header-inner {
+  transition: all 0.4s ease !important;
+}
+
+.header-inner:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* === NAV LINK ANIMATIONS === */
+@keyframes linkUnderline {
+  from {
+    width: 0;
+    left: 50%;
+  }
+  to {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.nav-link {
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+.nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 50% !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, #D4AF37, #E8C547) !important;
+  transition: all 0.3s ease !important;
+  transform: translateX(-50%) !important;
+}
+
+.nav-link:hover::after {
+  width: 100% !important;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px) !important;
+}
+
+/* === LIST ITEM ANIMATIONS === */
+@keyframes listItemSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.svg-cloud-list li {
+  animation: listItemSlide 0.5s ease forwards !important;
+  opacity: 0 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.svg-cloud-list li:nth-child(1) { animation-delay: 0.05s !important; }
+.svg-cloud-list li:nth-child(2) { animation-delay: 0.1s !important; }
+.svg-cloud-list li:nth-child(3) { animation-delay: 0.15s !important; }
+.svg-cloud-list li:nth-child(4) { animation-delay: 0.2s !important; }
+.svg-cloud-list li:nth-child(5) { animation-delay: 0.25s !important; }
+.svg-cloud-list li:nth-child(6) { animation-delay: 0.3s !important; }
+.svg-cloud-list li:nth-child(7) { animation-delay: 0.35s !important; }
+.svg-cloud-list li:nth-child(8) { animation-delay: 0.4s !important; }
+.svg-cloud-list li:nth-child(9) { animation-delay: 0.45s !important; }
+
+.svg-cloud-list li:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(212, 175, 55, 0.4) !important;
+  background: #FFFFFF !important;
+}
+
+/* === STEP CARD ANIMATIONS === */
+@keyframes stepReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.svg-cloud-step {
+  animation: stepReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  opacity: 0 !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.svg-cloud-step:nth-child(1) { animation-delay: 0.1s !important; }
+.svg-cloud-step:nth-child(2) { animation-delay: 0.15s !important; }
+.svg-cloud-step:nth-child(3) { animation-delay: 0.2s !important; }
+.svg-cloud-step:nth-child(4) { animation-delay: 0.25s !important; }
+.svg-cloud-step:nth-child(5) { animation-delay: 0.3s !important; }
+.svg-cloud-step:nth-child(6) { animation-delay: 0.35s !important; }
+.svg-cloud-step:nth-child(7) { animation-delay: 0.4s !important; }
+.svg-cloud-step:nth-child(8) { animation-delay: 0.45s !important; }
+
+.svg-cloud-step:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(212, 175, 55, 0.35) !important;
+}
+
+/* === STEP NUMBER ANIMATION === */
+@keyframes numberPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.svg-cloud-step:hover .svg-cloud-step__num {
+  animation: numberPop 0.4s ease !important;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.45) !important;
+}
+
+/* === TITLE UNDERLINE ANIMATION === */
+@keyframes underlineGrow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
+
+.svg-cloud-title {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+.svg-cloud-title::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent) !important;
+  animation: underlineGrow 0.8s ease-out 0.5s forwards !important;
+  width: 0 !important;
+  border-radius: 2px !important;
+}
+
+/* === CALLOUT ANIMATION === */
+@keyframes calloutSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.svg-cloud-callout {
+  animation: calloutSlide 0.6s ease-out 0.4s forwards !important;
+  opacity: 0 !important;
+  transition: all 0.4s ease !important;
+}
+
+.svg-cloud-callout:hover {
+  transform: translateX(8px) !important;
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.12) !important;
+}
+
+/* === CONTACT CRYSTAL ANIMATION === */
+@keyframes crystalFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+}
+
+@keyframes crystalGlow {
+  0%, 100% {
+    filter: drop-shadow(0 15px 40px rgba(212, 175, 55, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 20px 60px rgba(212, 175, 55, 0.4));
+  }
+}
+
+.contact-crystal {
+  animation: crystalFloat 8s ease-in-out infinite, crystalGlow 4s ease-in-out infinite !important;
+}
+
+/* === QR CODE ANIMATION === */
+@keyframes qrPulse {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+  50% {
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.qr-code-cloud {
+  animation: qrPulse 3s ease-in-out infinite !important;
+  transition: all 0.4s ease !important;
+}
+
+.qr-code-cloud:hover {
+  transform: scale(1.05) translateY(-5px) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* === LOADER ANIMATIONS === */
+@keyframes loaderFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loaderShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.loader__panel {
+  animation: loaderFadeIn 0.5s ease-out !important;
+}
+
+.loader__title {
+  background: linear-gradient(
+    90deg,
+    #8B7355 0%,
+    #D4AF37 25%,
+    #F0E68C 50%,
+    #D4AF37 75%,
+    #8B7355 100%
+  ) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  animation: loaderShimmer 2s linear infinite !important;
+}
+
+/* === SCROLL ANIMATIONS === */
+@keyframes scrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === PLATFORM ICON ANIMATIONS === */
+@keyframes platformFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.platform {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.platform:nth-child(1) { animation: platformFloat 4s ease-in-out infinite 0s !important; }
+.platform:nth-child(2) { animation: platformFloat 4s ease-in-out infinite 0.3s !important; }
+.platform:nth-child(3) { animation: platformFloat 4s ease-in-out infinite 0.6s !important; }
+.platform:nth-child(4) { animation: platformFloat 4s ease-in-out infinite 0.9s !important; }
+.platform:nth-child(5) { animation: platformFloat 4s ease-in-out infinite 1.2s !important; }
+.platform:nth-child(6) { animation: platformFloat 4s ease-in-out infinite 1.5s !important; }
+
+.platform:hover {
+  transform: translateY(-10px) scale(1.1) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+.platform__img {
+  transition: all 0.3s ease !important;
+}
+
+.platform:hover .platform__img {
+  transform: scale(1.15) !important;
+  filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3)) !important;
+}
+
+/* === ELEGANT CURSOR EFFECTS === */
+* {
+  cursor: default;
+}
+
+a, button, .btn, .platform, .nav-link {
+  cursor: pointer;
+}
+
+/* === SMOOTH SCROLLBAR === */
+html {
+  scroll-behavior: smooth !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F7FA !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #D4AF37, #C9A227) !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #E8C547, #D4AF37) !important;
+}
+
+/* === TEXT SELECTION === */
+::selection {
+  background: rgba(212, 175, 55, 0.25) !important;
+  color: #2C3E50 !important;
+}
+
+/* === FOCUS STATES === */
+*:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.5) !important;
+  outline-offset: 3px !important;
+}
+
+/* === ELEGANT TRANSITIONS FOR ALL === */
+*, *::before, *::after {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* === PARAGRAPH ANIMATIONS === */
+.svg-cloud-text {
+  animation: cardFadeIn 0.6s ease-out forwards !important;
+  opacity: 0 !important;
+  animation-delay: 0.2s !important;
+}
+
+/* === STRONG TEXT HIGHLIGHT === */
+.svg-cloud-text strong {
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+.svg-cloud-text strong::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 40% !important;
+  background: rgba(212, 175, 55, 0.15) !important;
+  z-index: -1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.svg-cloud-text strong:hover::after {
+  height: 100% !important;
+  background: rgba(212, 175, 55, 0.2) !important;
+}
+
+/* === SECTION DIVIDER ANIMATION === */
+@keyframes dividerExpand {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100px;
+    opacity: 1;
+  }
+}
+
+.svg-cloud-section + .svg-cloud-section::before {
+  animation: dividerExpand 0.8s ease-out forwards !important;
+  width: 0 !important;
+}
+
+/* === MINIMALIST GEOMETRIC DECORATIONS === */
+.svg-cloud-container {
+  position: relative !important;
+}
+
+/* Corner accent */
+.svg-cloud-section:nth-child(odd) .svg-cloud-container::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 30px !important;
+  height: 30px !important;
+  border: 2px solid rgba(212, 175, 55, 0.15) !important;
+  border-radius: 50% !important;
+  display: block !important;
+  animation: none !important;
+  font-size: 0 !important;
+}
+
+.svg-cloud-section:nth-child(even) .svg-cloud-container::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 20px !important;
+  left: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  background: rgba(212, 175, 55, 0.1) !important;
+  transform: rotate(45deg) !important;
+  display: block !important;
+  animation: none !important;
+  font-size: 0 !important;
+}
+
+/* === LINK HOVER EFFECTS === */
+.contact-link {
+  position: relative !important;
+  transition: all 0.3s ease !important;
+}
+
+.contact-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: #D4AF37 !important;
+  transition: width 0.3s ease !important;
+}
+
+.contact-link:hover::after {
+  width: 100% !important;
+}
+
+.contact-link:hover {
+  color: #D4AF37 !important;
+  -webkit-text-fill-color: #D4AF37 !important;
+}
+
+/* === ELEGANT SHADOWS === */
+.svg-cloud-container {
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.02),
+    0 10px 20px rgba(0, 0, 0, 0.04),
+    0 20px 40px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* === MINIMALIST BACKGROUND PATTERN === */
+body::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.03) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/* === REFINED CARD CONTENT === */
+.svg-cloud-content {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* === ELEGANT INPUT/FORM STYLES === */
+input, textarea, select {
+  font-family: 'Raleway', sans-serif !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  transition: all 0.3s ease !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: rgba(212, 175, 55, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1) !important;
+  outline: none !important;
+}
+
+/* === RESPONSIVE ANIMATIONS === */
+@media (max-width: 768px) {
+  .svg-cloud-section {
+    animation-duration: 0.6s !important;
+  }
+
+  .svg-cloud-list li {
+    animation-duration: 0.4s !important;
+  }
+
+  .svg-cloud-step {
+    animation-duration: 0.5s !important;
+  }
+
+  .hero-crystal {
+    animation: heroFloat 8s ease-in-out infinite !important;
+  }
+
+  .platform {
+    animation: none !important;
+  }
+
+  .platform:hover {
+    transform: scale(1.05) !important;
+  }
+}
+
+/* === PRINT STYLES === */
+@media print {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .svg-cloud-container {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* === ELEGANT LINE DECORATIONS === */
+.info-sections::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 1px !important;
+  height: 100% !important;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.15) 20%,
+    rgba(212, 175, 55, 0.15) 80%,
+    transparent 100%
+  ) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* === LOGO ANIMATION === */
+@keyframes logoShine {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+  }
+}
+
+.logo-icon svg {
+  animation: logoShine 3s ease-in-out infinite !important;
+  fill: #D4AF37 !important;
+  stroke: none !important;
+}
+
+.logo-icon svg path {
+  fill: #D4AF37 !important;
+}
+
+/* === ELEGANT HOVER UNDERLINE === */
+.svg-cloud-title {
+  transition: all 0.3s ease !important;
+}
+
+.svg-cloud-container:hover .svg-cloud-title::after {
+  width: 100px !important;
+}
+
+/* === REFINED SPACING === */
+.svg-cloud-container {
+  padding: 50px 60px !important;
+}
+
+@media (max-width: 768px) {
+  .svg-cloud-container {
+    padding: 30px 24px !important;
+  }
+}
+
+/* === ELEGANT CARD NUMBERS (for schemes) === */
+.svg-cloud-step__num {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* === FINAL TOUCHES === */
+.svg-cloud-section {
+  margin-bottom: 30px !important;
+}
+
+.info-sections {
+  padding-top: 60px !important;
+  padding-bottom: 80px !important;
+}
+
+/* === ELEGANT TOOLTIP STYLES === */
+[title] {
+  position: relative !important;
+}
+
+/* === IMAGE ELEGANCE === */
+img {
+  transition: all 0.4s ease !important;
+}
+
+.card__media img:hover {
+  transform: scale(1.03) !important;
+}
+
+/* === END PREMIUM MINIMALIST ANIMATIONS === */
