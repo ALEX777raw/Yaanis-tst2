@@ -7191,17 +7191,13 @@ body::before {
   50% { transform: scale(1.1); opacity: 0.8; }
 }
 
-/* Platform icons hover - subtle glow only, no movement */
+/* Platform icons hover - simple scale */
 .platform {
-  transition: box-shadow 0.3s ease, filter 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .platform:hover {
-  box-shadow: 0 8px 25px rgba(255, 215, 100, 0.35);
-}
-
-.platform:hover .platform__img {
-  filter: brightness(1.08);
+  transform: scale(1.1);
 }
 
 /* Smooth page transitions */
