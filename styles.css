@@ -36,6 +36,84 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 button { font: inherit; cursor: pointer; border: none; background: none; }
 
+/* ===== CLOUD TYPOGRAPHY ===== */
+/* Мягкие, округлые облачные шрифты */
+
+/* Заголовки - Comfortaa (мягкий, округлый) */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.loader__title,
+.nav__logo-text,
+.hero-title,
+.hero__title,
+.card-title,
+.feature-title,
+.scheme-title,
+.contact-title {
+  font-family: 'Comfortaa', 'Nunito', system-ui, sans-serif !important;
+  font-weight: 600;
+}
+
+/* Облачный эффект для заголовков - белый хайлайт + мягкая тень */
+h1, h2, h3,
+.section-title,
+.hero-title,
+.hero__title,
+.scheme-title {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9),
+    0 2px 4px rgba(255, 255, 255, 0.5),
+    0 4px 8px rgba(100, 140, 180, 0.15),
+    0 8px 16px rgba(80, 120, 160, 0.1);
+}
+
+/* Текст внутри облаков - усиленный контраст */
+.svg-cloud-section h2,
+.svg-cloud-section h3,
+.svg-cloud-section .section-title,
+.svg-cloud-section .scheme-title {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 1),
+    0 2px 3px rgba(255, 255, 255, 0.7),
+    0 3px 6px rgba(60, 100, 140, 0.2),
+    0 6px 12px rgba(60, 100, 140, 0.12);
+  color: rgba(30, 50, 80, 0.88);
+}
+
+/* Основной текст - Nunito */
+body,
+p,
+.text,
+.description,
+.card-text,
+.feature-desc,
+.step-desc,
+.contact-text {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 400;
+}
+
+/* Облачный эффект для текста - более тонкий */
+.svg-cloud-section p,
+.svg-cloud-section .text,
+.svg-cloud-section .description,
+.svg-cloud-section .step-desc {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8),
+    0 2px 4px rgba(80, 120, 160, 0.08);
+  color: rgba(40, 60, 90, 0.85);
+}
+
+/* Маленькие заголовки (h4, h5, h6) - тоньше тень */
+h4, h5, h6,
+.card-title,
+.feature-title,
+.step-number {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85),
+    0 2px 4px rgba(100, 140, 180, 0.12);
+}
+
 /* ===== LOADER ===== */
 .loader {
   position: fixed;
@@ -295,30 +373,87 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   z-index: 0;
   overflow: hidden;
   background: linear-gradient(180deg,
-    rgba(208, 228, 245, 0.4) 0%,
-    rgba(184, 212, 240, 0.35) 30%,
-    rgba(165, 197, 229, 0.3) 70%,
-    rgba(149, 184, 220, 0.35) 100%);
+    #f8f9fc 0%,
+    #eef2f7 15%,
+    #e5ebf3 30%,
+    #dce4ef 50%,
+    #d3dde9 70%,
+    #c8d5e3 85%,
+    #bfcfdd 100%);
 }
 
 .bg-cloud {
   position: absolute;
   pointer-events: none;
   will-change: transform;
+  animation: bgCloudFloat 30s ease-in-out infinite;
 }
 
 .bg-cloud img {
   width: 100%;
   height: auto;
-  opacity: 0.75;
-  filter: blur(4px);
+  opacity: 0.85;
+  filter: blur(8px);
 }
 
-.bg-cloud--1 { top: -5%; left: -10%; width: 55vw; min-width: 450px; }
-.bg-cloud--2 { top: 0; right: -12%; width: 60vw; min-width: 500px; }
-.bg-cloud--3 { top: 35%; left: -15%; width: 65vw; min-width: 550px; opacity: 0.7; }
-.bg-cloud--4 { bottom: -10%; right: -10%; width: 60vw; min-width: 500px; opacity: 0.65; }
-.bg-cloud--5 { top: 20%; right: 5%; width: 40vw; min-width: 350px; opacity: 0.5; }
+.bg-cloud--1 {
+  top: -8%;
+  left: -15%;
+  width: 70vw;
+  min-width: 550px;
+  animation-duration: 35s;
+  animation-delay: 0s;
+}
+.bg-cloud--2 {
+  top: 5%;
+  right: -18%;
+  width: 75vw;
+  min-width: 600px;
+  animation-duration: 40s;
+  animation-delay: -5s;
+}
+.bg-cloud--3 {
+  top: 30%;
+  left: -20%;
+  width: 80vw;
+  min-width: 650px;
+  opacity: 0.75;
+  animation-duration: 45s;
+  animation-delay: -10s;
+}
+.bg-cloud--4 {
+  bottom: -5%;
+  right: -15%;
+  width: 75vw;
+  min-width: 600px;
+  opacity: 0.7;
+  animation-duration: 38s;
+  animation-delay: -15s;
+}
+.bg-cloud--5 {
+  top: 55%;
+  left: 10%;
+  width: 50vw;
+  min-width: 400px;
+  opacity: 0.6;
+  animation-duration: 42s;
+  animation-delay: -20s;
+}
+
+@keyframes bgCloudFloat {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(30px) translateY(-20px);
+  }
+  50% {
+    transform: translateX(-20px) translateY(15px);
+  }
+  75% {
+    transform: translateX(25px) translateY(-10px);
+  }
+}
 
 .bg-vignette {
   position: absolute;
@@ -847,19 +982,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 .hero-scene::after {
-  content: '';
-  position: absolute;
-  left: -6%;
-  right: -6%;
-  bottom: -1px;
-  height: min(100px, 12vh);
-  background: linear-gradient(180deg,
-    rgba(184, 212, 240, 0) 0%,
-    rgba(184, 212, 240, 0.25) 60%,
-    rgba(184, 212, 240, 0.6) 100%
-  );
-  pointer-events: none;
-  z-index: 3;
+  display: none;
 }
 
 .hero-bg {
@@ -2035,7 +2158,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .steps { grid-template-columns: 1fr; }
   .panel__list { grid-template-columns: 1fr; }
   .cards-section, .info-sections, .contact-section, .video-section { padding-left: 20px; padding-right: 20px; }
-  .content-wrapper { padding: 30px 16px 50px; border-radius: 40px 40px 30px 30px; }
+  .content-wrapper { padding: 30px 16px 50px; border-radius: 0; }
   .platform__img { width: clamp(70px, 18vw, 100px); }
   .platform__label { font-size: 0.75rem; margin-top: -12px; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
   .platform--1 { top: 22%; left: 20%; }
@@ -3404,45 +3527,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   }
 }
 
-/* Sparkle particles on clouds */
-.cloud-content::before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: white;
-  border-radius: 50%;
-  top: 20%;
-  left: 15%;
-  box-shadow:
-    0 0 6px rgba(255, 255, 255, 0.9),
-    0 0 12px rgba(255, 255, 255, 0.6);
-  animation: cloudSparkle 3s ease-in-out infinite;
-  opacity: 0;
-}
-
-.cloud-content::after {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: white;
-  border-radius: 50%;
-  top: 35%;
-  right: 20%;
-  box-shadow:
-    0 0 5px rgba(255, 255, 255, 0.8),
-    0 0 10px rgba(255, 255, 255, 0.5);
-  animation: cloudSparkle 4s ease-in-out infinite;
-  animation-delay: 1.5s;
-  opacity: 0;
-}
-
-@keyframes cloudSparkle {
-  0%, 100% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
 /* ===== FLOATING CLOUD RESPONSIVE ===== */
 
 @media (max-width: 1200px) {
@@ -4181,43 +4265,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   }
 }
 
-/* ===== VIDEO SECTION BACKGROUND ===== */
-.video-section-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.video-section-bg video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  opacity: 0.7;
-  filter: saturate(1.1) brightness(1.0);
-}
-
-.video-section-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg,
-    rgba(220, 235, 250, 0.15) 0%,
-    transparent 20%,
-    transparent 80%,
-    rgba(220, 235, 250, 0.2) 100%);
-  pointer-events: none;
-}
-
 .content-wrapper {
   position: relative;
   z-index: 1;
@@ -4831,4 +4878,2345 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 /* ===== BETTER TRANSITION FOR CLOUDS ===== */
 .bg-cloud, .hero-cloud {
   transition: none;
+}
+
+/* ============================================
+   MEGA VISUAL EFFECTS PACKAGE
+   500+ lines of stunning animations
+   ============================================ */
+
+/* ===== SEAMLESS BACKGROUND TRANSITION ===== */
+.hero::after {
+  display: none;
+}
+
+.content-wrapper::before {
+  display: none;
+}
+
+/* ===== MAGICAL SPARKLE SYSTEM ===== */
+.sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 240, 200, 0.8) 30%,
+    transparent 70%);
+  border-radius: 50%;
+  animation: sparkleFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+}
+
+.sparkle::before,
+.sparkle::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.sparkle::before {
+  width: 2px;
+  height: 12px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+.sparkle::after {
+  width: 12px;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+.sparkle--golden {
+  background: radial-gradient(circle,
+    rgba(255, 215, 100, 1) 0%,
+    rgba(255, 200, 50, 0.8) 30%,
+    transparent 70%);
+  filter: drop-shadow(0 0 5px rgba(255, 200, 50, 0.8));
+}
+
+.sparkle--golden::before,
+.sparkle--golden::after {
+  background: rgba(255, 215, 100, 0.9);
+}
+
+.sparkle--large {
+  width: 10px;
+  height: 10px;
+}
+
+.sparkle--large::before {
+  height: 20px;
+  width: 3px;
+}
+
+.sparkle--large::after {
+  width: 20px;
+  height: 3px;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1) rotate(45deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-100px) scale(0.8) rotate(180deg);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translateY(-180px) scale(0.4) rotate(315deg);
+  }
+}
+
+@keyframes sparkleGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 240, 200, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 240, 200, 0.5);
+  }
+}
+
+/* ===== ADVANCED WIND PARTICLE SYSTEM ===== */
+.wind-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.wind-particle {
+  position: absolute;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 20%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.6) 80%,
+    transparent 100%);
+  border-radius: 50px;
+  animation: windBlow linear infinite;
+  filter: blur(0.5px);
+}
+
+.wind-particle--thin {
+  height: 1px;
+  width: 80px;
+}
+
+.wind-particle--medium {
+  height: 2px;
+  width: 120px;
+}
+
+.wind-particle--thick {
+  height: 3px;
+  width: 150px;
+  opacity: 0.4;
+}
+
+.wind-particle--curved {
+  border-radius: 50%;
+  transform-origin: left center;
+}
+
+@keyframes windBlow {
+  0% {
+    transform: translateX(-200px) translateY(0) scaleX(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+    transform: translateX(0) translateY(-10px) scaleX(1);
+  }
+  90% {
+    opacity: 0.5;
+    transform: translateX(calc(100vw - 100px)) translateY(10px) scaleX(0.8);
+  }
+  100% {
+    transform: translateX(100vw) translateY(0) scaleX(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes windGust {
+  0%, 100% {
+    transform: translateX(-100%) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(100vw) rotate(2deg);
+  }
+}
+
+/* ===== FLOATING DUST MOTES ===== */
+.dust-motes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 45;
+}
+
+.dust-mote {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 250, 240, 0.5) 50%,
+    transparent 100%);
+  border-radius: 50%;
+  animation: dustFloat linear infinite;
+}
+
+.dust-mote--golden {
+  background: radial-gradient(circle,
+    rgba(255, 215, 100, 0.9) 0%,
+    rgba(255, 200, 50, 0.5) 50%,
+    transparent 100%);
+}
+
+.dust-mote--large {
+  width: 5px;
+  height: 5px;
+}
+
+@keyframes dustFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+    transform: translateY(90vh) translateX(20px) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(50vh) translateX(-30px) scale(0.8);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translateY(10vh) translateX(40px) scale(0.5);
+  }
+  100% {
+    transform: translateY(-10vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ===== LIGHT RAYS / GOD RAYS ===== */
+.light-rays {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 30;
+  overflow: hidden;
+}
+
+.light-ray {
+  position: absolute;
+  top: -20%;
+  width: 200px;
+  height: 150%;
+  background: linear-gradient(180deg,
+    rgba(255, 250, 230, 0.3) 0%,
+    rgba(255, 245, 200, 0.15) 30%,
+    rgba(255, 240, 180, 0.05) 60%,
+    transparent 100%);
+  transform-origin: top center;
+  animation: rayShimmer 8s ease-in-out infinite;
+  filter: blur(30px);
+}
+
+.light-ray--narrow {
+  width: 100px;
+  filter: blur(20px);
+}
+
+.light-ray--wide {
+  width: 350px;
+  filter: blur(50px);
+  opacity: 0.5;
+}
+
+@keyframes rayShimmer {
+  0%, 100% {
+    opacity: 0.3;
+    transform: rotate(-5deg) scaleY(1);
+  }
+  25% {
+    opacity: 0.5;
+    transform: rotate(-3deg) scaleY(1.1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: rotate(0deg) scaleY(1.05);
+  }
+  75% {
+    opacity: 0.6;
+    transform: rotate(3deg) scaleY(1.15);
+  }
+}
+
+/* ===== AURORA BOREALIS EFFECT ===== */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60vh;
+  pointer-events: none;
+  z-index: 25;
+  opacity: 0.15;
+  mix-blend-mode: screen;
+}
+
+.aurora-wave {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(100, 200, 255, 0.3) 20%,
+    rgba(150, 230, 200, 0.4) 40%,
+    rgba(200, 180, 255, 0.3) 60%,
+    rgba(255, 200, 150, 0.2) 80%,
+    transparent 100%);
+  animation: auroraFlow 20s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+.aurora-wave:nth-child(2) {
+  animation-delay: -7s;
+  animation-duration: 25s;
+  opacity: 0.7;
+}
+
+.aurora-wave:nth-child(3) {
+  animation-delay: -14s;
+  animation-duration: 30s;
+  opacity: 0.5;
+}
+
+@keyframes auroraFlow {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) scaleY(1);
+  }
+  25% {
+    transform: translateX(-30%) translateY(10%) scaleY(1.2);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5%) scaleY(0.8);
+  }
+  75% {
+    transform: translateX(-70%) translateY(5%) scaleY(1.1);
+  }
+}
+
+/* ===== FLOATING FEATHERS ===== */
+.feathers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 55;
+  overflow: hidden;
+}
+
+.feather {
+  position: absolute;
+  width: 30px;
+  height: 60px;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 250, 245, 0.7) 50%,
+    rgba(250, 245, 240, 0.5) 100%);
+  clip-path: ellipse(40% 50% at 50% 50%);
+  animation: featherFall linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.feather::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  background: linear-gradient(180deg,
+    rgba(200, 180, 160, 0.3) 0%,
+    rgba(200, 180, 160, 0.6) 50%,
+    rgba(200, 180, 160, 0.3) 100%);
+  transform: translateX(-50%);
+}
+
+.feather--golden {
+  background: linear-gradient(135deg,
+    rgba(255, 235, 180, 0.9) 0%,
+    rgba(255, 220, 150, 0.7) 50%,
+    rgba(255, 210, 130, 0.5) 100%);
+}
+
+.feather--small {
+  width: 20px;
+  height: 40px;
+}
+
+@keyframes featherFall {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateY(25vh) translateX(50px) rotate(45deg) scale(0.95);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-30px) rotate(90deg) scale(0.9);
+  }
+  75% {
+    transform: translateY(75vh) translateX(40px) rotate(135deg) scale(0.85);
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100vh) translateX(0) rotate(180deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* ===== MAGICAL ORB SYSTEM ===== */
+.magic-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 35;
+}
+
+.magic-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(200, 230, 255, 0.6) 30%,
+    rgba(150, 200, 255, 0.3) 60%,
+    transparent 100%);
+  animation: orbFloat 12s ease-in-out infinite;
+  filter: blur(2px);
+}
+
+.magic-orb::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 70%);
+  animation: orbPulse 3s ease-in-out infinite;
+}
+
+.magic-orb--golden {
+  background: radial-gradient(circle at 30% 30%,
+    rgba(255, 240, 200, 0.9) 0%,
+    rgba(255, 215, 100, 0.6) 30%,
+    rgba(255, 200, 50, 0.3) 60%,
+    transparent 100%);
+}
+
+.magic-orb--small {
+  width: 15px;
+  height: 15px;
+}
+
+.magic-orb--medium {
+  width: 25px;
+  height: 25px;
+}
+
+.magic-orb--large {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, -30px) scale(0.9);
+  }
+  75% {
+    transform: translate(40px, -60px) scale(1.05);
+  }
+}
+
+@keyframes orbPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.3;
+  }
+}
+
+/* ===== CONSTELLATION STARS ===== */
+.constellation {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  animation: starTwinkle 2s ease-in-out infinite;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.star--large {
+  width: 6px;
+  height: 6px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+.star--dim {
+  opacity: 0.4;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ===== FLOWING RIBBON ===== */
+.ribbons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  overflow: hidden;
+}
+
+.ribbon {
+  position: absolute;
+  width: 300px;
+  height: 8px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 10%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 90%,
+    transparent 100%);
+  border-radius: 4px;
+  animation: ribbonFlow 15s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.ribbon--golden {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 215, 100, 0.2) 10%,
+    rgba(255, 200, 50, 0.4) 50%,
+    rgba(255, 215, 100, 0.2) 90%,
+    transparent 100%);
+}
+
+@keyframes ribbonFlow {
+  0% {
+    transform: translateX(-100%) translateY(0) rotate(-5deg) scaleX(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(50vw) translateY(20px) rotate(5deg) scaleX(1.2);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-10px) rotate(-3deg) scaleX(0.9);
+    opacity: 0;
+  }
+}
+
+/* ===== PULSING HALOS ===== */
+.halos {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.halo {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: haloPulse 4s ease-out infinite;
+}
+
+.halo--golden {
+  border-color: rgba(255, 215, 100, 0.4);
+}
+
+@keyframes haloPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   ENHANCED TYPOGRAPHY & FONTS
+   ============================================ */
+
+/* Import beautiful fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+/* Enhanced font styling */
+.svg-cloud-title {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  text-shadow:
+    0 2px 4px rgba(100, 140, 180, 0.15),
+    0 4px 8px rgba(100, 140, 180, 0.1);
+  background: linear-gradient(135deg,
+    rgba(40, 60, 90, 1) 0%,
+    rgba(60, 90, 130, 1) 50%,
+    rgba(40, 60, 90, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.svg-cloud-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(212, 168, 85, 0.6) 20%,
+    rgba(212, 168, 85, 0.8) 50%,
+    rgba(212, 168, 85, 0.6) 80%,
+    transparent 100%);
+  border-radius: 2px;
+}
+
+.svg-cloud-text {
+  font-family: 'Lora', 'Nunito', Georgia, serif !important;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(40, 60, 90, 0.85);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.svg-cloud-list li {
+  font-family: 'Nunito', system-ui, sans-serif;
+  position: relative;
+  padding-left: 20px;
+}
+
+.svg-cloud-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: rgba(212, 168, 85, 0.7);
+  font-size: 0.7em;
+}
+
+/* ============================================
+   ULTRA-BEAUTIFUL CLOUD TEXT SECTIONS
+   400+ lines of stunning cloud styling
+   ============================================ */
+
+/* Enhanced cloud container */
+.svg-cloud-container {
+  position: relative;
+  width: min(950px, 94vw);
+  min-height: 420px;
+  margin: 0 auto;
+  padding: 50px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.svg-cloud-container--large {
+  width: min(1200px, 98vw);
+  min-height: 580px;
+  padding: 60px 70px;
+}
+
+/* Multi-layer cloud background system */
+.svg-cloud-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: drop-shadow(0 20px 40px rgba(100, 150, 200, 0.25))
+          drop-shadow(0 10px 20px rgba(100, 150, 200, 0.15));
+}
+
+/* Animated cloud glow */
+.svg-cloud-glow {
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(ellipse 80% 70% at 50% 40%,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    transparent 70%);
+  z-index: -2;
+  animation: cloudGlowPulse 6s ease-in-out infinite;
+  filter: blur(20px);
+}
+
+.svg-cloud-glow--large {
+  inset: -50px;
+}
+
+@keyframes cloudGlowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Cloud shine effect - DISABLED */
+.svg-cloud-container::before {
+  display: none;
+}
+
+@keyframes cloudShine {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateX(0) scaleX(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(5%) scaleX(1.1);
+  }
+}
+
+/* Cloud edge soft glow - DISABLED */
+.svg-cloud-container::after {
+  display: none;
+}
+
+@keyframes cloudEdgeGlow {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 60px rgba(255, 255, 255, 0.5),
+      inset 0 0 120px rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.4),
+      0 0 80px rgba(200, 220, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 80px rgba(255, 255, 255, 0.6),
+      inset 0 0 150px rgba(255, 255, 255, 0.35),
+      0 0 60px rgba(255, 255, 255, 0.5),
+      0 0 100px rgba(200, 220, 255, 0.25);
+  }
+}
+
+/* Floating mini-clouds around main cloud - DISABLED */
+.svg-cloud-section::before,
+.svg-cloud-section::after {
+  display: none;
+}
+
+@keyframes miniCloudFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(20px, -15px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-10px, 10px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(15px, -5px) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* Cloud content styling */
+.svg-cloud-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 90%;
+  padding: 20px;
+}
+
+.svg-cloud-content--large {
+  max-width: 85%;
+}
+
+/* Enhanced callout box */
+.svg-cloud-callout {
+  margin-top: 25px;
+  padding: 20px 30px;
+  background: linear-gradient(135deg,
+    rgba(255, 248, 230, 0.9) 0%,
+    rgba(255, 240, 210, 0.85) 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(212, 168, 85, 0.3);
+  box-shadow:
+    0 10px 30px rgba(212, 168, 85, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.svg-cloud-callout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.svg-cloud-callout p {
+  position: relative;
+  z-index: 1;
+  color: rgba(139, 110, 60, 0.9);
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+}
+
+/* Step list enhancement */
+.svg-cloud-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+  padding: 0;
+  list-style: none;
+}
+
+.svg-cloud-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(245, 250, 255, 0.7) 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 15px rgba(100, 150, 200, 0.1);
+  transition: all 0.3s var(--ease);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+}
+
+.svg-cloud-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(100, 150, 200, 0.2);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 252, 255, 0.9) 100%);
+}
+
+.svg-cloud-step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg,
+    rgba(212, 168, 85, 0.9) 0%,
+    rgba(200, 155, 70, 0.85) 100%);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 3px 10px rgba(212, 168, 85, 0.3);
+}
+
+/* Cloud section floating animation */
+.svg-cloud-section {
+  position: relative;
+  padding: 30px;
+  margin: 80px auto;
+  max-width: 1400px;
+  animation: sectionFloat 8s ease-in-out infinite;
+}
+
+@keyframes sectionFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Staggered animation for different sections */
+.svg-cloud-section:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.svg-cloud-section:nth-child(3) {
+  animation-delay: -4s;
+}
+
+.svg-cloud-section:nth-child(4) {
+  animation-delay: -6s;
+}
+
+/* Cloud wisps around text - DISABLED */
+.svg-cloud-content::before,
+.svg-cloud-content::after {
+  display: none;
+}
+
+.svg-cloud-content::after {
+  width: 80px;
+  height: 40px;
+  bottom: -15px;
+  right: 15%;
+  animation-delay: -3s;
+}
+
+@keyframes wispFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(10px, -10px) scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* Cloud list enhancement */
+.svg-cloud-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 20px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.svg-cloud-list li {
+  padding: 8px 12px 8px 28px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  transition: all 0.3s var(--ease);
+  position: relative;
+}
+
+.svg-cloud-list li:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(5px);
+}
+
+/* Dreamy blur effect on scroll */
+.svg-cloud-section[data-reveal] {
+  opacity: 0;
+  transform: translateY(50px);
+  filter: blur(10px);
+  transition: all 0.8s var(--ease-out);
+}
+
+.svg-cloud-section[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Cloud shadow on ground */
+.svg-cloud-section .cloud-shadow {
+  position: absolute;
+  bottom: -60px;
+  left: 10%;
+  right: 10%;
+  height: 30px;
+  background: radial-gradient(ellipse,
+    rgba(100, 130, 170, 0.15) 0%,
+    transparent 70%);
+  filter: blur(15px);
+  animation: shadowPulse 6s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleX(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* Rainbow shimmer on cloud edges */
+.svg-cloud-shape::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(255, 200, 200, 0.1) 0%,
+    rgba(255, 255, 200, 0.1) 25%,
+    rgba(200, 255, 200, 0.1) 50%,
+    rgba(200, 200, 255, 0.1) 75%,
+    rgba(255, 200, 255, 0.1) 100%);
+  mix-blend-mode: overlay;
+  animation: rainbowShimmer 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rainbowShimmer {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* ===== ENHANCED CARDS SECTION ===== */
+.cards-section {
+  position: relative;
+  z-index: 10;
+  padding: 60px 20px;
+  background: transparent;
+}
+
+.cards-section::before {
+  display: none;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow:
+    0 20px 60px rgba(100, 140, 180, 0.2),
+    0 10px 30px rgba(100, 140, 180, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.4s var(--ease-out);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%);
+  transition: left 0.6s var(--ease);
+  pointer-events: none;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow:
+    0 30px 80px rgba(100, 140, 180, 0.25),
+    0 15px 40px rgba(100, 140, 180, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.9) !important;
+}
+
+.card__title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 600;
+  background: linear-gradient(135deg,
+    rgba(40, 60, 90, 1) 0%,
+    rgba(60, 80, 110, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   CONTACT SECTION - CLOUD STYLE
+   ============================================ */
+
+.svg-cloud-section--contact {
+  margin-bottom: 60px;
+}
+
+.svg-cloud-container--contact {
+  width: min(900px, 92vw);
+  min-height: 380px;
+}
+
+.svg-cloud-glow--contact {
+  background: radial-gradient(ellipse 80% 70% at 50% 40%,
+    rgba(255, 248, 220, 0.5) 0%,
+    rgba(255, 240, 200, 0.25) 30%,
+    transparent 70%);
+}
+
+.svg-cloud-title--contact {
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  color: rgba(139, 90, 43, 0.9);
+  margin-bottom: 15px;
+}
+
+.svg-cloud-text--contact {
+  color: rgba(80, 60, 40, 0.9);
+}
+
+.contact-link {
+  color: rgba(139, 90, 43, 0.95);
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 168, 85, 0.5);
+  text-underline-offset: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  color: rgba(180, 120, 50, 1);
+  text-decoration-color: rgba(212, 168, 85, 0.9);
+}
+
+.contact-cloud-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.qr-code-cloud {
+  width: 120px;
+  height: 120px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 25px rgba(100, 130, 160, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qr-code-cloud:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 12px 35px rgba(100, 130, 160, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.qr-code-cloud img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn--cloud {
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(245, 248, 255, 0.85) 100%);
+  color: rgba(60, 80, 110, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 6px 20px rgba(100, 130, 160, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn--cloud:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 30px rgba(100, 130, 160, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(250, 252, 255, 0.95) 100%);
+}
+
+.btn--cloud.btn--primary {
+  background: linear-gradient(135deg,
+    rgba(212, 168, 85, 0.9) 0%,
+    rgba(190, 145, 60, 0.85) 100%);
+  color: white;
+  border-color: rgba(212, 168, 85, 0.6);
+  box-shadow:
+    0 6px 20px rgba(212, 168, 85, 0.25),
+    inset 0 1px 0 rgba(255, 230, 180, 0.4);
+}
+
+.btn--cloud.btn--primary:hover {
+  background: linear-gradient(135deg,
+    rgba(220, 180, 100, 0.95) 0%,
+    rgba(200, 155, 70, 0.9) 100%);
+  box-shadow:
+    0 10px 30px rgba(212, 168, 85, 0.35),
+    inset 0 1px 0 rgba(255, 230, 180, 0.5);
+}
+
+/* ============================================
+   SCHEME CLOUD - LARGER SIZE FOR 8 STEPS
+   ============================================ */
+
+/* Make scheme section cloud larger - fix clipping */
+#scheme.svg-cloud-section {
+  overflow: visible;
+  padding: 50px 80px;
+}
+
+#scheme .svg-cloud-container {
+  width: min(1000px, 90vw);
+  min-height: 480px;
+  overflow: visible;
+}
+
+#scheme .svg-cloud-shape {
+  top: -20%;
+  left: -12%;
+  width: 124%;
+  height: 140%;
+  overflow: visible;
+}
+
+#scheme .svg-cloud-content {
+  max-width: 90%;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Optimize step grid for 8 items */
+#scheme .svg-cloud-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#scheme .svg-cloud-step {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+}
+
+#scheme .svg-cloud-step__num {
+  width: 24px;
+  height: 24px;
+  font-size: 0.8rem;
+}
+
+/* Mobile responsive for scheme */
+@media (max-width: 900px) {
+  #scheme .svg-cloud-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #scheme .svg-cloud-container {
+    min-height: 600px;
+  }
+}
+
+@media (max-width: 500px) {
+  #scheme .svg-cloud-steps {
+    grid-template-columns: 1fr;
+  }
+
+  #scheme .svg-cloud-container {
+    min-height: 750px;
+  }
+
+  .contact-cloud-actions {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-buttons {
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn--cloud {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   ADDITIONAL MAGICAL EFFECTS
+   ============================================ */
+
+/* Golden sparkle particles floating */
+@keyframes goldenSparkleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100px) translateX(30px) scale(1.2);
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.3;
+  }
+}
+
+/* Soft glow pulse for cloud sections */
+.svg-cloud-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 60%;
+  background: radial-gradient(ellipse at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 250, 240, 0.2) 40%,
+    transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+  animation: softGlowPulse 8s ease-in-out infinite;
+}
+
+@keyframes softGlowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Floating golden dust */
+.info-sections::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, rgba(212, 168, 85, 0.6) 50%, transparent 50%),
+    radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 50% 60%, rgba(212, 168, 85, 0.5) 50%, transparent 50%),
+    radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.7) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 90% 70%, rgba(212, 168, 85, 0.4) 50%, transparent 50%),
+    radial-gradient(2px 2px at 15% 80%, rgba(255, 255, 255, 0.6) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 85% 15%, rgba(212, 168, 85, 0.5) 50%, transparent 50%);
+  animation: dustDrift 30s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+@keyframes dustDrift {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-50px) translateX(30px);
+  }
+}
+
+/* Cloud edge shimmer */
+.svg-cloud-shape ellipse {
+  transition: all 0.5s ease;
+}
+
+.svg-cloud-section:hover .svg-cloud-shape ellipse {
+  filter: brightness(1.05);
+}
+
+/* Subtle rainbow shimmer on clouds */
+.svg-cloud-container::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  height: 30%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 200, 200, 0.1) 20%,
+    rgba(255, 255, 200, 0.1) 40%,
+    rgba(200, 255, 200, 0.1) 60%,
+    rgba(200, 200, 255, 0.1) 80%,
+    transparent 100%);
+  filter: blur(20px);
+  animation: rainbowShimmer 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+@keyframes rainbowShimmer {
+  0%, 100% {
+    transform: translateX(-10%) scaleX(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(10%) scaleX(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* Light beam effect */
+.info-sections::after {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%) rotate(15deg);
+  width: 300px;
+  height: 800px;
+  background: linear-gradient(180deg,
+    rgba(255, 250, 230, 0.15) 0%,
+    rgba(255, 250, 230, 0.05) 50%,
+    transparent 100%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+  animation: lightBeamSway 20s ease-in-out infinite;
+}
+
+@keyframes lightBeamSway {
+  0%, 100% {
+    transform: translateX(-50%) rotate(15deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-30%) rotate(10deg);
+    opacity: 0.8;
+  }
+}
+
+/* Floating mini stars around clouds */
+.svg-cloud-glow::before,
+.svg-cloud-glow::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(212, 168, 85, 0.8);
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px rgba(212, 168, 85, 0.6),
+    0 0 20px rgba(212, 168, 85, 0.4);
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.svg-cloud-glow::before {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.svg-cloud-glow::after {
+  bottom: 30%;
+  right: 15%;
+  animation-delay: -1.5s;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Soft vignette on content wrapper */
+.content-wrapper::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center,
+    transparent 50%,
+    rgba(200, 220, 240, 0.1) 100%);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Enhanced card hover glow */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg,
+    rgba(212, 168, 85, 0.3) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(200, 220, 255, 0.3) 100%);
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  filter: blur(15px);
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   CLOUD CLIPPING FIX - COMPLETE SOLUTION
+   ============================================ */
+
+/* Remove ALL clipping from cloud containers hierarchy */
+.info-sections,
+.content-wrapper,
+.svg-cloud-section,
+.svg-cloud-container,
+.svg-cloud-container--large,
+.svg-cloud-container--contact {
+  overflow: visible !important;
+}
+
+/* Extra padding for cloud sections to prevent edge clipping */
+.svg-cloud-section {
+  padding: 80px 100px !important;
+  margin: 60px auto !important;
+}
+
+/* Expand cloud shape with negative insets */
+.svg-cloud-shape {
+  position: absolute;
+  top: -25% !important;
+  left: -15% !important;
+  width: 130% !important;
+  height: 150% !important;
+  overflow: visible !important;
+}
+
+.svg-cloud-shape--large {
+  top: -30% !important;
+  left: -18% !important;
+  width: 136% !important;
+  height: 160% !important;
+}
+
+/* Ensure SVG itself doesn't clip */
+.svg-cloud-shape,
+.svg-cloud-section svg,
+svg.svg-cloud-shape {
+  overflow: visible !important;
+}
+
+/* Expand glow layer */
+.svg-cloud-glow {
+  inset: -80px !important;
+  overflow: visible !important;
+}
+
+.svg-cloud-glow--large {
+  inset: -100px !important;
+}
+
+/* Scheme section specific - extra room */
+#scheme.svg-cloud-section {
+  padding: 100px 120px !important;
+}
+
+#scheme .svg-cloud-shape {
+  top: -35% !important;
+  left: -20% !important;
+  width: 140% !important;
+  height: 170% !important;
+}
+
+#scheme .svg-cloud-container {
+  min-height: 500px;
+}
+
+/* Contact section */
+#contact.svg-cloud-section--contact {
+  padding: 80px 100px !important;
+}
+
+/* Remove any border-radius that could cause clipping with overflow */
+.info-sections,
+.content-wrapper {
+  border-radius: 0 !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .svg-cloud-section {
+    padding: 60px 30px !important;
+  }
+
+  #scheme.svg-cloud-section {
+    padding: 70px 40px !important;
+  }
+}
+
+/* ============================================
+   FINAL CLOUD CLIPPING FIX - NUCLEAR OPTION
+   ============================================ */
+
+/* Allow clouds to extend beyond body horizontally */
+body {
+  overflow-x: clip !important;
+}
+
+/* Main container needs to allow overflow */
+.main,
+main,
+.content-wrapper,
+.info-sections {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+/* Cloud sections - no clipping at all */
+.svg-cloud-section {
+  overflow: visible !important;
+  clip: unset !important;
+  clip-path: none !important;
+}
+
+/* Cloud container - ensure full visibility */
+.svg-cloud-container {
+  overflow: visible !important;
+  clip: unset !important;
+  clip-path: none !important;
+  margin: 0 auto;
+}
+
+/* SVG shape - position to show full cloud */
+.svg-cloud-shape {
+  overflow: visible !important;
+  clip: unset !important;
+  clip-path: none !important;
+}
+
+/* Make cloud SVG elements extend beyond viewBox */
+.svg-cloud-shape svg {
+  overflow: visible !important;
+}
+
+/* Glow should extend freely */
+.svg-cloud-glow {
+  overflow: visible !important;
+  clip: unset !important;
+}
+
+/* Cloud shape positioning - FILL container completely */
+.svg-cloud-section .svg-cloud-shape {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  overflow: visible !important;
+}
+
+.svg-cloud-section--large .svg-cloud-shape--large {
+  transform: none !important;
+}
+
+#scheme .svg-cloud-shape {
+  transform: none !important;
+}
+
+/* BIGGER cloud containers */
+.svg-cloud-container {
+  padding: 60px 80px;
+  min-height: 450px;
+  width: min(1100px, 96vw) !important;
+  overflow: visible !important;
+}
+
+.svg-cloud-container--large {
+  padding: 70px 90px;
+  min-height: 600px;
+  width: min(1300px, 98vw) !important;
+  overflow: visible !important;
+}
+
+/* Scheme cloud specific sizing */
+#scheme .svg-cloud-container {
+  min-height: 480px;
+}
+
+/* Contact cloud sizing */
+.svg-cloud-container--contact {
+  padding: 60px 80px;
+  min-height: 420px;
+  width: min(1050px, 96vw) !important;
+}
+
+/* Force no clipping on all cloud elements */
+.svg-cloud-section,
+.svg-cloud-container,
+.svg-cloud-shape,
+.info-sections {
+  overflow: visible !important;
+  clip: unset !important;
+  clip-path: none !important;
+}
+
+/* ============================================
+   VISUAL EFFECTS - Sparkles & Glow
+   ============================================ */
+
+/* Floating sparkles animation */
+@keyframes sparkleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes sparkleGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 215, 100, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 100, 0.9), 0 0 40px rgba(255, 200, 50, 0.5);
+  }
+}
+
+/* Cloud hover glow effect */
+.svg-cloud-section:hover .svg-cloud-shape ellipse {
+  filter: brightness(1.08) drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+  transition: all 0.5s ease;
+}
+
+/* Soft pulsing glow on clouds */
+@keyframes cloudPulse {
+  0%, 100% {
+    filter: drop-shadow(0 10px 30px rgba(100, 150, 200, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 15px 40px rgba(100, 150, 200, 0.35));
+  }
+}
+
+.svg-cloud-shape {
+  animation: cloudPulse 6s ease-in-out infinite;
+}
+
+/* Gold accent glow on buttons */
+.btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn--primary:hover::after {
+  transform: translateX(100%);
+}
+
+/* Subtle text shimmer on headings */
+@keyframes textShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.svg-cloud-title {
+  background: linear-gradient(
+    90deg,
+    rgba(60, 80, 120, 0.9) 0%,
+    rgba(100, 130, 180, 1) 25%,
+    rgba(180, 160, 100, 1) 50%,
+    rgba(100, 130, 180, 1) 75%,
+    rgba(60, 80, 120, 0.9) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 8s linear infinite;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .svg-cloud-container {
+    width: 95vw !important;
+    padding: 50px 40px;
+    min-height: 400px;
+  }
+
+  .svg-cloud-container--large {
+    min-height: 550px;
+    padding: 60px 50px;
+  }
+
+  #scheme .svg-cloud-container {
+    min-height: 500px;
+  }
+
+  .svg-cloud-content {
+    padding: 30px 25px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .svg-cloud-container {
+    width: 98vw !important;
+    padding: 40px 25px;
+    min-height: 350px;
+  }
+
+  .svg-cloud-container--large {
+    min-height: 480px;
+    padding: 45px 30px;
+  }
+
+  #scheme .svg-cloud-container {
+    min-height: 550px;
+  }
+
+  #scheme .svg-cloud-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .svg-cloud-step {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .svg-cloud-title {
+    font-size: 1.5rem;
+  }
+
+  .svg-cloud-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Navigation mobile */
+  .nav {
+    padding: 10px 15px;
+  }
+
+  .nav__logo-text {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .nav-actions .btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  /* Hero mobile */
+  .hero {
+    min-height: 80vh;
+    padding: 20px;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  /* Contact cloud mobile */
+  .svg-cloud-container--contact {
+    padding: 35px 25px;
+    min-height: 380px;
+  }
+
+  .contact-cloud-actions {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .qr-code-cloud img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .svg-cloud-container {
+    padding: 30px 20px;
+    min-height: 320px;
+  }
+
+  .svg-cloud-container--large {
+    min-height: 450px;
+    padding: 35px 20px;
+  }
+
+  #scheme .svg-cloud-container {
+    min-height: 620px;
+  }
+
+  #scheme .svg-cloud-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .svg-cloud-step {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .svg-cloud-title {
+    font-size: 1.3rem;
+  }
+
+  .svg-cloud-text {
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 10vw, 2.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Floating platforms mobile */
+  .floating-platforms {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .platform {
+    width: 70px;
+    height: 70px;
+  }
+
+  .platform__img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .platform__label {
+    font-size: 0.65rem;
+  }
+
+  /* Buttons mobile */
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* Info sections spacing */
+  .info-sections {
+    padding: 20px 10px;
+    gap: 40px;
+  }
+
+  .svg-cloud-section {
+    margin: 20px auto;
+  }
+}
+
+/* ============================================
+   EXTRA BEAUTIFUL EFFECTS
+   ============================================ */
+
+/* Floating feathers/leaves animation */
+@keyframes featherFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Create floating particles container */
+.background::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 10%;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(255, 215, 100, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: featherFloat 15s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.background::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 15%;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: featherFloat 20s ease-in-out infinite 3s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Rainbow border glow on cards/steps */
+@keyframes rainbowBorder {
+  0% { border-color: rgba(255, 180, 100, 0.4); }
+  25% { border-color: rgba(180, 200, 255, 0.4); }
+  50% { border-color: rgba(200, 255, 200, 0.4); }
+  75% { border-color: rgba(255, 200, 220, 0.4); }
+  100% { border-color: rgba(255, 180, 100, 0.4); }
+}
+
+.svg-cloud-step {
+  animation: rainbowBorder 8s ease infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.svg-cloud-step:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(100, 150, 200, 0.3);
+}
+
+/* Magical floating dots */
+@keyframes magicDots {
+  0%, 100% {
+    box-shadow:
+      20vw 20vh 0 0 rgba(255, 215, 100, 0.3),
+      80vw 30vh 0 0 rgba(200, 220, 255, 0.3),
+      40vw 80vh 0 0 rgba(255, 200, 150, 0.3),
+      70vw 70vh 0 0 rgba(180, 255, 200, 0.3);
+  }
+  50% {
+    box-shadow:
+      25vw 25vh 0 2px rgba(255, 215, 100, 0.5),
+      75vw 35vh 0 2px rgba(200, 220, 255, 0.5),
+      45vw 75vh 0 2px rgba(255, 200, 150, 0.5),
+      65vw 65vh 0 2px rgba(180, 255, 200, 0.5);
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  border-radius: 50%;
+  animation: magicDots 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Smooth scroll reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.svg-cloud-section[data-reveal] {
+  animation: revealUp 0.8s ease-out forwards;
+}
+
+/* Glowing navigation on scroll */
+.nav.is-scrolled {
+  box-shadow:
+    0 5px 30px rgba(100, 150, 200, 0.15),
+    0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+/* Button ripple effect */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Cloud shadow dance */
+@keyframes shadowDance {
+  0%, 100% {
+    filter: drop-shadow(0 20px 40px rgba(100, 140, 180, 0.2));
+  }
+  25% {
+    filter: drop-shadow(5px 25px 45px rgba(120, 150, 190, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 30px 50px rgba(100, 140, 180, 0.3));
+  }
+  75% {
+    filter: drop-shadow(-5px 25px 45px rgba(120, 150, 190, 0.25));
+  }
+}
+
+.svg-cloud-container {
+  animation: shadowDance 12s ease-in-out infinite;
+}
+
+/* Twinkling stars effect */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+.info-sections::before,
+.info-sections::after {
+  content: '✦';
+  position: fixed;
+  font-size: 12px;
+  color: rgba(255, 215, 100, 0.6);
+  animation: twinkle 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.info-sections::before {
+  top: 20%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.info-sections::after {
+  top: 60%;
+  right: 8%;
+  animation-delay: 1.5s;
+}
+
+/* Gradient text for main title */
+.hero-title {
+  background: linear-gradient(
+    135deg,
+    #1a3a5c 0%,
+    #3a6a8c 25%,
+    #d4a855 50%,
+    #3a6a8c 75%,
+    #1a3a5c 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 8s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Soft glow on QR code */
+.qr-code-cloud {
+  position: relative;
+}
+
+.qr-code-cloud::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(255, 215, 100, 0.2) 0%, transparent 70%);
+  border-radius: 20px;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Platform icons hover lift */
+.platform {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.platform:hover {
+  transform: translateY(-15px) scale(1.1);
+  box-shadow: 0 20px 40px rgba(100, 140, 180, 0.3);
+}
+
+.platform:hover .platform__img {
+  filter: brightness(1.1) drop-shadow(0 5px 15px rgba(255, 215, 100, 0.4));
+}
+
+/* Smooth page transitions */
+.loader.is-hidden + * {
+  animation: pageReveal 1s ease-out;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
