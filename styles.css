@@ -36,8 +36,8 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 button { font: inherit; cursor: pointer; border: none; background: none; }
 
-/* ===== CLOUD TYPOGRAPHY ===== */
-/* Мягкие, округлые облачные шрифты */
+/* ===== PREMIUM CLOUD TYPOGRAPHY ===== */
+/* Элегантные, мягкие облачные шрифты */
 
 /* Заголовки - Comfortaa (мягкий, округлый) */
 h1, h2, h3, h4, h5, h6,
@@ -51,36 +51,40 @@ h1, h2, h3, h4, h5, h6,
 .scheme-title,
 .contact-title {
   font-family: 'Comfortaa', 'Nunito', system-ui, sans-serif !important;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-/* Облачный эффект для заголовков - белый хайлайт + мягкая тень */
+/* Премиум эффект для заголовков - градиент + свечение */
 h1, h2, h3,
 .section-title,
 .hero-title,
 .hero__title,
 .scheme-title {
-  text-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.9),
-    0 2px 4px rgba(255, 255, 255, 0.5),
-    0 4px 8px rgba(100, 140, 180, 0.15),
-    0 8px 16px rgba(80, 120, 160, 0.1);
+  background: linear-gradient(135deg, #1a3a5c 0%, #2d5a7b 40%, #1a3a5c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 4px rgba(30, 60, 100, 0.15));
 }
 
-/* Текст внутри облаков - усиленный контраст */
+/* Текст внутри облаков - элегантный градиент */
 .svg-cloud-section h2,
 .svg-cloud-section h3,
-.svg-cloud-section .section-title,
-.svg-cloud-section .scheme-title {
-  text-shadow:
-    0 1px 0 rgba(255, 255, 255, 1),
-    0 2px 3px rgba(255, 255, 255, 0.7),
-    0 3px 6px rgba(60, 100, 140, 0.2),
-    0 6px 12px rgba(60, 100, 140, 0.12);
-  color: rgba(30, 50, 80, 0.88);
+.svg-cloud-title {
+  background: linear-gradient(135deg, #1e4a6d 0%, #2a6a8f 50%, #d4a855 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(30, 70, 110, 0.2));
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
 }
 
-/* Основной текст - Nunito */
+/* Основной текст - Nunito с улучшенной читаемостью */
 body,
 p,
 .text,
@@ -90,28 +94,39 @@ p,
 .step-desc,
 .contact-text {
   font-family: 'Nunito', system-ui, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
 }
 
-/* Облачный эффект для текста - более тонкий */
+/* Текст в облаках - насыщенный и контрастный */
 .svg-cloud-section p,
-.svg-cloud-section .text,
-.svg-cloud-section .description,
-.svg-cloud-section .step-desc {
-  text-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.8),
-    0 2px 4px rgba(80, 120, 160, 0.08);
-  color: rgba(40, 60, 90, 0.85);
+.svg-cloud-text {
+  color: #2a4a6a;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.75;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-/* Маленькие заголовки (h4, h5, h6) - тоньше тень */
+/* Выделение важного текста */
+.svg-cloud-section strong,
+.svg-cloud-text strong {
+  color: #1a3a5a;
+  font-weight: 700;
+  background: linear-gradient(120deg, transparent 0%, rgba(212, 168, 85, 0.15) 50%, transparent 100%);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* Маленькие заголовки (h4, h5, h6) */
 h4, h5, h6,
 .card-title,
 .feature-title,
 .step-number {
-  text-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.85),
-    0 2px 4px rgba(100, 140, 180, 0.12);
+  color: #1e4a6d;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 /* ===== LOADER ===== */
@@ -905,27 +920,34 @@ h4, h5, h6,
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  border-radius: 999px;
-  border: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.25s var(--ease);
+  padding: 12px 26px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 252, 255, 0.85) 100%);
+  color: #2a4a6a;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-shadow:
+    0 4px 15px rgba(100, 140, 180, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
   transform: translateX(-100%);
-  transition: transform 0.6s;
+  transition: transform 0.5s ease;
 }
 
 .btn:hover::before {
@@ -933,20 +955,33 @@ h4, h5, h6,
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: var(--glass-border-strong);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border-color: rgba(212, 168, 85, 0.4);
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 25px rgba(100, 140, 180, 0.2),
+    0 4px 10px rgba(212, 168, 85, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .btn:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(-1px) scale(0.98);
 }
 
 .btn--primary {
-  background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,230,200,0.2));
-  border-color: rgba(255,255,255,0.5);
-  box-shadow: 0 8px 32px rgba(255, 200, 150, 0.2);
+  background: linear-gradient(135deg, #d4a855 0%, #c99b45 50%, #b8903a 100%);
+  border: none;
+  color: white;
+  box-shadow:
+    0 6px 20px rgba(212, 168, 85, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn--primary:hover {
+  background: linear-gradient(135deg, #e0b560 0%, #d4a855 50%, #c99b45 100%);
+  box-shadow:
+    0 10px 30px rgba(212, 168, 85, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .burger {
@@ -1328,8 +1363,8 @@ h4, h5, h6,
   position: relative;
   z-index: 2;
   max-width: 1200px;
-  margin: -100px auto 0;
-  padding: 40px 24px 60px;
+  margin: -120px auto 0;
+  padding: 0 24px 60px;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -1337,6 +1372,25 @@ h4, h5, h6,
   -webkit-backdrop-filter: none;
   box-shadow: none;
   overflow: visible;
+}
+
+/* Smooth transition between hero and content */
+.content-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120vw;
+  height: 200px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(220, 235, 250, 0.4) 40%,
+    rgba(200, 220, 240, 0.6) 70%,
+    rgba(191, 207, 221, 0.8) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* ===== VIDEO SECTION ===== */
