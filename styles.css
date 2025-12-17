@@ -294,7 +294,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: linear-gradient(180deg, #d0e4f5 0%, #b8d4f0 30%, #a5c5e5 70%, #95b8dc 100%);
+  background: linear-gradient(180deg,
+    rgba(208, 228, 245, 0.4) 0%,
+    rgba(184, 212, 240, 0.35) 30%,
+    rgba(165, 197, 229, 0.3) 70%,
+    rgba(149, 184, 220, 0.35) 100%);
 }
 
 .bg-cloud {
@@ -4179,12 +4183,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 /* ===== VIDEO SECTION BACKGROUND ===== */
 .video-section-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2;
   overflow: hidden;
   pointer-events: none;
 }
@@ -4199,24 +4203,24 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   width: auto;
   height: auto;
   object-fit: cover;
-  opacity: 0.35;
-  filter: blur(1px) saturate(0.85) brightness(1.05);
+  opacity: 0.7;
+  filter: saturate(1.1) brightness(1.0);
 }
 
 .video-section-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(184, 212, 240, 0.3) 0%,
-    rgba(184, 212, 240, 0.15) 20%,
-    rgba(184, 212, 240, 0.1) 50%,
-    rgba(184, 212, 240, 0.15) 80%,
-    rgba(184, 212, 240, 0.35) 100%);
+    rgba(220, 235, 250, 0.15) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(220, 235, 250, 0.2) 100%);
   pointer-events: none;
 }
 
 .content-wrapper {
   position: relative;
+  z-index: 1;
 }
 
 /* ===== SVG CLOUD SECTIONS ===== */
@@ -4272,16 +4276,16 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 .svg-cloud-container {
   position: relative;
-  width: min(850px, 92vw);
-  min-height: 380px;
+  width: min(950px, 94vw);
+  min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .svg-cloud-container--large {
-  width: min(1100px, 96vw);
-  min-height: 520px;
+  width: min(1200px, 98vw);
+  min-height: 580px;
 }
 
 .svg-cloud-shape {
@@ -4349,39 +4353,39 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .svg-cloud-content {
   position: relative;
   z-index: 2;
-  padding: 60px 70px;
+  padding: 50px 60px;
   text-align: center;
-  max-width: 700px;
+  max-width: 750px;
 }
 
 .svg-cloud-content--large {
-  max-width: 850px;
-  padding: 70px 80px;
+  max-width: 950px;
+  padding: 55px 70px;
 }
 
 .svg-cloud-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 600;
-  color: rgba(40, 70, 100, 0.95);
-  letter-spacing: 0.1em;
-  margin-bottom: 24px;
-  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9), 0 4px 20px rgba(100, 150, 200, 0.15);
+  color: rgba(50, 80, 110, 0.95);
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95);
 }
 
 .svg-cloud-title--main {
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  color: rgba(35, 65, 95, 0.98);
-  letter-spacing: 0.12em;
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  color: rgba(40, 70, 100, 0.98);
+  letter-spacing: 0.06em;
 }
 
 .svg-cloud-text {
   font-family: 'Nunito', system-ui, sans-serif;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.8;
-  color: rgba(35, 60, 85, 0.92);
-  margin-bottom: 16px;
-  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  line-height: 1.7;
+  color: rgba(40, 65, 90, 0.9);
+  margin-bottom: 12px;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.8);
 }
 
 .svg-cloud-text:last-child {
@@ -4396,45 +4400,45 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .svg-cloud-list {
   list-style: none;
   padding: 0;
-  margin: 16px 0;
+  margin: 12px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px 20px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 6px 16px;
   text-align: left;
 }
 
 .svg-cloud-list li {
   position: relative;
-  padding-left: 22px;
-  font-size: 0.95rem;
+  padding-left: 18px;
+  font-size: 0.85rem;
   color: rgba(45, 70, 95, 0.9);
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
 }
 
 .svg-cloud-list li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
+  top: 6px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(212, 168, 85, 0.8), rgba(180, 140, 70, 0.9));
-  box-shadow: 0 2px 6px rgba(212, 168, 85, 0.4);
+  box-shadow: 0 2px 4px rgba(212, 168, 85, 0.4);
 }
 
 .svg-cloud-callout {
-  margin-top: 24px;
-  padding: 20px 28px;
+  margin-top: 16px;
+  padding: 14px 20px;
   background: rgba(255, 255, 255, 0.55);
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
-  box-shadow: 0 8px 32px rgba(100, 140, 180, 0.15);
+  box-shadow: 0 6px 24px rgba(100, 140, 180, 0.12);
 }
 
 .svg-cloud-callout p {
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
   color: rgba(35, 60, 85, 0.95);
   margin: 0;
 }
@@ -4444,17 +4448,17 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
 }
 
 .svg-cloud-step {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 0.95rem;
+  gap: 10px;
+  font-size: 0.85rem;
   color: rgba(40, 65, 90, 0.92);
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
 }
 
 .svg-cloud-step__num {

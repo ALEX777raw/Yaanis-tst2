@@ -22,6 +22,8 @@
   const heroSky = document.querySelector('.hero-sky');
   const bgClouds = document.querySelectorAll('.bg-cloud');
   const heroClouds = document.querySelectorAll('.hero-cloud');
+  const svgCloudSections = document.querySelectorAll('.svg-cloud-section');
+  const floatingDecorClouds = document.querySelectorAll('.floating-decor-cloud');
   let ticking = false;
   let vh = window.innerHeight;
   let vw = window.innerWidth;
@@ -43,19 +45,37 @@
 
     // Background clouds move with scroll - different speeds for depth
     bgClouds.forEach((cloud, index) => {
-      const speeds = [0.08, 0.06, 0.1, 0.07, 0.05];
-      const speed = speeds[index] || 0.06;
+      const speeds = [0.15, 0.12, 0.18, 0.14, 0.1];
+      const speed = speeds[index] || 0.12;
       const yOffset = scrollY * speed;
-      const xDrift = Math.sin(scrollY * 0.001 + index) * 20;
+      const xDrift = Math.sin(scrollY * 0.001 + index) * 30;
       cloud.style.transform = `translateY(${yOffset}px) translateX(${xDrift}px)`;
     });
 
     // Hero clouds follow scroll down
     heroClouds.forEach((cloud, index) => {
-      const speeds = [0.12, 0.1, 0.14, 0.09, 0.11];
-      const speed = speeds[index] || 0.1;
+      const speeds = [0.2, 0.16, 0.22, 0.15, 0.18];
+      const speed = speeds[index] || 0.16;
       const yOffset = scrollY * speed;
-      const xDrift = Math.sin(scrollY * 0.002 + index * 0.5) * 30;
+      const xDrift = Math.sin(scrollY * 0.002 + index * 0.5) * 40;
+      cloud.style.transform = `translateY(${yOffset}px) translateX(${xDrift}px)`;
+    });
+
+    // SVG cloud sections - subtle parallax effect
+    svgCloudSections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const sectionCenter = rect.top + rect.height / 2;
+      const viewCenter = vh / 2;
+      const offset = (sectionCenter - viewCenter) * 0.03;
+      const xDrift = Math.sin(scrollY * 0.0008 + index * 1.5) * 15;
+      section.style.transform = `translateY(${offset}px) translateX(${xDrift}px)`;
+    });
+
+    // Floating decoration clouds parallax
+    floatingDecorClouds.forEach((cloud, index) => {
+      const speed = 0.05 + (index * 0.02);
+      const yOffset = scrollY * speed;
+      const xDrift = Math.sin(scrollY * 0.001 + index * 0.8) * 25;
       cloud.style.transform = `translateY(${yOffset}px) translateX(${xDrift}px)`;
     });
 
