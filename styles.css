@@ -1440,13 +1440,15 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   80% { transform: translateX(-12px) rotate(-0.5deg); }
 }
 
+/* ===== ENHANCED CLOUD STYLING ===== */
+
 /* Cloud SVG background */
 .panel__cloud {
   position: absolute;
-  inset: -10px;
+  inset: -20px;
   z-index: -1;
   pointer-events: none;
-  transition: filter 0.5s var(--ease);
+  transition: filter 0.5s var(--ease), transform 0.5s var(--ease);
   animation: cloudInternalFloat 12s var(--ease-fluid) infinite alternate;
 }
 
@@ -1454,33 +1456,310 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   width: 100%;
   height: 100%;
   overflow: visible;
+  filter: drop-shadow(0 25px 50px rgba(100, 140, 180, 0.3))
+          drop-shadow(0 10px 20px rgba(150, 180, 220, 0.2));
 }
 
 .panel__cloud-shape {
   fill: url(#cloudGradient);
-  stroke: rgba(255, 255, 255, 0.9);
-  stroke-width: 2.5;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 3;
   vector-effect: non-scaling-stroke;
-  filter: drop-shadow(0 10px 20px rgba(160, 190, 220, 0.35));
-  transition: filter 0.5s var(--ease), stroke 0.5s var(--ease);
+  filter: url(#cloudShadow);
+  transition: all 0.5s var(--ease);
 }
 
-/* Wind streaks on clouds */
+/* Inner cloud glow overlay */
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 70% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 40%),
+    radial-gradient(ellipse 50% 50% at 50% 80%, rgba(240, 248, 255, 0.4) 0%, transparent 50%);
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: cloudInnerGlow 6s ease-in-out infinite;
+}
+
+/* Soft outer glow */
+.panel::after {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(240, 250, 255, 0.2) 30%,
+    transparent 60%);
+  filter: blur(20px);
+  z-index: -2;
+  pointer-events: none;
+  animation: cloudOuterGlow 8s ease-in-out infinite;
+}
+
+@keyframes cloudInnerGlow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes cloudOuterGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+/* Wind streaks inside clouds */
 .panel__wind {
-  display: none;
+  display: block;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.panel__wind::before,
+.panel__wind::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.7) 20%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.7) 80%,
+    transparent 100%);
+  border-radius: 999px;
+  animation: windStreak 8s ease-in-out infinite;
+  opacity: 0;
+}
+
+.panel__wind::before {
+  width: 120px;
+  top: 25%;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.panel__wind::after {
+  width: 80px;
+  top: 55%;
+  left: -100px;
+  animation-delay: 3s;
+}
+
+@keyframes windStreak {
+  0%, 100% {
+    left: -150px;
+    opacity: 0;
+  }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% {
+    left: calc(100% + 150px);
+    opacity: 0;
+  }
 }
 
 .panel:hover {
   animation-play-state: paused, paused;
+  transform: translateY(-8px);
+}
+
+.panel:hover .panel__cloud svg {
+  filter: drop-shadow(0 35px 60px rgba(100, 140, 180, 0.35))
+          drop-shadow(0 15px 30px rgba(150, 180, 220, 0.25));
 }
 
 .panel:hover .panel__cloud-shape {
-  stroke: rgba(255, 255, 255, 0.72);
+  stroke: rgba(255, 255, 255, 1);
+  stroke-width: 3.5;
 }
 
 @keyframes cloudInternalFloat {
   0% { transform: translate3d(0, 0, 0) scale(1); }
-  100% { transform: translate3d(8px, -6px, 0) scale(1.03); }
+  100% { transform: translate3d(10px, -8px, 0) scale(1.02); }
+}
+
+/* ===== BACKGROUND EFFECTS ===== */
+.bg-effects {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Floating orbs */
+.bg-effect-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  animation: orbDrift 20s ease-in-out infinite;
+}
+
+.bg-effect-orb--1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 220, 180, 0.4) 0%, transparent 70%);
+  top: 10%;
+  left: 5%;
+  animation-duration: 25s;
+}
+
+.bg-effect-orb--2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(200, 230, 255, 0.35) 0%, transparent 70%);
+  top: 40%;
+  right: -5%;
+  animation-duration: 30s;
+  animation-delay: -5s;
+}
+
+.bg-effect-orb--3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255, 240, 220, 0.3) 0%, transparent 70%);
+  bottom: 20%;
+  left: 20%;
+  animation-duration: 22s;
+  animation-delay: -10s;
+}
+
+.bg-effect-orb--4 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(220, 240, 255, 0.3) 0%, transparent 70%);
+  top: 60%;
+  right: 20%;
+  animation-duration: 28s;
+  animation-delay: -15s;
+}
+
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(50px, -30px) scale(1.1); }
+  50% { transform: translate(-30px, -60px) scale(0.95); }
+  75% { transform: translate(40px, -20px) scale(1.05); }
+}
+
+/* Sparkles */
+.bg-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 240, 200, 0.4);
+  animation: sparkleFloat 15s ease-in-out infinite;
+  opacity: 0;
+}
+
+.bg-sparkle::before,
+.bg-sparkle::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 999px;
+}
+
+.bg-sparkle::before {
+  width: 20px;
+  height: 2px;
+  top: 2px;
+  left: -7px;
+}
+
+.bg-sparkle::after {
+  width: 2px;
+  height: 20px;
+  top: -7px;
+  left: 2px;
+}
+
+.bg-sparkle--1 { top: 15%; left: 10%; animation-delay: 0s; }
+.bg-sparkle--2 { top: 25%; right: 15%; animation-delay: 3s; }
+.bg-sparkle--3 { top: 45%; left: 25%; animation-delay: 6s; }
+.bg-sparkle--4 { top: 65%; right: 20%; animation-delay: 9s; }
+.bg-sparkle--5 { top: 80%; left: 40%; animation-delay: 12s; }
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5) rotate(0deg);
+  }
+  10% { opacity: 0.9; }
+  50% {
+    opacity: 1;
+    transform: translateY(-100px) scale(1) rotate(180deg);
+  }
+  90% { opacity: 0.9; }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) scale(0.5) rotate(360deg);
+  }
+}
+
+/* Light beams */
+.bg-light-beam {
+  position: absolute;
+  width: 300px;
+  height: 800px;
+  background: linear-gradient(180deg,
+    rgba(255, 250, 240, 0.15) 0%,
+    rgba(255, 245, 220, 0.08) 30%,
+    transparent 70%);
+  transform-origin: top center;
+  animation: lightBeamSway 20s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.bg-light-beam--1 {
+  top: -100px;
+  left: 15%;
+  transform: rotate(-15deg);
+  animation-delay: 0s;
+}
+
+.bg-light-beam--2 {
+  top: -100px;
+  right: 20%;
+  transform: rotate(10deg);
+  animation-delay: -10s;
+}
+
+@keyframes lightBeamSway {
+  0%, 100% {
+    transform: rotate(-15deg) scaleY(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(-5deg) scaleY(1.1);
+    opacity: 0.7;
+  }
+}
+
+.bg-light-beam--2 {
+  animation-name: lightBeamSway2;
+}
+
+@keyframes lightBeamSway2 {
+  0%, 100% {
+    transform: rotate(10deg) scaleY(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(20deg) scaleY(1.1);
+    opacity: 0.7;
+  }
 }
 
 .panel__content {
