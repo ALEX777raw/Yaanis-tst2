@@ -7466,3 +7466,77 @@ body::after {
   background: linear-gradient(to bottom, transparent, rgba(184, 212, 240, 0.3));
   pointer-events: none;
 }
+
+/* ============================================
+   MOBILE PERFORMANCE - DISABLE HEAVY ANIMATIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Disable all heavy animations on mobile */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Remove pseudo-element effects */
+  .hero::before,
+  .info-sections::before,
+  .info-sections::after,
+  body::before,
+  body::after,
+  .background::before,
+  .background::after,
+  #contact::after,
+  .btn--primary::before,
+  .btn--primary::after,
+  .qr-code-cloud::after {
+    display: none !important;
+  }
+
+  /* Remove filters that slow down mobile */
+  .bg-cloud img {
+    filter: none !important;
+  }
+
+  .svg-cloud-shape {
+    filter: none !important;
+  }
+
+  /* Simplify shadows */
+  .svg-cloud-container {
+    box-shadow: 0 5px 20px rgba(100, 140, 180, 0.15) !important;
+  }
+
+  .nav {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Remove complex text effects */
+  .svg-cloud-title,
+  .hero-title,
+  .contact-link {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: inherit !important;
+    color: rgba(40, 60, 90, 0.9) !important;
+  }
+
+  .loader__title {
+    text-shadow: none !important;
+  }
+}
+
+/* Also respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
