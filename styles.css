@@ -6617,16 +6617,22 @@ main,
 
 /* Ensure cloud container has room */
 .svg-cloud-container {
-  padding: 40px;
-  min-height: 350px;
+  padding: 55px 65px;
+  min-height: 420px;
 }
 
 .svg-cloud-container--large {
-  padding: 50px;
-  min-height: 450px;
+  padding: 65px 75px;
+  min-height: 550px;
 }
 
 /* Scheme cloud specific sizing */
 #scheme .svg-cloud-container {
-  min-height: 420px;
+  min-height: 520px;
+}
+
+/* Contact cloud sizing */
+.svg-cloud-container--contact {
+  padding: 50px 60px;
+  min-height: 400px;
 }
