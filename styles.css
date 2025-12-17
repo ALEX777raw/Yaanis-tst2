@@ -926,41 +926,50 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.15); }
 }
 
+/* ===== CRYSTAL - CENTERED ===== */
 .hero-crystal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 65%;
-  max-height: 600px;
+  height: 55vh;
+  max-height: 550px;
+  min-height: 300px;
   width: auto;
-  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.25))
+          drop-shadow(0 0 60px rgba(255, 240, 200, 0.3));
   animation: crystalFloat 6s var(--ease-fluid) infinite;
   object-fit: contain;
   pointer-events: none;
-  z-index: 2;
+  z-index: 5;
 }
 
 .hero-crystal-cloud {
   position: absolute;
-  top: 60%;
-  left: 45%;
-  width: 300px;
+  top: 68%;
+  left: 50%;
+  width: 400px;
   transform: translate(-50%, -50%);
-  z-index: 1;
-  opacity: 0.8;
-  filter: blur(2px);
+  z-index: 4;
+  opacity: 0.7;
+  filter: blur(3px);
+  animation: cloudFloat 8s ease-in-out infinite;
 }
 
 @keyframes crystalFloat {
   0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-  50% { transform: translate(-50%, -50%) translateY(-16px); }
+  50% { transform: translate(-50%, -50%) translateY(-20px); }
 }
 
-/* ===== GOLDEN GLASS TITLE ===== */
+@keyframes cloudFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) translateY(-10px) scale(1.02); opacity: 0.8; }
+}
+
+/* ===== GOLDEN GLASS TITLE - POSITIONED NEAR CRYSTAL ===== */
 .hero-title-wrapper {
   position: absolute;
-  top: 4%;
+  top: 18%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -973,16 +982,16 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(900px, 95vw);
-  height: min(600px, 60vh);
-  transform: translate(-50%, -45%);
+  width: min(700px, 90vw);
+  height: min(400px, 50vh);
+  transform: translate(-50%, -50%);
   background:
-    radial-gradient(ellipse 70% 55% at 50% 40%, rgba(255, 255, 255, 1) 0%, rgba(255, 250, 230, 0.9) 15%, rgba(255, 230, 180, 0.7) 30%, rgba(212, 168, 85, 0.4) 50%, transparent 70%),
-    radial-gradient(ellipse 40% 80% at 50% 50%, rgba(255, 240, 200, 0.6) 0%, transparent 60%);
-  filter: blur(30px);
-  opacity: 1;
+    radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 250, 230, 0.8) 20%, rgba(255, 230, 180, 0.5) 40%, rgba(212, 168, 85, 0.3) 60%, transparent 80%),
+    radial-gradient(ellipse 50% 90% at 50% 50%, rgba(255, 240, 200, 0.5) 0%, transparent 70%);
+  filter: blur(40px);
+  opacity: 0.9;
   pointer-events: none;
-  animation: titleLightPulse 3s ease-in-out infinite;
+  animation: titleLightPulse 4s ease-in-out infinite;
 }
 
 .hero-title-wrapper::after {
@@ -990,23 +999,23 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   position: absolute;
   left: 50%;
   top: 50%;
-  width: min(500px, 70vw);
-  height: min(300px, 40vh);
+  width: min(400px, 60vw);
+  height: min(200px, 30vh);
   transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 250, 240, 0.6) 30%, transparent 60%);
-  filter: blur(20px);
-  opacity: 0.9;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 250, 240, 0.5) 40%, transparent 70%);
+  filter: blur(25px);
+  opacity: 0.85;
   pointer-events: none;
-  animation: titleCoreGlow 2s ease-in-out infinite;
+  animation: titleCoreGlow 3s ease-in-out infinite;
 }
 
 @keyframes titleLightPulse {
-  0%, 100% { opacity: 0.85; transform: translate(-50%, -45%) scale(1); }
-  50% { opacity: 1; transform: translate(-50%, -45%) scale(1.08); }
+  0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
 }
 
 @keyframes titleCoreGlow {
-  0%, 100% { opacity: 0.8; }
+  0%, 100% { opacity: 0.75; }
   50% { opacity: 1; }
 }
 
@@ -2960,4 +2969,611 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     0 0 16px rgba(255, 255, 255, 0.8),
     0 0 32px rgba(255, 255, 255, 0.6),
     0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* ===== FLOATING CLOUD PANELS ===== */
+/* Independent floating clouds that drift in the sky */
+
+.floating-cloud-panel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 30px 20px;
+  margin: 40px auto;
+  max-width: 100%;
+  animation:
+    floatingCloudDrift var(--cloud-drift-dur, 12s) ease-in-out infinite,
+    floatingCloudBob var(--cloud-bob-dur, 8s) ease-in-out infinite;
+  animation-delay: var(--cloud-drift-delay, 0s), var(--cloud-bob-delay, 0s);
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Different timings for each cloud */
+.floating-cloud-panel:nth-child(1) {
+  --cloud-drift-dur: 18s;
+  --cloud-drift-delay: 0s;
+  --cloud-bob-dur: 7s;
+  --cloud-bob-delay: 0s;
+}
+
+.floating-cloud-panel:nth-child(2) {
+  --cloud-drift-dur: 22s;
+  --cloud-drift-delay: -4s;
+  --cloud-bob-dur: 9s;
+  --cloud-bob-delay: -2s;
+}
+
+.floating-cloud-panel:nth-child(3) {
+  --cloud-drift-dur: 20s;
+  --cloud-drift-delay: -8s;
+  --cloud-bob-dur: 8s;
+  --cloud-bob-delay: -4s;
+}
+
+.floating-cloud-panel:nth-child(4) {
+  --cloud-drift-dur: 16s;
+  --cloud-drift-delay: -12s;
+  --cloud-bob-dur: 10s;
+  --cloud-bob-delay: -6s;
+}
+
+.floating-cloud-panel:nth-child(5) {
+  --cloud-drift-dur: 24s;
+  --cloud-drift-delay: -16s;
+  --cloud-bob-dur: 7.5s;
+  --cloud-bob-delay: -8s;
+}
+
+/* Alternating positions - left and right */
+.floating-cloud-panel:nth-child(odd) {
+  margin-right: 10%;
+  margin-left: auto;
+}
+
+.floating-cloud-panel:nth-child(even) {
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+/* Floating drift animation - subtle horizontal movement */
+@keyframes floatingCloudDrift {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(25px) rotate(0.5deg);
+  }
+  50% {
+    transform: translateX(-15px) rotate(-0.3deg);
+  }
+  75% {
+    transform: translateX(20px) rotate(0.4deg);
+  }
+}
+
+/* Floating bob animation - vertical floating */
+@keyframes floatingCloudBob {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -20px;
+  }
+}
+
+/* Cloud body - contains SVG and content */
+.cloud-body {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cloud-body--wide {
+  max-width: 800px;
+  min-height: 360px;
+}
+
+.cloud-body--horizontal {
+  max-width: 750px;
+  min-height: 320px;
+}
+
+/* Cloud SVG - the actual cloud shape */
+.cloud-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: visible;
+  filter: drop-shadow(0 30px 60px rgba(100, 145, 190, 0.35))
+          drop-shadow(0 15px 30px rgba(130, 170, 210, 0.25));
+  animation: cloudSvgBreath 6s ease-in-out infinite;
+}
+
+@keyframes cloudSvgBreath {
+  0%, 100% {
+    filter: drop-shadow(0 30px 60px rgba(100, 145, 190, 0.35))
+            drop-shadow(0 15px 30px rgba(130, 170, 210, 0.25));
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 40px 80px rgba(100, 145, 190, 0.4))
+            drop-shadow(0 20px 40px rgba(130, 170, 210, 0.3));
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+}
+
+/* Cloud content - text inside the cloud */
+.cloud-content {
+  position: relative;
+  z-index: 10;
+  padding: 50px 60px;
+  text-align: center;
+  max-width: 85%;
+}
+
+.cloud-content--large {
+  padding: 45px 50px;
+  max-width: 90%;
+}
+
+/* Cloud title styling */
+.floating-cloud-panel .cloud-title {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 600;
+  color: rgba(35, 60, 95, 0.95);
+  margin-bottom: 18px;
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.95),
+    0 0 24px rgba(255, 255, 255, 0.8),
+    0 0 36px rgba(230, 245, 255, 0.5),
+    0 3px 10px rgba(255, 255, 255, 0.6);
+  animation: cloudTitleGlow 4s ease-in-out infinite;
+  letter-spacing: -0.01em;
+}
+
+.cloud-title--main {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+@keyframes cloudTitleGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 12px rgba(255, 255, 255, 0.95),
+      0 0 24px rgba(255, 255, 255, 0.8),
+      0 0 36px rgba(230, 245, 255, 0.5),
+      0 3px 10px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    text-shadow:
+      0 0 18px rgba(255, 255, 255, 1),
+      0 0 32px rgba(255, 255, 255, 0.9),
+      0 0 48px rgba(230, 245, 255, 0.7),
+      0 4px 14px rgba(255, 255, 255, 0.75);
+  }
+}
+
+/* Cloud paragraph text */
+.floating-cloud-panel .cloud-text {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  font-weight: 400;
+  color: rgba(40, 65, 100, 0.92);
+  line-height: 1.75;
+  margin-bottom: 14px;
+  text-shadow:
+    0 1px 3px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.01em;
+}
+
+.floating-cloud-panel .cloud-text:last-child {
+  margin-bottom: 0;
+}
+
+.floating-cloud-panel .cloud-text strong {
+  font-weight: 600;
+  color: rgba(30, 55, 90, 0.95);
+}
+
+/* Cloud list styling */
+.cloud-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+  margin: 18px 0;
+  text-align: left;
+}
+
+.cloud-list li {
+  position: relative;
+  padding-left: 24px;
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(40, 65, 100, 0.9);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+.cloud-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-radius: 50%;
+  box-shadow: 0 0 14px var(--glow-gold);
+}
+
+/* Cloud callout box */
+.cloud-callout {
+  margin-top: 20px;
+  padding: 18px 24px;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(245, 250, 255, 0.75) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 4px 20px rgba(200, 220, 245, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9);
+}
+
+.cloud-callout p {
+  font-size: 0.95rem;
+  color: rgba(35, 60, 95, 0.95);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Cloud steps styling */
+.cloud-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px 18px;
+  margin: 18px 0 0;
+  counter-reset: none;
+}
+
+.cloud-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(40, 65, 100, 0.92);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+.cloud-step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  border-radius: 50%;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow:
+    0 4px 12px rgba(212, 168, 85, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Panel size modifiers */
+.floating-cloud-panel--large .cloud-body {
+  max-width: 800px;
+  min-height: 420px;
+}
+
+.floating-cloud-panel--wide .cloud-body {
+  max-width: 750px;
+  min-height: 340px;
+}
+
+/* Hover effects for floating clouds */
+.floating-cloud-panel:hover {
+  animation-play-state: paused, paused;
+}
+
+.floating-cloud-panel:hover .cloud-svg {
+  filter: drop-shadow(0 40px 80px rgba(100, 145, 190, 0.45))
+          drop-shadow(0 20px 40px rgba(130, 170, 210, 0.35));
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+.floating-cloud-panel:hover .cloud-title {
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 1),
+    0 0 40px rgba(255, 255, 255, 0.95),
+    0 0 60px rgba(230, 245, 255, 0.8),
+    0 5px 18px rgba(255, 255, 255, 0.8);
+}
+
+/* Inner glow effect for floating clouds */
+.floating-cloud-panel::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background:
+    radial-gradient(ellipse 70% 50% at 35% 30%, rgba(255, 255, 255, 0.7) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 65% 40%, rgba(255, 255, 255, 0.5) 0%, transparent 40%);
+  filter: blur(20px);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: cloudInnerShine 5s ease-in-out infinite;
+}
+
+@keyframes cloudInnerShine {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Outer atmospheric glow */
+.floating-cloud-panel::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(245, 250, 255, 0.2) 30%,
+    transparent 55%);
+  filter: blur(30px);
+  z-index: -1;
+  pointer-events: none;
+  animation: cloudAtmosphere 7s ease-in-out infinite;
+}
+
+@keyframes cloudAtmosphere {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* Wind effect streaks inside floating clouds */
+.cloud-body::before,
+.cloud-body::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.75) 25%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.75) 75%,
+    transparent 100%);
+  border-radius: 999px;
+  z-index: 5;
+  animation: cloudWindStreak 10s ease-in-out infinite;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cloud-body::before {
+  width: 100px;
+  top: 30%;
+  left: -120px;
+  animation-delay: 0s;
+}
+
+.cloud-body::after {
+  width: 70px;
+  top: 55%;
+  left: -90px;
+  animation-delay: 4s;
+}
+
+@keyframes cloudWindStreak {
+  0%, 100% {
+    left: -120px;
+    opacity: 0;
+  }
+  10% { opacity: 0.85; }
+  90% { opacity: 0.85; }
+  100% {
+    left: calc(100% + 120px);
+    opacity: 0;
+  }
+}
+
+/* Sparkle particles on clouds */
+.cloud-content::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  top: 20%;
+  left: 15%;
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(255, 255, 255, 0.6);
+  animation: cloudSparkle 3s ease-in-out infinite;
+  opacity: 0;
+}
+
+.cloud-content::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  top: 35%;
+  right: 20%;
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.5);
+  animation: cloudSparkle 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+  opacity: 0;
+}
+
+@keyframes cloudSparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ===== FLOATING CLOUD RESPONSIVE ===== */
+
+@media (max-width: 1200px) {
+  .floating-cloud-panel:nth-child(odd),
+  .floating-cloud-panel:nth-child(even) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .floating-cloud-panel {
+    margin: 30px auto;
+    padding: 25px 15px;
+  }
+
+  .cloud-body {
+    max-width: 95%;
+    min-height: 260px;
+  }
+
+  .cloud-body--wide,
+  .cloud-body--horizontal,
+  .floating-cloud-panel--large .cloud-body,
+  .floating-cloud-panel--wide .cloud-body {
+    max-width: 95%;
+    min-height: 300px;
+  }
+
+  .cloud-content {
+    padding: 40px 45px;
+    max-width: 88%;
+  }
+
+  .cloud-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .cloud-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .floating-cloud-panel {
+    margin: 25px 10px;
+    padding: 20px 10px;
+  }
+
+  .cloud-body {
+    min-height: 240px;
+  }
+
+  .cloud-content {
+    padding: 35px 30px;
+    max-width: 92%;
+  }
+
+  .cloud-content--large {
+    padding: 30px 25px;
+  }
+
+  .floating-cloud-panel .cloud-title {
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+  }
+
+  .floating-cloud-panel .cloud-text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .cloud-list li {
+    font-size: 0.88rem;
+    padding-left: 22px;
+  }
+
+  .cloud-step {
+    font-size: 0.85rem;
+  }
+
+  .cloud-step__num {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .cloud-steps {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cloud-callout {
+    padding: 14px 18px;
+  }
+
+  .cloud-callout p {
+    font-size: 0.88rem;
+  }
+
+  /* Reduce animation intensity on mobile */
+  .floating-cloud-panel {
+    animation:
+      floatingCloudDrift var(--cloud-drift-dur, 12s) ease-in-out infinite,
+      floatingCloudBobMobile var(--cloud-bob-dur, 8s) ease-in-out infinite;
+  }
+
+  @keyframes floatingCloudBobMobile {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -10px; }
+  }
+
+  .cloud-body::before,
+  .cloud-body::after {
+    display: none;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .floating-cloud-panel,
+  .cloud-svg,
+  .floating-cloud-panel::before,
+  .floating-cloud-panel::after,
+  .floating-cloud-panel .cloud-title,
+  .cloud-body::before,
+  .cloud-body::after,
+  .cloud-content::before,
+  .cloud-content::after {
+    animation: none !important;
+  }
+
+  .floating-cloud-panel:hover .cloud-svg {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
