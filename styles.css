@@ -6648,6 +6648,37 @@ main,
   padding: 60px 80px;
   min-height: 420px;
   width: min(1050px, 96vw) !important;
+  position: relative;
+}
+
+/* Contact crystal decoration */
+.contact-crystal {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.85;
+  filter: drop-shadow(0 10px 30px rgba(100, 150, 200, 0.3));
+  animation: crystalFloat 6s ease-in-out infinite;
+}
+
+.contact-crystal img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes crystalFloat {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-55%) translateX(-5px);
+  }
 }
 
 /* Force no clipping on all cloud elements */
@@ -7886,34 +7917,70 @@ body::after {
     margin-top: 16px;
   }
 
-  /* === CONTACT SECTION === */
+  /* === CONTACT SECTION - Premium Mobile === */
   .svg-cloud-container--contact {
-    padding: 32px 24px !important;
+    padding: 32px 20px 28px !important;
+    position: relative;
+    overflow: hidden !important;
+  }
+
+  /* Crystal on mobile - smaller and positioned */
+  .contact-crystal {
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    width: 70px;
+    opacity: 0.5;
+    transform: none;
+    animation: none;
+    filter: drop-shadow(0 5px 15px rgba(100, 150, 200, 0.25));
+  }
+
+  .svg-cloud-content--contact {
+    position: relative;
+    z-index: 10;
+  }
+
+  .svg-cloud-title--contact {
+    font-size: 1.6rem !important;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #1e3a5f 0%, #2a5a8a 50%, #d4a855 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .svg-cloud-text--contact {
+    font-size: 0.92rem !important;
+    margin-bottom: 8px !important;
   }
 
   .contact-cloud-actions {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    margin-top: 24px;
+    gap: 20px;
+    margin-top: 20px;
   }
 
   .qr-code-cloud {
     order: 2;
-    padding: 16px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(100, 140, 180, 0.12);
+    padding: 14px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 18px;
+    box-shadow:
+      0 8px 25px rgba(100, 140, 180, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(212, 168, 85, 0.2);
   }
 
   .qr-code-cloud img {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     border-radius: 12px;
   }
 
-  .contact-cloud-buttons {
+  .contact-buttons {
     order: 1;
     display: flex;
     flex-direction: column;
@@ -7922,9 +7989,9 @@ body::after {
     max-width: 260px;
   }
 
-  .btn--cloud {
+  .contact-buttons .btn--cloud {
     width: 100%;
-    padding: 15px 24px;
+    padding: 14px 20px;
     font-size: 0.95rem;
     font-weight: 600;
     border-radius: 14px;
@@ -7932,10 +7999,28 @@ body::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
   }
 
-  .btn--cloud:active {
+  .contact-buttons .btn--cloud:not(.btn--primary) {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 252, 255, 0.9) 100%);
+    color: #2a4a6a;
+    box-shadow:
+      0 4px 16px rgba(100, 140, 180, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(200, 220, 240, 0.5);
+  }
+
+  .contact-buttons .btn--primary {
+    background: linear-gradient(135deg, #d4a855 0%, #c49545 50%, #b88a3a 100%);
+    color: white;
+    box-shadow:
+      0 6px 20px rgba(212, 168, 85, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .contact-buttons .btn--cloud:active {
     transform: scale(0.97);
   }
 
@@ -8109,9 +8194,26 @@ body::after {
     padding: 6px 6px 6px 8px !important;
   }
 
+  /* Contact section small phones */
+  .contact-crystal {
+    width: 55px;
+    top: 5px;
+    right: -5px;
+    opacity: 0.4;
+  }
+
+  .svg-cloud-title--contact {
+    font-size: 1.4rem !important;
+  }
+
   .qr-code-cloud img {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .contact-buttons .btn--cloud {
+    padding: 12px 16px;
+    font-size: 0.9rem;
   }
 }
 
