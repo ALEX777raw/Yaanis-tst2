@@ -231,46 +231,289 @@
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
   }
 
-  // Create floating wind particles
-  function createWindParticles() {
-    const container = document.querySelector('.wind-particles');
-    if (!container || reduceMotion) return;
+  // ============================================
+  // MEGA VISUAL EFFECTS SYSTEM
+  // ============================================
 
-    for (let i = 0; i < 20; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'wind-particle';
-      particle.style.cssText = `
-        --delay: ${Math.random() * 10}s;
-        --duration: ${8 + Math.random() * 12}s;
-        --y-start: ${Math.random() * 100}vh;
-        --size: ${2 + Math.random() * 4}px;
-        --opacity: ${0.3 + Math.random() * 0.4};
-      `;
-      container.appendChild(particle);
-    }
+  // Create effect containers if they don't exist
+  function createEffectContainers() {
+    const containers = [
+      'sparkles', 'wind-particles', 'dust-motes', 'feathers',
+      'magic-orbs', 'light-rays', 'aurora', 'ribbons', 'halos'
+    ];
+
+    containers.forEach(name => {
+      if (!document.querySelector('.' + name)) {
+        const container = document.createElement('div');
+        container.className = name;
+        container.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(container);
+      }
+    });
   }
 
-  // Create sparkle effects
+  createEffectContainers();
+
+  // Create magical sparkles
   function createSparkles() {
     const container = document.querySelector('.sparkles');
     if (!container || reduceMotion) return;
 
-    for (let i = 0; i < 15; i++) {
+    const count = 30;
+    for (let i = 0; i < count; i++) {
       const sparkle = document.createElement('div');
-      sparkle.className = 'sparkle';
+      const isGolden = Math.random() > 0.7;
+      const isLarge = Math.random() > 0.8;
+
+      sparkle.className = `sparkle${isGolden ? ' sparkle--golden' : ''}${isLarge ? ' sparkle--large' : ''}`;
       sparkle.style.cssText = `
         left: ${Math.random() * 100}%;
         top: ${Math.random() * 100}%;
-        --sparkle-delay: ${Math.random() * 5}s;
-        --sparkle-dur: ${2 + Math.random() * 3}s;
+        animation-delay: ${Math.random() * 8}s;
+        animation-duration: ${3 + Math.random() * 4}s;
       `;
       container.appendChild(sparkle);
     }
   }
 
-  // Initialize effects
-  createWindParticles();
-  createSparkles();
+  // Create wind particles
+  function createWindParticles() {
+    const container = document.querySelector('.wind-particles');
+    if (!container || reduceMotion) return;
+
+    const count = 25;
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement('div');
+      const types = ['thin', 'medium', 'thick'];
+      const type = types[Math.floor(Math.random() * types.length)];
+
+      particle.className = `wind-particle wind-particle--${type}`;
+      particle.style.cssText = `
+        top: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 15}s;
+        animation-duration: ${10 + Math.random() * 15}s;
+        opacity: ${0.2 + Math.random() * 0.5};
+      `;
+      container.appendChild(particle);
+    }
+  }
+
+  // Create dust motes
+  function createDustMotes() {
+    const container = document.querySelector('.dust-motes');
+    if (!container || reduceMotion) return;
+
+    const count = 40;
+    for (let i = 0; i < count; i++) {
+      const mote = document.createElement('div');
+      const isGolden = Math.random() > 0.75;
+      const isLarge = Math.random() > 0.85;
+
+      mote.className = `dust-mote${isGolden ? ' dust-mote--golden' : ''}${isLarge ? ' dust-mote--large' : ''}`;
+      mote.style.cssText = `
+        left: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 20}s;
+        animation-duration: ${15 + Math.random() * 20}s;
+      `;
+      container.appendChild(mote);
+    }
+  }
+
+  // Create floating feathers
+  function createFeathers() {
+    const container = document.querySelector('.feathers');
+    if (!container || reduceMotion) return;
+
+    const count = 8;
+    for (let i = 0; i < count; i++) {
+      const feather = document.createElement('div');
+      const isGolden = Math.random() > 0.7;
+      const isSmall = Math.random() > 0.6;
+
+      feather.className = `feather${isGolden ? ' feather--golden' : ''}${isSmall ? ' feather--small' : ''}`;
+      feather.style.cssText = `
+        left: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 25}s;
+        animation-duration: ${20 + Math.random() * 15}s;
+      `;
+      container.appendChild(feather);
+    }
+  }
+
+  // Create magic orbs
+  function createMagicOrbs() {
+    const container = document.querySelector('.magic-orbs');
+    if (!container || reduceMotion) return;
+
+    const count = 12;
+    for (let i = 0; i < count; i++) {
+      const orb = document.createElement('div');
+      const isGolden = Math.random() > 0.6;
+      const sizes = ['small', 'medium', 'large'];
+      const size = sizes[Math.floor(Math.random() * sizes.length)];
+
+      orb.className = `magic-orb magic-orb--${size}${isGolden ? ' magic-orb--golden' : ''}`;
+      orb.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 12}s;
+        animation-duration: ${10 + Math.random() * 8}s;
+      `;
+      container.appendChild(orb);
+    }
+  }
+
+  // Create light rays
+  function createLightRays() {
+    const container = document.querySelector('.light-rays');
+    if (!container || reduceMotion) return;
+
+    const count = 5;
+    for (let i = 0; i < count; i++) {
+      const ray = document.createElement('div');
+      const types = ['', 'narrow', 'wide'];
+      const type = types[Math.floor(Math.random() * types.length)];
+
+      ray.className = `light-ray${type ? ' light-ray--' + type : ''}`;
+      ray.style.cssText = `
+        left: ${10 + Math.random() * 80}%;
+        animation-delay: ${Math.random() * 8}s;
+        transform: rotate(${-15 + Math.random() * 30}deg);
+      `;
+      container.appendChild(ray);
+    }
+  }
+
+  // Create aurora waves
+  function createAurora() {
+    const container = document.querySelector('.aurora');
+    if (!container || reduceMotion) return;
+
+    for (let i = 0; i < 3; i++) {
+      const wave = document.createElement('div');
+      wave.className = 'aurora-wave';
+      wave.style.animationDelay = `${-i * 7}s`;
+      container.appendChild(wave);
+    }
+  }
+
+  // Create flowing ribbons
+  function createRibbons() {
+    const container = document.querySelector('.ribbons');
+    if (!container || reduceMotion) return;
+
+    const count = 6;
+    for (let i = 0; i < count; i++) {
+      const ribbon = document.createElement('div');
+      const isGolden = Math.random() > 0.6;
+
+      ribbon.className = `ribbon${isGolden ? ' ribbon--golden' : ''}`;
+      ribbon.style.cssText = `
+        top: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 15}s;
+        animation-duration: ${12 + Math.random() * 10}s;
+      `;
+      container.appendChild(ribbon);
+    }
+  }
+
+  // Create pulsing halos
+  function createHalos() {
+    const container = document.querySelector('.halos');
+    if (!container || reduceMotion) return;
+
+    const count = 5;
+    for (let i = 0; i < count; i++) {
+      const halo = document.createElement('div');
+      const isGolden = Math.random() > 0.5;
+      const size = 50 + Math.random() * 100;
+
+      halo.className = `halo${isGolden ? ' halo--golden' : ''}`;
+      halo.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        width: ${size}px;
+        height: ${size}px;
+        animation-delay: ${Math.random() * 4}s;
+        animation-duration: ${3 + Math.random() * 3}s;
+      `;
+      container.appendChild(halo);
+    }
+  }
+
+  // Add cloud sparkles to cloud containers
+  function addCloudSparkles() {
+    const cloudContainers = document.querySelectorAll('.svg-cloud-container');
+
+    cloudContainers.forEach(container => {
+      for (let i = 0; i < 5; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'cloud-sparkle';
+        sparkle.style.cssText = `
+          top: ${10 + Math.random() * 80}%;
+          left: ${10 + Math.random() * 80}%;
+          animation-delay: ${Math.random() * 3}s;
+        `;
+        container.appendChild(sparkle);
+      }
+    });
+  }
+
+  // Add cloud shadows
+  function addCloudShadows() {
+    const cloudSections = document.querySelectorAll('.svg-cloud-section');
+
+    cloudSections.forEach(section => {
+      const shadow = document.createElement('div');
+      shadow.className = 'cloud-shadow';
+      section.appendChild(shadow);
+    });
+  }
+
+  // Mouse trail sparkles
+  let lastSparkleTime = 0;
+  function createMouseSparkle(x, y) {
+    const now = Date.now();
+    if (now - lastSparkleTime < 100) return;
+    lastSparkleTime = now;
+
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle sparkle--golden';
+    sparkle.style.cssText = `
+      position: fixed;
+      left: ${x}px;
+      top: ${y}px;
+      pointer-events: none;
+      z-index: 9999;
+    `;
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 2000);
+  }
+
+  // Initialize all effects
+  function initEffects() {
+    if (reduceMotion) return;
+
+    createSparkles();
+    createWindParticles();
+    createDustMotes();
+    createFeathers();
+    createMagicOrbs();
+    createLightRays();
+    createAurora();
+    createRibbons();
+    createHalos();
+    addCloudSparkles();
+    addCloudShadows();
+
+    // Mouse sparkle trail (subtle)
+    document.addEventListener('mousemove', (e) => {
+      if (Math.random() > 0.95) {
+        createMouseSparkle(e.clientX, e.clientY);
+      }
+    }, { passive: true });
+  }
 
   // Add floating cloud decorations to content area
   function addFloatingClouds() {
@@ -291,5 +534,28 @@
     infoSections.prepend(cloudDecorations);
   }
 
+  // Reveal animation for cloud sections
+  function setupCloudReveal() {
+    const cloudSections = document.querySelectorAll('.svg-cloud-section[data-reveal]');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+      cloudSections.forEach(el => observer.observe(el));
+    } else {
+      cloudSections.forEach(el => el.classList.add('revealed'));
+    }
+  }
+
+  // Initialize everything
+  initEffects();
   addFloatingClouds();
+  setupCloudReveal();
 })();

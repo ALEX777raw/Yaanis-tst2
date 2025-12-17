@@ -4791,3 +4791,1272 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .bg-cloud, .hero-cloud {
   transition: none;
 }
+
+/* ============================================
+   MEGA VISUAL EFFECTS PACKAGE
+   500+ lines of stunning animations
+   ============================================ */
+
+/* ===== SEAMLESS BACKGROUND TRANSITION ===== */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(184, 212, 240, 0.3) 30%,
+    rgba(184, 212, 240, 0.6) 60%,
+    rgba(184, 212, 240, 0.9) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.content-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(200, 220, 240, 0.5) 50%,
+    rgba(200, 220, 240, 0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== MAGICAL SPARKLE SYSTEM ===== */
+.sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 240, 200, 0.8) 30%,
+    transparent 70%);
+  border-radius: 50%;
+  animation: sparkleFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+}
+
+.sparkle::before,
+.sparkle::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.sparkle::before {
+  width: 2px;
+  height: 12px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+.sparkle::after {
+  width: 12px;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+.sparkle--golden {
+  background: radial-gradient(circle,
+    rgba(255, 215, 100, 1) 0%,
+    rgba(255, 200, 50, 0.8) 30%,
+    transparent 70%);
+  filter: drop-shadow(0 0 5px rgba(255, 200, 50, 0.8));
+}
+
+.sparkle--golden::before,
+.sparkle--golden::after {
+  background: rgba(255, 215, 100, 0.9);
+}
+
+.sparkle--large {
+  width: 10px;
+  height: 10px;
+}
+
+.sparkle--large::before {
+  height: 20px;
+  width: 3px;
+}
+
+.sparkle--large::after {
+  width: 20px;
+  height: 3px;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1) rotate(45deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-100px) scale(0.8) rotate(180deg);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translateY(-180px) scale(0.4) rotate(315deg);
+  }
+}
+
+@keyframes sparkleGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 240, 200, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 240, 200, 0.5);
+  }
+}
+
+/* ===== ADVANCED WIND PARTICLE SYSTEM ===== */
+.wind-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.wind-particle {
+  position: absolute;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 20%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0.6) 80%,
+    transparent 100%);
+  border-radius: 50px;
+  animation: windBlow linear infinite;
+  filter: blur(0.5px);
+}
+
+.wind-particle--thin {
+  height: 1px;
+  width: 80px;
+}
+
+.wind-particle--medium {
+  height: 2px;
+  width: 120px;
+}
+
+.wind-particle--thick {
+  height: 3px;
+  width: 150px;
+  opacity: 0.4;
+}
+
+.wind-particle--curved {
+  border-radius: 50%;
+  transform-origin: left center;
+}
+
+@keyframes windBlow {
+  0% {
+    transform: translateX(-200px) translateY(0) scaleX(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+    transform: translateX(0) translateY(-10px) scaleX(1);
+  }
+  90% {
+    opacity: 0.5;
+    transform: translateX(calc(100vw - 100px)) translateY(10px) scaleX(0.8);
+  }
+  100% {
+    transform: translateX(100vw) translateY(0) scaleX(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes windGust {
+  0%, 100% {
+    transform: translateX(-100%) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(100vw) rotate(2deg);
+  }
+}
+
+/* ===== FLOATING DUST MOTES ===== */
+.dust-motes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 45;
+}
+
+.dust-mote {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 250, 240, 0.5) 50%,
+    transparent 100%);
+  border-radius: 50%;
+  animation: dustFloat linear infinite;
+}
+
+.dust-mote--golden {
+  background: radial-gradient(circle,
+    rgba(255, 215, 100, 0.9) 0%,
+    rgba(255, 200, 50, 0.5) 50%,
+    transparent 100%);
+}
+
+.dust-mote--large {
+  width: 5px;
+  height: 5px;
+}
+
+@keyframes dustFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+    transform: translateY(90vh) translateX(20px) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(50vh) translateX(-30px) scale(0.8);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translateY(10vh) translateX(40px) scale(0.5);
+  }
+  100% {
+    transform: translateY(-10vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+}
+
+/* ===== LIGHT RAYS / GOD RAYS ===== */
+.light-rays {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 30;
+  overflow: hidden;
+}
+
+.light-ray {
+  position: absolute;
+  top: -20%;
+  width: 200px;
+  height: 150%;
+  background: linear-gradient(180deg,
+    rgba(255, 250, 230, 0.3) 0%,
+    rgba(255, 245, 200, 0.15) 30%,
+    rgba(255, 240, 180, 0.05) 60%,
+    transparent 100%);
+  transform-origin: top center;
+  animation: rayShimmer 8s ease-in-out infinite;
+  filter: blur(30px);
+}
+
+.light-ray--narrow {
+  width: 100px;
+  filter: blur(20px);
+}
+
+.light-ray--wide {
+  width: 350px;
+  filter: blur(50px);
+  opacity: 0.5;
+}
+
+@keyframes rayShimmer {
+  0%, 100% {
+    opacity: 0.3;
+    transform: rotate(-5deg) scaleY(1);
+  }
+  25% {
+    opacity: 0.5;
+    transform: rotate(-3deg) scaleY(1.1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: rotate(0deg) scaleY(1.05);
+  }
+  75% {
+    opacity: 0.6;
+    transform: rotate(3deg) scaleY(1.15);
+  }
+}
+
+/* ===== AURORA BOREALIS EFFECT ===== */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60vh;
+  pointer-events: none;
+  z-index: 25;
+  opacity: 0.15;
+  mix-blend-mode: screen;
+}
+
+.aurora-wave {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(100, 200, 255, 0.3) 20%,
+    rgba(150, 230, 200, 0.4) 40%,
+    rgba(200, 180, 255, 0.3) 60%,
+    rgba(255, 200, 150, 0.2) 80%,
+    transparent 100%);
+  animation: auroraFlow 20s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+.aurora-wave:nth-child(2) {
+  animation-delay: -7s;
+  animation-duration: 25s;
+  opacity: 0.7;
+}
+
+.aurora-wave:nth-child(3) {
+  animation-delay: -14s;
+  animation-duration: 30s;
+  opacity: 0.5;
+}
+
+@keyframes auroraFlow {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) scaleY(1);
+  }
+  25% {
+    transform: translateX(-30%) translateY(10%) scaleY(1.2);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5%) scaleY(0.8);
+  }
+  75% {
+    transform: translateX(-70%) translateY(5%) scaleY(1.1);
+  }
+}
+
+/* ===== FLOATING FEATHERS ===== */
+.feathers {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 55;
+  overflow: hidden;
+}
+
+.feather {
+  position: absolute;
+  width: 30px;
+  height: 60px;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 250, 245, 0.7) 50%,
+    rgba(250, 245, 240, 0.5) 100%);
+  clip-path: ellipse(40% 50% at 50% 50%);
+  animation: featherFall linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.feather::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  background: linear-gradient(180deg,
+    rgba(200, 180, 160, 0.3) 0%,
+    rgba(200, 180, 160, 0.6) 50%,
+    rgba(200, 180, 160, 0.3) 100%);
+  transform: translateX(-50%);
+}
+
+.feather--golden {
+  background: linear-gradient(135deg,
+    rgba(255, 235, 180, 0.9) 0%,
+    rgba(255, 220, 150, 0.7) 50%,
+    rgba(255, 210, 130, 0.5) 100%);
+}
+
+.feather--small {
+  width: 20px;
+  height: 40px;
+}
+
+@keyframes featherFall {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateY(25vh) translateX(50px) rotate(45deg) scale(0.95);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-30px) rotate(90deg) scale(0.9);
+  }
+  75% {
+    transform: translateY(75vh) translateX(40px) rotate(135deg) scale(0.85);
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100vh) translateX(0) rotate(180deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* ===== MAGICAL ORB SYSTEM ===== */
+.magic-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 35;
+}
+
+.magic-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(200, 230, 255, 0.6) 30%,
+    rgba(150, 200, 255, 0.3) 60%,
+    transparent 100%);
+  animation: orbFloat 12s ease-in-out infinite;
+  filter: blur(2px);
+}
+
+.magic-orb::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 70%);
+  animation: orbPulse 3s ease-in-out infinite;
+}
+
+.magic-orb--golden {
+  background: radial-gradient(circle at 30% 30%,
+    rgba(255, 240, 200, 0.9) 0%,
+    rgba(255, 215, 100, 0.6) 30%,
+    rgba(255, 200, 50, 0.3) 60%,
+    transparent 100%);
+}
+
+.magic-orb--small {
+  width: 15px;
+  height: 15px;
+}
+
+.magic-orb--medium {
+  width: 25px;
+  height: 25px;
+}
+
+.magic-orb--large {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, -30px) scale(0.9);
+  }
+  75% {
+    transform: translate(40px, -60px) scale(1.05);
+  }
+}
+
+@keyframes orbPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.3;
+  }
+}
+
+/* ===== CONSTELLATION STARS ===== */
+.constellation {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  animation: starTwinkle 2s ease-in-out infinite;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.star--large {
+  width: 6px;
+  height: 6px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+.star--dim {
+  opacity: 0.4;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ===== FLOWING RIBBON ===== */
+.ribbons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  overflow: hidden;
+}
+
+.ribbon {
+  position: absolute;
+  width: 300px;
+  height: 8px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 10%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.2) 90%,
+    transparent 100%);
+  border-radius: 4px;
+  animation: ribbonFlow 15s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.ribbon--golden {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 215, 100, 0.2) 10%,
+    rgba(255, 200, 50, 0.4) 50%,
+    rgba(255, 215, 100, 0.2) 90%,
+    transparent 100%);
+}
+
+@keyframes ribbonFlow {
+  0% {
+    transform: translateX(-100%) translateY(0) rotate(-5deg) scaleX(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(50vw) translateY(20px) rotate(5deg) scaleX(1.2);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-10px) rotate(-3deg) scaleX(0.9);
+    opacity: 0;
+  }
+}
+
+/* ===== PULSING HALOS ===== */
+.halos {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.halo {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: haloPulse 4s ease-out infinite;
+}
+
+.halo--golden {
+  border-color: rgba(255, 215, 100, 0.4);
+}
+
+@keyframes haloPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   ENHANCED TYPOGRAPHY & FONTS
+   ============================================ */
+
+/* Import beautiful fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+/* Enhanced font styling */
+.svg-cloud-title {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  text-shadow:
+    0 2px 4px rgba(100, 140, 180, 0.15),
+    0 4px 8px rgba(100, 140, 180, 0.1);
+  background: linear-gradient(135deg,
+    rgba(40, 60, 90, 1) 0%,
+    rgba(60, 90, 130, 1) 50%,
+    rgba(40, 60, 90, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.svg-cloud-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(212, 168, 85, 0.6) 20%,
+    rgba(212, 168, 85, 0.8) 50%,
+    rgba(212, 168, 85, 0.6) 80%,
+    transparent 100%);
+  border-radius: 2px;
+}
+
+.svg-cloud-text {
+  font-family: 'Lora', 'Nunito', Georgia, serif !important;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(40, 60, 90, 0.85);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.svg-cloud-list li {
+  font-family: 'Nunito', system-ui, sans-serif;
+  position: relative;
+  padding-left: 20px;
+}
+
+.svg-cloud-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: rgba(212, 168, 85, 0.7);
+  font-size: 0.7em;
+}
+
+/* ============================================
+   ULTRA-BEAUTIFUL CLOUD TEXT SECTIONS
+   400+ lines of stunning cloud styling
+   ============================================ */
+
+/* Enhanced cloud container */
+.svg-cloud-container {
+  position: relative;
+  width: min(950px, 94vw);
+  min-height: 420px;
+  margin: 0 auto;
+  padding: 50px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.svg-cloud-container--large {
+  width: min(1200px, 98vw);
+  min-height: 580px;
+  padding: 60px 70px;
+}
+
+/* Multi-layer cloud background system */
+.svg-cloud-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: drop-shadow(0 20px 40px rgba(100, 150, 200, 0.25))
+          drop-shadow(0 10px 20px rgba(100, 150, 200, 0.15));
+}
+
+/* Animated cloud glow */
+.svg-cloud-glow {
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(ellipse 80% 70% at 50% 40%,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    transparent 70%);
+  z-index: -2;
+  animation: cloudGlowPulse 6s ease-in-out infinite;
+  filter: blur(20px);
+}
+
+.svg-cloud-glow--large {
+  inset: -50px;
+}
+
+@keyframes cloudGlowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Cloud shine effect */
+.svg-cloud-container::before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+  height: 40%;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%);
+  border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(10px);
+  animation: cloudShine 8s ease-in-out infinite;
+}
+
+@keyframes cloudShine {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateX(0) scaleX(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(5%) scaleX(1.1);
+  }
+}
+
+/* Cloud edge soft glow */
+.svg-cloud-container::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  background: transparent;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 60px rgba(255, 255, 255, 0.5),
+    inset 0 0 120px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.4),
+    0 0 80px rgba(200, 220, 255, 0.2);
+  z-index: -1;
+  pointer-events: none;
+  animation: cloudEdgeGlow 5s ease-in-out infinite;
+}
+
+@keyframes cloudEdgeGlow {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 60px rgba(255, 255, 255, 0.5),
+      inset 0 0 120px rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.4),
+      0 0 80px rgba(200, 220, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 80px rgba(255, 255, 255, 0.6),
+      inset 0 0 150px rgba(255, 255, 255, 0.35),
+      0 0 60px rgba(255, 255, 255, 0.5),
+      0 0 100px rgba(200, 220, 255, 0.25);
+  }
+}
+
+/* Floating mini-clouds around main cloud */
+.svg-cloud-section::before,
+.svg-cloud-section::after {
+  content: '';
+  position: absolute;
+  background: radial-gradient(ellipse,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 70%);
+  border-radius: 50%;
+  z-index: -3;
+  animation: miniCloudFloat 10s ease-in-out infinite;
+  filter: blur(8px);
+}
+
+.svg-cloud-section::before {
+  width: 150px;
+  height: 80px;
+  top: 10%;
+  left: -5%;
+  animation-delay: 0s;
+}
+
+.svg-cloud-section::after {
+  width: 120px;
+  height: 60px;
+  bottom: 15%;
+  right: -3%;
+  animation-delay: -5s;
+}
+
+@keyframes miniCloudFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(20px, -15px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-10px, 10px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(15px, -5px) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* Cloud content styling */
+.svg-cloud-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 90%;
+  padding: 20px;
+}
+
+.svg-cloud-content--large {
+  max-width: 85%;
+}
+
+/* Enhanced callout box */
+.svg-cloud-callout {
+  margin-top: 25px;
+  padding: 20px 30px;
+  background: linear-gradient(135deg,
+    rgba(255, 248, 230, 0.9) 0%,
+    rgba(255, 240, 210, 0.85) 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(212, 168, 85, 0.3);
+  box-shadow:
+    0 10px 30px rgba(212, 168, 85, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.svg-cloud-callout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.svg-cloud-callout p {
+  position: relative;
+  z-index: 1;
+  color: rgba(139, 110, 60, 0.9);
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+}
+
+/* Step list enhancement */
+.svg-cloud-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+  padding: 0;
+  list-style: none;
+}
+
+.svg-cloud-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(245, 250, 255, 0.7) 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 15px rgba(100, 150, 200, 0.1);
+  transition: all 0.3s var(--ease);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+}
+
+.svg-cloud-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(100, 150, 200, 0.2);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 252, 255, 0.9) 100%);
+}
+
+.svg-cloud-step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg,
+    rgba(212, 168, 85, 0.9) 0%,
+    rgba(200, 155, 70, 0.85) 100%);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 3px 10px rgba(212, 168, 85, 0.3);
+}
+
+/* Cloud section floating animation */
+.svg-cloud-section {
+  position: relative;
+  padding: 30px;
+  margin: 80px auto;
+  max-width: 1400px;
+  animation: sectionFloat 8s ease-in-out infinite;
+}
+
+@keyframes sectionFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Staggered animation for different sections */
+.svg-cloud-section:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.svg-cloud-section:nth-child(3) {
+  animation-delay: -4s;
+}
+
+.svg-cloud-section:nth-child(4) {
+  animation-delay: -6s;
+}
+
+/* Cloud wisps around text */
+.svg-cloud-content::before,
+.svg-cloud-content::after {
+  content: '';
+  position: absolute;
+  background: radial-gradient(ellipse,
+    rgba(255, 255, 255, 0.6) 0%,
+    transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: wispFloat 6s ease-in-out infinite;
+  filter: blur(5px);
+}
+
+.svg-cloud-content::before {
+  width: 100px;
+  height: 50px;
+  top: -20px;
+  left: 10%;
+}
+
+.svg-cloud-content::after {
+  width: 80px;
+  height: 40px;
+  bottom: -15px;
+  right: 15%;
+  animation-delay: -3s;
+}
+
+@keyframes wispFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(10px, -10px) scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* Cloud list enhancement */
+.svg-cloud-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 20px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.svg-cloud-list li {
+  padding: 8px 12px 8px 28px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  transition: all 0.3s var(--ease);
+  position: relative;
+}
+
+.svg-cloud-list li:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(5px);
+}
+
+/* Dreamy blur effect on scroll */
+.svg-cloud-section[data-reveal] {
+  opacity: 0;
+  transform: translateY(50px);
+  filter: blur(10px);
+  transition: all 0.8s var(--ease-out);
+}
+
+.svg-cloud-section[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Cloud shadow on ground */
+.svg-cloud-section .cloud-shadow {
+  position: absolute;
+  bottom: -60px;
+  left: 10%;
+  right: 10%;
+  height: 30px;
+  background: radial-gradient(ellipse,
+    rgba(100, 130, 170, 0.15) 0%,
+    transparent 70%);
+  filter: blur(15px);
+  animation: shadowPulse 6s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleX(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* Sparkle decorations on clouds */
+.svg-cloud-container .cloud-sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: cloudSparkle 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.svg-cloud-container .cloud-sparkle:nth-child(1) {
+  top: 15%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.svg-cloud-container .cloud-sparkle:nth-child(2) {
+  top: 25%;
+  right: 25%;
+  animation-delay: -1s;
+}
+
+.svg-cloud-container .cloud-sparkle:nth-child(3) {
+  bottom: 30%;
+  left: 30%;
+  animation-delay: -2s;
+}
+
+@keyframes cloudSparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Rainbow shimmer on cloud edges */
+.svg-cloud-shape::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(255, 200, 200, 0.1) 0%,
+    rgba(255, 255, 200, 0.1) 25%,
+    rgba(200, 255, 200, 0.1) 50%,
+    rgba(200, 200, 255, 0.1) 75%,
+    rgba(255, 200, 255, 0.1) 100%);
+  mix-blend-mode: overlay;
+  animation: rainbowShimmer 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rainbowShimmer {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* ===== ENHANCED CARDS SECTION ===== */
+.cards-section {
+  position: relative;
+  z-index: 10;
+  padding: 60px 20px;
+  background: linear-gradient(180deg,
+    rgba(200, 220, 240, 0.7) 0%,
+    rgba(210, 225, 245, 0.8) 50%,
+    rgba(220, 235, 250, 0.7) 100%);
+}
+
+.cards-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(180deg,
+    rgba(184, 212, 240, 0.9) 0%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow:
+    0 20px 60px rgba(100, 140, 180, 0.2),
+    0 10px 30px rgba(100, 140, 180, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.4s var(--ease-out);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%);
+  transition: left 0.6s var(--ease);
+  pointer-events: none;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow:
+    0 30px 80px rgba(100, 140, 180, 0.25),
+    0 15px 40px rgba(100, 140, 180, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.9) !important;
+}
+
+.card__title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 600;
+  background: linear-gradient(135deg,
+    rgba(40, 60, 90, 1) 0%,
+    rgba(60, 80, 110, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
