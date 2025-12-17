@@ -354,16 +354,48 @@
         <!-- SVG Definitions for Cloud Shapes -->
         <svg width="0" height="0" style="position:absolute;">
           <defs>
+            <!-- Enhanced cloud gradient -->
             <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:rgba(255,255,255,0.99);stop-opacity:1" />
-              <stop offset="45%" style="stop-color:rgba(245,250,255,0.92);stop-opacity:1" />
-              <stop offset="100%" style="stop-color:rgba(225,240,255,0.85);stop-opacity:1" />
+              <stop offset="0%" stop-color="rgba(255,255,255,1)" />
+              <stop offset="20%" stop-color="rgba(255,252,250,0.98)" />
+              <stop offset="50%" stop-color="rgba(248,252,255,0.95)" />
+              <stop offset="80%" stop-color="rgba(240,248,255,0.92)" />
+              <stop offset="100%" stop-color="rgba(230,245,255,0.88)" />
             </linearGradient>
-            <filter id="cloudSoftness" x="-5%" y="-5%" width="110%" height="110%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+            <!-- Inner highlight gradient -->
+            <linearGradient id="cloudHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.9)" />
+              <stop offset="50%" stop-color="rgba(255,255,255,0.3)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+            </linearGradient>
+            <!-- Soft glow filter -->
+            <filter id="cloudGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.1  0 1 0 0 0.1  0 0 1 0 0.15  0 0 0 18 -7" result="glow"/>
+              <feBlend in="SourceGraphic" in2="glow" mode="normal"/>
+            </filter>
+            <!-- Drop shadow filter -->
+            <filter id="cloudShadow" x="-30%" y="-30%" width="160%" height="180%">
+              <feDropShadow dx="0" dy="15" stdDeviation="20" flood-color="rgba(100,140,180,0.25)"/>
+              <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="rgba(150,180,210,0.15)"/>
             </filter>
           </defs>
         </svg>
+
+        <!-- Floating Background Effects -->
+        <div class="bg-effects" aria-hidden="true">
+          <div class="bg-effect-orb bg-effect-orb--1"></div>
+          <div class="bg-effect-orb bg-effect-orb--2"></div>
+          <div class="bg-effect-orb bg-effect-orb--3"></div>
+          <div class="bg-effect-orb bg-effect-orb--4"></div>
+          <div class="bg-sparkle bg-sparkle--1"></div>
+          <div class="bg-sparkle bg-sparkle--2"></div>
+          <div class="bg-sparkle bg-sparkle--3"></div>
+          <div class="bg-sparkle bg-sparkle--4"></div>
+          <div class="bg-sparkle bg-sparkle--5"></div>
+          <div class="bg-light-beam bg-light-beam--1"></div>
+          <div class="bg-light-beam bg-light-beam--2"></div>
+        </div>
 
         <!-- Info Sections -->
         <div class="info-sections">
