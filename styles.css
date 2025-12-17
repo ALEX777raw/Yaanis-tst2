@@ -36,15 +36,13 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 button { font: inherit; cursor: pointer; border: none; background: none; }
 
-/* ===== HIDE PARTICLES & CLOUDS ===== */
+/* ===== HIDE PARTICLES & BACKGROUND CLOUDS ===== */
 .particles,
 .sparkles,
 .wind-particles,
 .bg-cloud,
 .hero-clouds,
 .hero-cloud,
-.svg-cloud-shape,
-.svg-cloud-glow,
 .orbs,
 .orb {
   display: none !important;
@@ -9861,39 +9859,30 @@ body {
   }
 }
 
-/* === PLATFORM ICON ANIMATIONS === */
-@keyframes platformFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
+/* === PLATFORM ICON ENHANCEMENTS === */
+/* Используем оригинальную cloudDrift анимацию, добавляем только улучшения hover */
 
 .platform {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease !important;
 }
 
-.platform:nth-child(1) { animation: platformFloat 4s ease-in-out infinite 0s !important; }
-.platform:nth-child(2) { animation: platformFloat 4s ease-in-out infinite 0.3s !important; }
-.platform:nth-child(3) { animation: platformFloat 4s ease-in-out infinite 0.6s !important; }
-.platform:nth-child(4) { animation: platformFloat 4s ease-in-out infinite 0.9s !important; }
-.platform:nth-child(5) { animation: platformFloat 4s ease-in-out infinite 1.2s !important; }
-.platform:nth-child(6) { animation: platformFloat 4s ease-in-out infinite 1.5s !important; }
-
 .platform:hover {
-  transform: translateY(-10px) scale(1.1) !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
+  transform: translate(-50%, -50%) scale(1.18) !important;
+  filter: drop-shadow(0 0 40px rgba(255, 230, 190, 0.6)) drop-shadow(0 0 80px rgba(212, 168, 85, 0.5)) !important;
 }
 
 .platform__img {
-  transition: all 0.3s ease !important;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease !important;
 }
 
 .platform:hover .platform__img {
-  transform: scale(1.15) !important;
-  filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3)) !important;
+  transform: scale(1.08) !important;
+  filter: drop-shadow(0 10px 30px rgba(20, 40, 60, 0.2)) drop-shadow(0 0 50px rgba(255, 240, 200, 0.3)) !important;
+}
+
+.platform:hover .platform__label {
+  opacity: 1 !important;
+  text-shadow: 0 0 25px rgba(255, 230, 190, 0.7), 0 3px 15px rgba(10, 30, 60, 0.4) !important;
 }
 
 /* === ELEGANT CURSOR EFFECTS === */
