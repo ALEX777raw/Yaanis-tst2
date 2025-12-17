@@ -6066,22 +6066,29 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
    SCHEME CLOUD - LARGER SIZE FOR 8 STEPS
    ============================================ */
 
-/* Make scheme section cloud larger */
+/* Make scheme section cloud larger - fix clipping */
+#scheme.svg-cloud-section {
+  overflow: visible;
+  padding: 50px 80px;
+}
+
 #scheme .svg-cloud-container {
-  width: min(1100px, 96vw);
-  min-height: 520px;
+  width: min(1000px, 90vw);
+  min-height: 480px;
+  overflow: visible;
 }
 
 #scheme .svg-cloud-shape {
-  top: -15%;
-  left: -8%;
-  width: 116%;
-  height: 130%;
+  top: -20%;
+  left: -12%;
+  width: 124%;
+  height: 140%;
+  overflow: visible;
 }
 
 #scheme .svg-cloud-content {
-  max-width: 95%;
-  padding: 35px 45px;
+  max-width: 90%;
+  padding: 40px 50px;
 }
 
 /* Optimize step grid for 8 items */
@@ -6138,4 +6145,233 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     max-width: 250px;
     text-align: center;
   }
+}
+
+/* ============================================
+   ADDITIONAL MAGICAL EFFECTS
+   ============================================ */
+
+/* Golden sparkle particles floating */
+@keyframes goldenSparkleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100px) translateX(30px) scale(1.2);
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.3;
+  }
+}
+
+/* Soft glow pulse for cloud sections */
+.svg-cloud-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 60%;
+  background: radial-gradient(ellipse at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 250, 240, 0.2) 40%,
+    transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+  animation: softGlowPulse 8s ease-in-out infinite;
+}
+
+@keyframes softGlowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Floating golden dust */
+.info-sections::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, rgba(212, 168, 85, 0.6) 50%, transparent 50%),
+    radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 50% 60%, rgba(212, 168, 85, 0.5) 50%, transparent 50%),
+    radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.7) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 90% 70%, rgba(212, 168, 85, 0.4) 50%, transparent 50%),
+    radial-gradient(2px 2px at 15% 80%, rgba(255, 255, 255, 0.6) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 85% 15%, rgba(212, 168, 85, 0.5) 50%, transparent 50%);
+  animation: dustDrift 30s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+@keyframes dustDrift {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-50px) translateX(30px);
+  }
+}
+
+/* Cloud edge shimmer */
+.svg-cloud-shape ellipse {
+  transition: all 0.5s ease;
+}
+
+.svg-cloud-section:hover .svg-cloud-shape ellipse {
+  filter: brightness(1.05);
+}
+
+/* Subtle rainbow shimmer on clouds */
+.svg-cloud-container::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  height: 30%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 200, 200, 0.1) 20%,
+    rgba(255, 255, 200, 0.1) 40%,
+    rgba(200, 255, 200, 0.1) 60%,
+    rgba(200, 200, 255, 0.1) 80%,
+    transparent 100%);
+  filter: blur(20px);
+  animation: rainbowShimmer 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+@keyframes rainbowShimmer {
+  0%, 100% {
+    transform: translateX(-10%) scaleX(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(10%) scaleX(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* Light beam effect */
+.info-sections::after {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%) rotate(15deg);
+  width: 300px;
+  height: 800px;
+  background: linear-gradient(180deg,
+    rgba(255, 250, 230, 0.15) 0%,
+    rgba(255, 250, 230, 0.05) 50%,
+    transparent 100%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+  animation: lightBeamSway 20s ease-in-out infinite;
+}
+
+@keyframes lightBeamSway {
+  0%, 100% {
+    transform: translateX(-50%) rotate(15deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(-30%) rotate(10deg);
+    opacity: 0.8;
+  }
+}
+
+/* Floating mini stars around clouds */
+.svg-cloud-glow::before,
+.svg-cloud-glow::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(212, 168, 85, 0.8);
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px rgba(212, 168, 85, 0.6),
+    0 0 20px rgba(212, 168, 85, 0.4);
+  animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.svg-cloud-glow::before {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.svg-cloud-glow::after {
+  bottom: 30%;
+  right: 15%;
+  animation-delay: -1.5s;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Soft vignette on content wrapper */
+.content-wrapper::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center,
+    transparent 50%,
+    rgba(200, 220, 240, 0.1) 100%);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Enhanced card hover glow */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg,
+    rgba(212, 168, 85, 0.3) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(200, 220, 255, 0.3) 100%);
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  filter: blur(15px);
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::after {
+  opacity: 1;
 }
