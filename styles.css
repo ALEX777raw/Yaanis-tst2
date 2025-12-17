@@ -6520,29 +6520,35 @@ main,
   clip: unset !important;
 }
 
-/* Reduce cloud shape dimensions and center properly */
+/* Cloud shape positioning - no scale, use natural size */
 .svg-cloud-section .svg-cloud-shape {
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  transform: scale(1.15);
-  transform-origin: center center;
+  transform: none !important;
 }
 
 .svg-cloud-section--large .svg-cloud-shape--large {
-  transform: scale(1.2);
+  transform: none !important;
 }
 
 #scheme .svg-cloud-shape {
-  transform: scale(1.25);
+  transform: none !important;
 }
 
 /* Ensure cloud container has room */
 .svg-cloud-container {
-  padding: 60px;
+  padding: 40px;
+  min-height: 350px;
 }
 
 .svg-cloud-container--large {
-  padding: 80px;
+  padding: 50px;
+  min-height: 450px;
+}
+
+/* Scheme cloud specific sizing */
+#scheme .svg-cloud-container {
+  min-height: 420px;
 }
